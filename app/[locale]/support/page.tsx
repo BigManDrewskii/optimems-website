@@ -4,7 +4,7 @@ import { SectionHeader } from "@/components/shared/SectionHeader"
 import { AnimatedSection } from "@/components/shared/AnimatedSection"
 import { GlassCard } from "@/components/shared/GlassCard"
 import { useTranslations } from "next-intl"
-import Link from "next/link"
+import { Link } from "@/i18n/navigation"
 import { ArrowRight, Mail, Phone, FileQuestion } from "lucide-react"
 
 export default function SupportPage() {

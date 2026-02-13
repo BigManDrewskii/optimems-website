@@ -64,7 +64,7 @@ export function GovernmentLogos() {
         {/* Centered prominent link */}
         <div className="text-center mt-10">
           <Link
-            href="/project-scope"
+            href="/rnd-projects"
             className="text-sm uppercase tracking-wide text-foreground/70 hover:text-foreground transition-colors inline-flex items-center gap-2"
           >
             {t('governmentLogos.cta')}

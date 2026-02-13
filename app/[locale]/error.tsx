@@ -3,7 +3,7 @@
 import { useTranslations } from "next-intl"
 import { AppLayout } from "@/app/app-layout"
 import { Button } from "@/components/ui/button"
-import Link from "next/link"
+import { Link } from "@/i18n/navigation"
 
 export default function ErrorPage({
   error,

@@ -4,7 +4,7 @@ import { AppLayout } from "@/app/app-layout"
 import { Container } from "@/components/shared/Container"
 import { AnimatedSection } from "@/components/shared/AnimatedSection"
 import { GlassCard } from "@/components/shared/GlassCard"
-import Link from "next/link"
+import { Link } from "@/i18n/navigation"
 import { ArrowLeft } from "lucide-react"
 import { useTranslations } from "next-intl"
 

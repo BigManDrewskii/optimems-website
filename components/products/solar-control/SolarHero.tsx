@@ -94,9 +94,7 @@ export function SolarHero() {
               transition={{ duration: 0.5, delay: 0.3 }}
               className="relative flex justify-center lg:justify-end overflow-hidden"
             >
-              <div className="w-full max-w-[600px] aspect-video bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl border border-border flex items-center justify-center">
-                <p className="text-muted-foreground text-sm">SolarControl hero media placeholder</p>
-              </div>
+              <div className="w-full max-w-[600px] aspect-video bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl border border-border flex items-center justify-center" aria-hidden="true" />
             </motion.div>
           </div>
         </Container>

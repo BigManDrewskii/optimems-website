@@ -4,7 +4,7 @@ import type React from "react"
 
 import { useState } from "react"
 import { motion } from "framer-motion"
-import Link from "next/link"
+import { Link } from "@/i18n/navigation"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -30,14 +30,12 @@ export default function SignupPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     if (formData.password !== formData.confirmPassword) {
-      console.log("[v0] Password mismatch")
       return
     }
     setIsLoading(true)
     // Simulate signup process
     await new Promise((resolve) => setTimeout(resolve, 1000))
     setIsLoading(false)
-    console.log("[v0] Signup attempt:", formData)
   }
 
   return (

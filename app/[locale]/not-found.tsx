@@ -1,6 +1,6 @@
 import { AppLayout } from "@/app/app-layout"
 import { Button } from "@/components/ui/button"
-import Link from "next/link"
+import { Link } from "@/i18n/navigation"
 import { useTranslations } from "next-intl"
 
 export default function NotFound() {

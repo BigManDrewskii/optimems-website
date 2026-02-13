@@ -3,7 +3,7 @@
 import { ProductPageSection } from "@/components/products/ProductPageSection"
 import { BlogCard } from '@/components/blog/BlogCard'
 import { Button } from "@/components/ui/button"
-import Link from "next/link"
+import { Link } from "@/i18n/navigation"
 import { useTranslations } from "next-intl"
 import { motion } from "framer-motion"
 import type { BlogPost } from "@/lib/blog"
