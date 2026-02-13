@@ -77,7 +77,7 @@ export function SolarHeroDemo() {
             className="mb-8"
           >
             <img
-              src={resolvedTheme === 'dark' ? '/images/logos/optimems-solar-control.svg' : '/images/logos/optimems-solar-control-light.svg'}
+              src={mounted && resolvedTheme === 'dark' ? '/images/logos/optimems-solar-control.svg' : '/images/logos/optimems-solar-control-light.svg'}
               alt="Optimems Solar Control"
               className="h-8 md:h-10 lg:h-12 w-auto mx-auto"
             />
