@@ -244,6 +244,46 @@
       "satisfactionLabel": "Client Satisfaction",
       "years": "15+",
       "yearsLabel": "Years Experience"
+    },
+    "label": "Testimonials",
+    "title": "What Our Partners Say",
+    "subtitle": "Trusted across Europe by leading energy companies and system integrators.",
+    "items": {
+      "daniel-eric": {
+        "author": "Dan-Eric Archer",
+        "quote": "We have been working with Optimems for a couple of years and are very happy with the professional and friendly collaboration. It has been a great catalyst in the development work for us.",
+        "role": "CEO",
+        "company": "CheckWatt",
+        "location": "Sweden"
+      },
+      "egnatiagroup": {
+        "author": "Ioannis Kyparidis",
+        "quote": "In partnership with OPTIMEMS, we successfully implemented and activated the telecontrol systems required by DEDDHEE for PV stations with power above 400 kWp. The OPTIMEMS team demonstrated a high level of technical expertise, excellent understanding of regulatory requirements, and prompt responsiveness at all stages of the project.",
+        "role": "PV Portfolio & Operations Manager",
+        "company": "Egnatia Group",
+        "location": "Greece"
+      },
+      "engaia": {
+        "author": "ENGAIA Team",
+        "quote": "At ENGAIA, we select our partners with professionalism and quality as our primary criteria. Optimems is exactly that.",
+        "role": "Partner",
+        "company": "ENGAIA",
+        "location": "Greece"
+      },
+      "bayware": {
+        "author": "BayWa r.e. Team",
+        "quote": "Adding a new supplier is a particularly sensitive matter for BayWa r.e. As the largest wholesaler in Europe, having associated our name with top-tier products from Tier 1 manufacturers for over 30 years, we maintain very strict criteria when selecting photovoltaic equipment. Our collaboration with Optimems for telemanagement systems came to address an urgent and specialized demand.",
+        "role": "Distribution Partner",
+        "company": "BayWa r.e.",
+        "location": "Europe"
+      },
+      "clockwork": {
+        "author": "Clockwork Energy Team",
+        "quote": "Co-developing +SolarControl with Optimems was simply the catalyst for gaining a brotherly partner. Our enduring partnership with Optimems is not just an exceptional professional experience, but every time it's a new opportunity to surpass ourselves.",
+        "role": "Development Partner",
+        "company": "Clockwork Energy",
+        "location": "Greece"
+      }
     }
   },
   "workflow": {
@@ -378,7 +418,37 @@
   "support": {
     "hero": {
       "title": "Support Center",
-      "description": "We're here to help. Find the right support option for your needs."
+      "description": "Get help with Optimems energy management solutions. Contact our support team or browse FAQs."
+    },
+    "cards": {
+      "email": {
+        "title": "Email Support",
+        "description": "For general inquiries and non-urgent matters."
+      },
+      "phone": {
+        "title": "Phone Support",
+        "description": "Available Mon-Fri, 9am-6pm EET."
+      },
+      "docs": {
+        "title": "Documentation",
+        "description": "Browse our knowledge base and guides.",
+        "link": "View Docs"
+      }
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "q1": {
+        "question": "How do I get started with +SolarControl?",
+        "answer": "Contact our sales team to schedule a demo. We'll help you determine the right solution for your needs and guide you through the installation process."
+      },
+      "q2": {
+        "question": "What inverters are compatible with your solutions?",
+        "answer": "We support 60+ hardware manufacturers including Huawei, Sungrow, SMA, Solaredge, and many more. Check our documentation for the full list."
+      },
+      "q3": {
+        "question": "Do you offer technical support?",
+        "answer": "Yes! We offer comprehensive technical support. Contact us via email or phone for assistance."
+      }
     }
   },
   "footer": {
@@ -1716,6 +1786,292 @@
       "title": "Energy Consulting Services | Optimems",
       "description": "Expert energy consulting services for industrial facilities, smart grids, and renewable energy systems. Maximizing RES coverage, real-time simulation, and techno-economic studies.",
       "keywords": "energy consulting, RES optimization, smart grid consulting, industrial energy management, techno-economic studies, renewable energy integration"
+    },
+    "hero": {
+      "headline": "Strategic Energy Consulting for a Sustainable Future",
+      "subheadline": "Maximize your renewable energy potential with our comprehensive consulting services, from industrial optimization to smart grid deployment.",
+      "supportingLine": "Tailored solutions for every energy challenge.",
+      "primaryCTA": {
+        "label": "Book Consultation",
+        "href": "#contact"
+      },
+      "serviceHighlights": [
+        "Grid Optimization",
+        "Regulatory Compliance",
+        "Energy Audits",
+        "Smart Grid Design"
+      ]
+    },
+    "services": {
+      "headline": "Our Consulting Services",
+      "subheadline": "Comprehensive energy solutions tailored to your needs",
+      "learnMore": "Learn More",
+      "service1": {
+        "title": "Energy Audits & Optimization",
+        "description": "Comprehensive energy audits to identify inefficiencies and optimize your energy consumption patterns.",
+        "href": "#contact",
+        "features": [
+          "Facility energy assessment",
+          "Consumption pattern analysis",
+          "Cost reduction strategies",
+          "ROI projections"
+        ]
+      },
+      "service2": {
+        "title": "Regulatory Compliance",
+        "description": "Navigate complex energy regulations with expert guidance ensuring full compliance across all markets.",
+        "href": "#contact",
+        "features": [
+          "DSO/TSO compliance",
+          "Grid code adherence",
+          "Permit assistance",
+          "Documentation support"
+        ]
+      },
+      "service3": {
+        "title": "Smart Grid Design",
+        "description": "Design and implement intelligent grid solutions that maximize efficiency and reliability.",
+        "href": "#contact",
+        "features": [
+          "Microgrid architecture",
+          "DER integration planning",
+          "Battery storage design",
+          "Load balancing optimization"
+        ]
+      },
+      "service4": {
+        "title": "Market Strategy",
+        "description": "Develop winning strategies for energy market participation and revenue optimization.",
+        "href": "#contact",
+        "features": [
+          "Market analysis",
+          "Revenue forecasting",
+          "Trading strategies",
+          "Portfolio optimization"
+        ]
+      },
+      "cta": {
+        "title": "Need a Custom Solution?",
+        "description": "Our team of experts can design a tailored consulting package for your specific needs.",
+        "href": "#contact",
+        "button": "Get in Touch"
+      }
+    },
+    "process": {
+      "headline": "Our Process",
+      "subheadline": "A proven methodology for delivering results",
+      "step1": {
+        "title": "Discovery & Assessment",
+        "description": "We begin with a thorough assessment of your current energy infrastructure and goals.",
+        "details": [
+          "Site survey",
+          "Data collection",
+          "Stakeholder interviews",
+          "Goal alignment"
+        ]
+      },
+      "step2": {
+        "title": "Analysis & Strategy",
+        "description": "Our experts analyze your data and develop a comprehensive strategy.",
+        "details": [
+          "Data analysis",
+          "Market research",
+          "Technical feasibility",
+          "Financial modeling"
+        ]
+      },
+      "step3": {
+        "title": "Implementation",
+        "description": "We guide you through the implementation of recommended solutions.",
+        "details": [
+          "Project planning",
+          "Vendor coordination",
+          "System integration",
+          "Quality assurance"
+        ]
+      },
+      "step4": {
+        "title": "Monitoring & Optimization",
+        "description": "Continuous monitoring and optimization to ensure long-term success.",
+        "details": [
+          "Performance tracking",
+          "Regular reporting",
+          "Continuous improvement",
+          "Ongoing support"
+        ]
+      }
+    },
+    "technology": {
+      "headline": "Technology & Expertise",
+      "subheadline": "Cutting-edge tools and deep industry knowledge",
+      "tech1": {
+        "title": "AI-Powered Analytics",
+        "description": "Advanced machine learning algorithms for predictive energy management.",
+        "highlights": [
+          "Predictive maintenance",
+          "Load forecasting",
+          "Anomaly detection"
+        ]
+      },
+      "tech2": {
+        "title": "Real-Time Monitoring",
+        "description": "24/7 monitoring of energy assets with instant alerting capabilities.",
+        "highlights": [
+          "Live dashboards",
+          "Instant alerts",
+          "Historical analysis"
+        ]
+      },
+      "tech3": {
+        "title": "Grid Integration",
+        "description": "Seamless integration with existing grid infrastructure and protocols.",
+        "highlights": [
+          "IEC-104 support",
+          "Modbus TCP/RTU",
+          "OPC-UA compatibility"
+        ]
+      },
+      "tech4": {
+        "title": "Battery Management",
+        "description": "Intelligent battery storage optimization for maximum ROI.",
+        "highlights": [
+          "State of charge optimization",
+          "Cycle management",
+          "Revenue maximization"
+        ]
+      },
+      "tech5": {
+        "title": "Market Integration",
+        "description": "Direct connection to energy markets for automated trading.",
+        "highlights": [
+          "Day-ahead markets",
+          "Intraday trading",
+          "Balancing services"
+        ]
+      },
+      "tech6": {
+        "title": "Regulatory Engine",
+        "description": "Automated compliance with local and international energy regulations.",
+        "highlights": [
+          "Auto-compliance",
+          "Regulation updates",
+          "Audit trails"
+        ]
+      },
+      "stats": {
+        "globalProjects": "500+",
+        "globalProjectsLabel": "Global Projects",
+        "dataPoints": "10M+",
+        "dataPointsLabel": "Data Points Analyzed",
+        "optimization": "30%",
+        "optimizationLabel": "Average Cost Reduction",
+        "reliability": "99.9%",
+        "reliabilityLabel": "System Reliability"
+      }
+    },
+    "faq": {
+      "badge": "FAQ",
+      "headline": "Frequently Asked Questions",
+      "subheadline": "Find answers to common questions about our consulting services",
+      "category": {
+        "general": "General",
+        "services": "Services",
+        "process": "Process",
+        "pricing": "Pricing"
+      },
+      "question1": {
+        "question": "What types of energy consulting do you offer?",
+        "answer": "We offer comprehensive energy consulting including energy audits, regulatory compliance, smart grid design, market strategy, and custom solutions tailored to your specific needs."
+      },
+      "question2": {
+        "question": "How long does a typical consulting engagement last?",
+        "answer": "Engagement duration varies based on scope. Energy audits typically take 2-4 weeks, while comprehensive grid design projects may span 3-6 months."
+      },
+      "question3": {
+        "question": "Do you work with residential or only commercial clients?",
+        "answer": "We primarily work with commercial and industrial clients, energy aggregators, and utility companies. However, we also support large residential developments and community energy projects."
+      },
+      "question4": {
+        "question": "What regions do you operate in?",
+        "answer": "We operate across Europe with a strong presence in Greece, Sweden, and the broader EU market. Our solutions are adaptable to local regulations in any market."
+      },
+      "question5": {
+        "question": "What is your typical project methodology?",
+        "answer": "We follow a four-phase approach: Discovery & Assessment, Analysis & Strategy, Implementation, and Monitoring & Optimization. Each phase has clear deliverables and milestones."
+      },
+      "question6": {
+        "question": "Can you integrate with our existing systems?",
+        "answer": "Yes, our solutions are designed to integrate seamlessly with existing infrastructure. We support all major protocols including IEC-104, Modbus, and OPC-UA."
+      },
+      "question7": {
+        "question": "What are your pricing models?",
+        "answer": "We offer flexible pricing including fixed-fee projects, retainer agreements, and performance-based models. Contact us for a customized quote."
+      },
+      "question8": {
+        "question": "Do you provide ongoing support after project completion?",
+        "answer": "Yes, we offer comprehensive post-project support including monitoring, optimization, and regular review sessions to ensure continued success."
+      }
+    },
+    "contact": {
+      "headline": "Get in Touch",
+      "subheadline": "Ready to transform your energy strategy? Let's talk.",
+      "contactInfo": {
+        "title": "Contact Information",
+        "email": {
+          "title": "Email",
+          "value": "consulting@optimems.gr"
+        },
+        "phone": {
+          "title": "Phone",
+          "value": "+30 2311 257 510"
+        },
+        "location": {
+          "title": "Location",
+          "value": "Thessaloniki, Greece"
+        },
+        "hours": {
+          "title": "Business Hours",
+          "value": "Mon-Fri, 9:00-18:00 EET"
+        }
+      },
+      "demoBooking": {
+        "title": "Book a Demo",
+        "description": "Schedule a personalized demonstration of our consulting capabilities.",
+        "responseTime": "We typically respond within 24 hours"
+      },
+      "form": {
+        "title": "Send Us a Message",
+        "name": "Full Name",
+        "namePlaceholder": "Enter your full name",
+        "email": "Email Address",
+        "emailPlaceholder": "Enter your email",
+        "company": "Company",
+        "companyPlaceholder": "Enter your company name",
+        "service": "Service of Interest",
+        "selectService": "Select a service",
+        "demoDate": "Preferred Demo Date",
+        "T": "T",
+        "message": "Message",
+        "messagePlaceholder": "Tell us about your project...",
+        "submit": "Send Message",
+        "success": {
+          "title": "Message Sent!",
+          "message": "Thank you for your inquiry. We'll get back to you within 24 hours."
+        }
+      },
+      "services": [
+        "Energy Audit",
+        "Regulatory Compliance",
+        "Smart Grid Design",
+        "Market Strategy",
+        "Custom Solution"
+      ]
+    },
+    "cta": {
+      "headline": "Ready to Optimize Your Energy Strategy?",
+      "subheadline": "Book a free consultation with our energy experts today.",
+      "buttonLabel": "Book Consultation",
+      "buttonHref": "#contact"
     }
   },
   "services": {
@@ -2117,5 +2473,191 @@
     "somethingWentWrong": "Something Went Wrong",
     "pageError": "An unexpected error occurred. Please try again.",
     "tryAgain": "Try Again"
+  },
+  "pages": {
+    "rndProjects": {
+      "headline": "Research & Development Projects",
+      "description": "Our R&D projects are coming soon. Contact us for more information.",
+      "cta": "Contact Us"
+    },
+    "compatibilityLists": {
+      "headline": "Compatibility Lists",
+      "description": "Full compatibility lists are coming soon. Check our documentation for current information.",
+      "cta": "View Documentation"
+    },
+    "warranties": {
+      "headline": "Warranties",
+      "description": "Warranty information is coming soon. Contact our support team.",
+      "cta": "Contact Support"
+    }
+  },
+  "cookiesPage": {
+    "backToHome": "Back to Home",
+    "title": "Cookie Policy",
+    "subtitle": "Learn how we use cookies and similar technologies on our website.",
+    "lastUpdated": "Last updated: January 2026",
+    "intro": "This Cookie Policy explains what Cookies are and how Optimems uses them on our website.",
+    "whatAreCookies": {
+      "title": "What Are Cookies",
+      "description": "Cookies are small text files that are stored on your device when you visit our website. They help us provide you with a better experience and understand how you use our site."
+    },
+    "types": {
+      "title": "Types of Cookies We Use",
+      "essential": {
+        "title": "Essential Cookies",
+        "description": "Required for the website to function properly. These cannot be disabled."
+      },
+      "analytics": {
+        "title": "Analytics Cookies",
+        "description": "Help us understand how visitors interact with our website by collecting and reporting information anonymously."
+      },
+      "functionality": {
+        "title": "Functionality Cookies",
+        "description": "Allow the website to remember choices you make and provide enhanced features."
+      }
+    },
+    "managing": {
+      "title": "Managing Cookies",
+      "description": "Most web browsers allow you to control cookies through their settings. You can:",
+      "options": {
+        "block": "Block all cookies",
+        "allow": "Allow all cookies",
+        "delete": "Delete cookies when you close your browser",
+        "warning": "Receive a warning when a cookie is set"
+      }
+    },
+    "contactUs": {
+      "title": "Contact Us",
+      "description": "If you have any questions about our use of cookies, please contact us at"
+    }
+  },
+  "privacyPage": {
+    "backToHome": "Back to Home",
+    "title": "Privacy Policy",
+    "subtitle": "Learn how we collect, use, and protect your personal data.",
+    "lastUpdated": "Last updated: January 2026",
+    "intro": "At Optimems, we take your privacy seriously. This Privacy Policy explains how we collect, use, and protect your personal information when you use our website and services.",
+    "infoCollect": {
+      "title": "Information We Collect",
+      "description": "We may collect the following types of information:",
+      "items": {
+        "name": "Name and contact information",
+        "company": "Company information",
+        "usage": "Usage data and analytics",
+        "technical": "Technical information about your device"
+      }
+    },
+    "howWeUse": {
+      "title": "How We Use Your Information",
+      "description": "We use your information to:",
+      "items": {
+        "provide": "Provide and improve our services",
+        "respond": "Respond to your inquiries",
+        "send": "Send you relevant communications",
+        "comply": "Comply with legal obligations"
+      }
+    },
+    "dataProtection": {
+      "title": "Data Protection",
+      "description": "We implement appropriate technical and organizational measures to protect your personal data against unauthorized access, alteration, disclosure, or destruction."
+    },
+    "contactUs": {
+      "title": "Contact Us",
+      "description": "If you have any questions about this Privacy Policy, please contact us at"
+    }
+  },
+  "termsPage": {
+    "backToHome": "Back to Home",
+    "title": "Terms of Service",
+    "subtitle": "Terms and conditions governing the use of our website and services.",
+    "lastUpdated": "Last updated: January 2026",
+    "intro": "By accessing and using this website, you accept and agree to be bound by the terms and provisions of this agreement.",
+    "useOfWebsite": {
+      "title": "Use of Website",
+      "description": "This website and its contents are intended for informational purposes only. You may not use this website for any unlawful purpose or in any way that could damage, disable, or impair our services."
+    },
+    "intellectualProperty": {
+      "title": "Intellectual Property",
+      "description1": "All content, features, and functionality of this website are owned by Optimems and are protected by international copyright, trademark, and other intellectual property laws.",
+      "description2": "You may not reproduce, distribute, modify, create derivative works of, publicly display, or exploit any content from this website without our prior written consent."
+    },
+    "limitation": {
+      "title": "Limitation of Liability",
+      "description": "Optimems shall not be liable for any direct, indirect, incidental, special, or consequential damages arising out of or in any way connected with the use of this website or our services."
+    },
+    "contactUs": {
+      "title": "Contact Information",
+      "description": "If you have any questions about these Terms of Service, please contact us at"
+    }
+  },
+  "loginPage": {
+    "backToHome": "Back to Home",
+    "heading": "Welcome back",
+    "subheading": "Sign in to your account to continue",
+    "form": {
+      "email": "Email",
+      "emailPlaceholder": "Enter your email",
+      "password": "Password",
+      "passwordPlaceholder": "Enter your password",
+      "rememberMe": "Remember me",
+      "forgotPassword": "Forgot password?",
+      "signIn": "Sign in",
+      "signingIn": "Signing in...",
+      "noAccount": "Don't have an account?",
+      "signUp": "Sign up"
+    },
+    "social": {
+      "orContinueWith": "Or continue with"
+    }
+  },
+  "signupPage": {
+    "backToHome": "Back to Home",
+    "heading": "Create account",
+    "subheading": "Join Optimems and start managing your energy smarter",
+    "form": {
+      "fullName": "Full Name",
+      "fullNamePlaceholder": "Enter your full name",
+      "email": "Email",
+      "emailPlaceholder": "Enter your email",
+      "password": "Password",
+      "passwordPlaceholder": "Create a password",
+      "confirmPassword": "Confirm Password",
+      "confirmPasswordPlaceholder": "Confirm your password",
+      "agreePrefix": "I agree to the",
+      "termsOfService": "Terms of Service",
+      "and": "and",
+      "privacyPolicy": "Privacy Policy",
+      "createAccount": "Create account",
+      "creatingAccount": "Creating account...",
+      "haveAccount": "Already have an account?",
+      "signIn": "Sign in"
+    },
+    "social": {
+      "orContinueWith": "Or continue with"
+    }
+  },
+  "demoPage": {
+    "hero": {
+      "title": "Request a Demo",
+      "description": "See our solutions in action. Fill out the form below and we'll be in touch to schedule your personalized demo."
+    },
+    "form": {
+      "name": "Name",
+      "namePlaceholder": "Your full name",
+      "company": "Company",
+      "companyPlaceholder": "Your company name",
+      "email": "Email",
+      "emailPlaceholder": "your@email.com",
+      "productsOfInterest": "Products of Interest",
+      "both": "Both",
+      "message": "Message",
+      "messagePlaceholder": "Tell us about your needs...",
+      "submit": "Submit Request"
+    },
+    "success": {
+      "title": "Thank You!",
+      "message": "We'll be in touch within 24 hours to schedule your demo.",
+      "submitAnother": "Submit Another Request"
+    }
   }
 }

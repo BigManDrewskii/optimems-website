@@ -8,11 +8,6 @@ import { useTranslations } from "next-intl"
 import Link from "next/link"
 import { ArrowRight, Mail, Phone, MessageCircle, FileQuestion } from "lucide-react"
 
-export const metadata = {
-  title: "Support | Optimems",
-  description: "Get help with Optimems energy management solutions. Contact our support team or browse FAQs.",
-}
-
 export default function SupportPage() {
   const t = useTranslations("support")
 
@@ -44,9 +39,9 @@ export default function SupportPage() {
                   <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-secondary/10 flex items-center justify-center">
                     <Mail className="w-8 h-8 text-primary" aria-hidden="true" />
                   </div>
-                  <h3 className="text-xl font-semibold mb-4">Email Support</h3>
+                  <h3 className="text-xl font-semibold mb-4">{t("cards.email.title")}</h3>
                   <p className="text-muted-foreground text-sm mb-6">
-                    For general inquiries and non-urgent matters.
+                    {t("cards.email.description")}
                   </p>
                   <a href="mailto:info@optimems.gr" className="text-secondary hover:underline">
                     info@optimems.gr
@@ -56,9 +51,9 @@ export default function SupportPage() {
                   <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-secondary/10 flex items-center justify-center">
                     <Phone className="w-8 h-8 text-primary" aria-hidden="true" />
                   </div>
-                  <h3 className="text-xl font-semibold mb-4">Phone Support</h3>
+                  <h3 className="text-xl font-semibold mb-4">{t("cards.phone.title")}</h3>
                   <p className="text-muted-foreground text-sm mb-6">
-                    Available Mon-Fri, 9am-6pm EET.
+                    {t("cards.phone.description")}
                   </p>
                   <a href="tel:+302311257510" className="text-secondary hover:underline">
                     +30 2311 257 510
@@ -68,36 +63,36 @@ export default function SupportPage() {
                   <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-secondary/10 flex items-center justify-center">
                     <FileQuestion className="w-8 h-8 text-primary" aria-hidden="true" />
                   </div>
-                  <h3 className="text-xl font-semibold mb-4">Documentation</h3>
+                  <h3 className="text-xl font-semibold mb-4">{t("cards.docs.title")}</h3>
                   <p className="text-muted-foreground text-sm mb-6">
-                    Browse our knowledge base and guides.
+                    {t("cards.docs.description")}
                   </p>
                   <Link href="/docs" className="text-secondary hover:underline inline-flex items-center">
-                    View Docs
+                    {t("cards.docs.link")}
                     <ArrowRight className="ml-1 w-3 h-3" aria-hidden="true" />
                   </Link>
                 </GlassCard>
               </div>
 
               <GlassCard className="p-8 md:p-12">
-                <h2 className="text-2xl font-bold mb-6 text-center">Frequently Asked Questions</h2>
+                <h2 className="text-2xl font-bold mb-6 text-center">{t("faq.title")}</h2>
                 <div className="space-y-4 max-w-2xl mx-auto">
                   <div className="p-4 bg-muted/50 rounded-lg">
-                    <h3 className="font-semibold mb-2">How do I get started with +SolarControl?</h3>
+                    <h3 className="font-semibold mb-2">{t("faq.q1.question")}</h3>
                     <p className="text-muted-foreground text-sm">
-                      Contact our sales team to schedule a demo. We&apos;ll help you determine the right solution for your needs and guide you through the installation process.
+                      {t("faq.q1.answer")}
                     </p>
                   </div>
                   <div className="p-4 bg-muted/50 rounded-lg">
-                    <h3 className="font-semibold mb-2">What inverters are compatible with your solutions?</h3>
+                    <h3 className="font-semibold mb-2">{t("faq.q2.question")}</h3>
                     <p className="text-muted-foreground text-sm">
-                      We support 60+ hardware manufacturers including Huawei, Sungrow, SMA, Solaredge, and many more. Check our documentation for the full list.
+                      {t("faq.q2.answer")}
                     </p>
                   </div>
                   <div className="p-4 bg-muted/50 rounded-lg">
-                    <h3 className="font-semibold mb-2">Do you offer technical support?</h3>
+                    <h3 className="font-semibold mb-2">{t("faq.q3.question")}</h3>
                     <p className="text-muted-foreground text-sm">
-                      Yes! We offer comprehensive technical support. Contact us via email or phone for assistance.
+                      {t("faq.q3.answer")}
                     </p>
                   </div>
                 </div>

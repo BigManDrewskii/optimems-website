@@ -1,16 +1,16 @@
+"use client"
+
 import { AppLayout } from "@/app/app-layout"
 import { Container } from "@/components/shared/Container"
 import { AnimatedSection } from "@/components/shared/AnimatedSection"
 import { GlassCard } from "@/components/shared/GlassCard"
 import Link from "next/link"
 import { ArrowLeft } from "lucide-react"
-
-export const metadata = {
-  title: "Cookie Policy | Optimems",
-  description: "Optimems Cookie Policy - Learn how we use cookies and similar technologies on our website.",
-}
+import { useTranslations } from "next-intl"
 
 export default function CookiesPage() {
+  const t = useTranslations("cookiesPage")
+
   return (
     <AppLayout>
       <main className="min-h-screen pb-24">
@@ -19,10 +19,10 @@ export default function CookiesPage() {
             <div className="mb-8 max-w-4xl mx-auto">
               <Link href="/" className="inline-flex items-center text-muted-foreground hover:text-foreground mb-8 transition-colors">
                 <ArrowLeft className="w-4 h-4 mr-2" aria-hidden="true" />
-                Back to Home
+                {t("backToHome")}
               </Link>
-              <h1 className="text-4xl md:text-5xl font-bold mb-6">Cookie Policy</h1>
-              <p className="text-xl text-muted-foreground">Learn how we use cookies and similar technologies on our website.</p>
+              <h1 className="text-4xl md:text-5xl font-bold mb-6">{t("title")}</h1>
+              <p className="text-xl text-muted-foreground">{t("subtitle")}</p>
             </div>
           </Container>
         </AnimatedSection>
@@ -33,61 +33,61 @@ export default function CookiesPage() {
               <div className="prose prose-neutral max-w-none">
                 <GlassCard className="p-8 mb-8">
                   <p className="text-muted-foreground mb-4">
-                    Last updated: January 2026
+                    {t("lastUpdated")}
                   </p>
                   <p className="text-muted-foreground">
-                    This Cookie Policy explains what Cookies are and how Optimems uses them on our website.
+                    {t("intro")}
                   </p>
                 </GlassCard>
 
                 <GlassCard className="p-8 mb-8">
-                  <h2 className="text-2xl font-bold mb-4">What Are Cookies</h2>
+                  <h2 className="text-2xl font-bold mb-4">{t("whatAreCookies.title")}</h2>
                   <p className="text-muted-foreground">
-                    Cookies are small text files that are stored on your device when you visit our website. They help us provide you with a better experience and understand how you use our site.
+                    {t("whatAreCookies.description")}
                   </p>
                 </GlassCard>
 
                 <GlassCard className="p-8 mb-8">
-                  <h2 className="text-2xl font-bold mb-4">Types of Cookies We Use</h2>
+                  <h2 className="text-2xl font-bold mb-4">{t("types.title")}</h2>
                   <div className="space-y-4">
                     <div>
-                      <h3 className="font-semibold mb-2">Essential Cookies</h3>
+                      <h3 className="font-semibold mb-2">{t("types.essential.title")}</h3>
                       <p className="text-muted-foreground text-sm">
-                        Required for the website to function properly. These cannot be disabled.
+                        {t("types.essential.description")}
                       </p>
                     </div>
                     <div>
-                      <h3 className="font-semibold mb-2">Analytics Cookies</h3>
+                      <h3 className="font-semibold mb-2">{t("types.analytics.title")}</h3>
                       <p className="text-muted-foreground text-sm">
-                        Help us understand how visitors interact with our website by collecting and reporting information anonymously.
+                        {t("types.analytics.description")}
                       </p>
                     </div>
                     <div>
-                      <h3 className="font-semibold mb-2">Functionality Cookies</h3>
+                      <h3 className="font-semibold mb-2">{t("types.functionality.title")}</h3>
                       <p className="text-muted-foreground text-sm">
-                        Allow the website to remember choices you make and provide enhanced features.
+                        {t("types.functionality.description")}
                       </p>
                     </div>
                   </div>
                 </GlassCard>
 
                 <GlassCard className="p-8 mb-8">
-                  <h2 className="text-2xl font-bold mb-4">Managing Cookies</h2>
+                  <h2 className="text-2xl font-bold mb-4">{t("managing.title")}</h2>
                   <p className="text-muted-foreground mb-4">
-                    Most web browsers allow you to control cookies through their settings. You can:
+                    {t("managing.description")}
                   </p>
                   <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
-                    <li>Block all cookies</li>
-                    <li>Allow all cookies</li>
-                    <li>Delete cookies when you close your browser</li>
-                    <li>Receive a warning when a cookie is set</li>
+                    <li>{t("managing.options.block")}</li>
+                    <li>{t("managing.options.allow")}</li>
+                    <li>{t("managing.options.delete")}</li>
+                    <li>{t("managing.options.warning")}</li>
                   </ul>
                 </GlassCard>
 
                 <GlassCard className="p-8">
-                  <h2 className="text-2xl font-bold mb-4">Contact Us</h2>
+                  <h2 className="text-2xl font-bold mb-4">{t("contactUs.title")}</h2>
                   <p className="text-muted-foreground">
-                    If you have any questions about our use of cookies, please contact us at{' '}
+                    {t("contactUs.description")}{' '}
                     <a href="mailto:info@optimems.gr" className="text-secondary hover:underline">
                       info@optimems.gr
                     </a>

@@ -8,11 +8,13 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import { useTranslations } from "next-intl"
 
 export default function LoginPage() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [isLoading, setIsLoading] = useState(false)
+  const t = useTranslations("loginPage")
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -32,10 +34,8 @@ export default function LoginPage() {
         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
         </svg>
-        <span>Back to Home</span>
+        <span>{t("backToHome")}</span>
       </Link>
-
-
 
       {/* Decorative elements */}
       <div className="absolute top-20 left-20 w-72 h-72 bg-[hsl(var(--primary))]/10 rounded-full blur-3xl" />
@@ -63,8 +63,8 @@ export default function LoginPage() {
               </svg>
             </div>
           </Link>
-          <h1 className="text-3xl font-bold text-white mb-2">Welcome back</h1>
-          <p className="text-zinc-400">Sign in to your account to continue</p>
+          <h1 className="text-3xl font-bold text-white mb-2">{t("heading")}</h1>
+          <p className="text-zinc-400">{t("subheading")}</p>
         </div>
 
         {/* Login Form */}
@@ -77,12 +77,12 @@ export default function LoginPage() {
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="space-y-2">
               <Label htmlFor="email" className="text-white">
-                Email
+                {t("form.email")}
               </Label>
               <Input
                 id="email"
                 type="email"
-                placeholder="Enter your email"
+                placeholder={t("form.emailPlaceholder")}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="bg-zinc-800/50 border-zinc-700 text-white placeholder:text-zinc-500 focus:border-[hsl(var(--primary))] focus:ring-[hsl(var(--primary))]/20"
@@ -92,12 +92,12 @@ export default function LoginPage() {
 
             <div className="space-y-2">
               <Label htmlFor="password" className="text-white">
-                Password
+                {t("form.password")}
               </Label>
               <Input
                 id="password"
                 type="password"
-                placeholder="Enter your password"
+                placeholder={t("form.passwordPlaceholder")}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 className="bg-zinc-800/50 border-zinc-700 text-white placeholder:text-zinc-500 focus:border-[hsl(var(--primary))] focus:ring-[hsl(var(--primary))]/20"
@@ -111,10 +111,10 @@ export default function LoginPage() {
                   type="checkbox"
                   className="rounded border-zinc-700 bg-zinc-800 text-[hsl(var(--primary))] focus:ring-[hsl(var(--primary))]/20"
                 />
-                <span className="text-zinc-300">Remember me</span>
+                <span className="text-zinc-300">{t("form.rememberMe")}</span>
               </label>
               <Link href="#" className="text-sm text-[hsl(var(--primary))] hover:text-[hsl(var(--primary))]/80">
-                Forgot password?
+                {t("form.forgotPassword")}
               </Link>
             </div>
 
@@ -125,15 +125,15 @@ export default function LoginPage() {
               aria-live="polite"
               aria-busy={isLoading}
             >
-              {isLoading ? "Signing in..." : "Sign in"}
+              {isLoading ? t("form.signingIn") : t("form.signIn")}
             </Button>
           </form>
 
           <div className="mt-6 text-center">
             <p className="text-zinc-400">
-              Don't have an account?{" "}
+              {t("form.noAccount")}{" "}
               <Link href="/signup" className="text-[hsl(var(--primary))] hover:text-[hsl(var(--primary))]/80 font-medium">
-                Sign up
+                {t("form.signUp")}
               </Link>
             </p>
           </div>
@@ -151,7 +151,7 @@ export default function LoginPage() {
               <div className="w-full border-t border-zinc-800" />
             </div>
             <div className="relative flex justify-center text-sm">
-              <span className="px-2 bg-black text-zinc-500">Or continue with</span>
+              <span className="px-2 bg-black text-zinc-500">{t("social.orContinueWith")}</span>
             </div>
           </div>
 

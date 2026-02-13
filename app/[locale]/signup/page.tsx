@@ -8,6 +8,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import { useTranslations } from "next-intl"
 
 export default function SignupPage() {
   const [formData, setFormData] = useState({
@@ -17,6 +18,7 @@ export default function SignupPage() {
     confirmPassword: "",
   })
   const [isLoading, setIsLoading] = useState(false)
+  const t = useTranslations("signupPage")
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData((prev) => ({
@@ -47,10 +49,8 @@ export default function SignupPage() {
         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
         </svg>
-        <span>Back to Home</span>
+        <span>{t("backToHome")}</span>
       </Link>
-
-
 
       {/* Decorative elements */}
       <div className="absolute top-20 right-20 w-72 h-72 bg-[hsl(var(--primary))]/10 rounded-full blur-3xl" />
@@ -78,8 +78,8 @@ export default function SignupPage() {
               </svg>
             </div>
           </Link>
-          <h1 className="text-3xl font-bold text-white mb-2">Create account</h1>
-          <p className="text-zinc-400">Join thousands of developers building with v0</p>
+          <h1 className="text-3xl font-bold text-white mb-2">{t("heading")}</h1>
+          <p className="text-zinc-400">{t("subheading")}</p>
         </div>
 
         {/* Signup Form */}
@@ -92,13 +92,13 @@ export default function SignupPage() {
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="space-y-2">
               <Label htmlFor="name" className="text-white">
-                Full Name
+                {t("form.fullName")}
               </Label>
               <Input
                 id="name"
                 name="name"
                 type="text"
-                placeholder="Enter your full name"
+                placeholder={t("form.fullNamePlaceholder")}
                 value={formData.name}
                 onChange={handleChange}
                 className="bg-zinc-800/50 border-zinc-700 text-white placeholder:text-zinc-500 focus:border-[hsl(var(--primary))] focus:ring-[hsl(var(--primary))]/20"
@@ -108,13 +108,13 @@ export default function SignupPage() {
 
             <div className="space-y-2">
               <Label htmlFor="email" className="text-white">
-                Email
+                {t("form.email")}
               </Label>
               <Input
                 id="email"
                 name="email"
                 type="email"
-                placeholder="Enter your email"
+                placeholder={t("form.emailPlaceholder")}
                 value={formData.email}
                 onChange={handleChange}
                 className="bg-zinc-800/50 border-zinc-700 text-white placeholder:text-zinc-500 focus:border-[hsl(var(--primary))] focus:ring-[hsl(var(--primary))]/20"
@@ -124,13 +124,13 @@ export default function SignupPage() {
 
             <div className="space-y-2">
               <Label htmlFor="password" className="text-white">
-                Password
+                {t("form.password")}
               </Label>
               <Input
                 id="password"
                 name="password"
                 type="password"
-                placeholder="Create a password"
+                placeholder={t("form.passwordPlaceholder")}
                 value={formData.password}
                 onChange={handleChange}
                 className="bg-zinc-800/50 border-zinc-700 text-white placeholder:text-zinc-500 focus:border-[hsl(var(--primary))] focus:ring-[hsl(var(--primary))]/20"
@@ -140,13 +140,13 @@ export default function SignupPage() {
 
             <div className="space-y-2">
               <Label htmlFor="confirmPassword" className="text-white">
-                Confirm Password
+                {t("form.confirmPassword")}
               </Label>
               <Input
                 id="confirmPassword"
                 name="confirmPassword"
                 type="password"
-                placeholder="Confirm your password"
+                placeholder={t("form.confirmPasswordPlaceholder")}
                 value={formData.confirmPassword}
                 onChange={handleChange}
                 className="bg-zinc-800/50 border-zinc-700 text-white placeholder:text-zinc-500 focus:border-[hsl(var(--primary))] focus:ring-[hsl(var(--primary))]/20"
@@ -162,13 +162,13 @@ export default function SignupPage() {
                   required
                 />
                 <span className="text-zinc-300">
-                  I agree to the{" "}
-                  <Link href="#" className="text-[hsl(var(--primary))] hover:text-[hsl(var(--primary))]/80">
-                    Terms of Service
+                  {t("form.agreePrefix")}{" "}
+                  <Link href="/terms" className="text-[hsl(var(--primary))] hover:text-[hsl(var(--primary))]/80">
+                    {t("form.termsOfService")}
                   </Link>{" "}
-                  and{" "}
-                  <Link href="#" className="text-[hsl(var(--primary))] hover:text-[hsl(var(--primary))]/80">
-                    Privacy Policy
+                  {t("form.and")}{" "}
+                  <Link href="/privacy" className="text-[hsl(var(--primary))] hover:text-[hsl(var(--primary))]/80">
+                    {t("form.privacyPolicy")}
                   </Link>
                 </span>
               </label>
@@ -181,15 +181,15 @@ export default function SignupPage() {
               aria-live="polite"
               aria-busy={isLoading}
             >
-              {isLoading ? "Creating account..." : "Create account"}
+              {isLoading ? t("form.creatingAccount") : t("form.createAccount")}
             </Button>
           </form>
 
           <div className="mt-6 text-center">
             <p className="text-zinc-400">
-              Already have an account?{" "}
+              {t("form.haveAccount")}{" "}
               <Link href="/login" className="text-[hsl(var(--primary))] hover:text-[hsl(var(--primary))]/80 font-medium">
-                Sign in
+                {t("form.signIn")}
               </Link>
             </p>
           </div>
@@ -207,7 +207,7 @@ export default function SignupPage() {
               <div className="w-full border-t border-zinc-800" />
             </div>
             <div className="relative flex justify-center text-sm">
-              <span className="px-2 bg-black text-zinc-500">Or continue with</span>
+              <span className="px-2 bg-black text-zinc-500">{t("social.orContinueWith")}</span>
             </div>
           </div>
 
