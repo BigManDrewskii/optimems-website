@@ -33,20 +33,3 @@ export const warrantyFeatureKeys = [
   'emailSupport',
   'hardwareReplacement'
 ] as const
-
-// Blog post keys
-export const blogPostKeys = [
-  'title',
-  'subtitle',
-  'viewAllArticles',
-  'readArticle',
-  'backToBlog',
-  'minRead',
-  'by',
-  'noPosts',
-  'relatedPostsLabel',
-  'relatedPostsTitle',
-  'relatedPostsDescription',
-  'publishedOn',
-  'author'
-] as const

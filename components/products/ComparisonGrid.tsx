@@ -69,7 +69,7 @@ export function ComparisonGrid({
               {left.highlight ? (
                 <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 shrink-0" />
               ) : (
-                <span className="text-destructive mt-0.5">✗</span>
+                <span className="text-red-500 mt-0.5">✗</span>
               )}
               <span>{item}</span>
             </li>
@@ -95,7 +95,7 @@ export function ComparisonGrid({
               {right.highlight ? (
                 <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 shrink-0" />
               ) : (
-                <span className="text-destructive mt-0.5">✗</span>
+                <span className="text-red-500 mt-0.5">✗</span>
               )}
               <span>{item}</span>
             </li>

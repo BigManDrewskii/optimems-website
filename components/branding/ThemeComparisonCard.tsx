@@ -1,6 +1,6 @@
 "use client"
 
-import { BaseCard } from "@/components/shared/BaseCard"
+import { GlassCard } from "@/components/shared/GlassCard"
 import { SectionHeader } from "@/components/shared/SectionHeader"
 import { ColorSwatch } from "./ColorSwatch"
 import type { ColorToken } from "@/lib/branding-utils"
@@ -28,7 +28,7 @@ export function ThemeComparisonCard({
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* Light Theme Preview */}
-        <BaseCard variant="standard" className="p-6">
+        <GlassCard className="p-6">
           <div className="mb-4">
             <h3 className="text-lg font-semibold mb-1">Light Theme</h3>
             <p className="text-sm text-muted-foreground">
@@ -45,10 +45,10 @@ export function ThemeComparisonCard({
               />
             ))}
           </div>
-        </BaseCard>
+        </GlassCard>
 
         {/* Dark Theme Preview */}
-        <BaseCard variant="standard" className="p-6">
+        <GlassCard className="p-6">
           <div className="mb-4">
             <h3 className="text-lg font-semibold mb-1">Dark Theme</h3>
             <p className="text-sm text-muted-foreground">
@@ -65,7 +65,7 @@ export function ThemeComparisonCard({
               />
             ))}
           </div>
-        </BaseCard>
+        </GlassCard>
       </div>
     </div>
   )

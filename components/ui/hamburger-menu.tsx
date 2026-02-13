@@ -27,7 +27,7 @@ export function HamburgerMenu({
         "h-9 w-9 rounded-[10.4px]",
         "bg-background/90",
         "border border-border/30",
-        "shadow-lg",
+        "shadow-[0px_9.6px_12.8px_-3.2px_rgba(0,0,0,0.3),0px_4px_6px_-1.2px_rgba(0,0,0,0.3)]",
         "flex items-center justify-center",
         "transition-all duration-200",
         "hover:bg-accent/30",

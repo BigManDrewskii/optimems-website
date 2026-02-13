@@ -6,7 +6,6 @@ import { useTheme } from "next-themes"
 import { CustomPrimaryButton } from "@/components/shared"
 import { Video } from "@/components/shared/Video"
 import { useState, useEffect } from "react"
-import { getVideoSrc } from "@/data/videos"
 
 /**
  * Helper function to format subheadline with "Trusted by X" on its own line
@@ -44,7 +43,11 @@ export function SolarHeroDemo() {
     setMounted(true)
   }, [])
 
-  const videoSources = mounted ? (getVideoSrc('solarControlHero', false) || undefined) : undefined
+  // Video sources based on theme
+  const videoSources = {
+    webm: '/videos/solar-control-hero-banner-light.webm',
+    mp4: '/videos/solar-control-hero-banner-light.webm' // Same file for now, can be updated
+  }
 
   return (
     <section className="relative min-h-[80vh] md:min-h-[85vh] lg:min-h-[90vh] flex items-center justify-center overflow-hidden">

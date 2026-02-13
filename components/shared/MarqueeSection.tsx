@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
+import { useTheme } from "next-themes"
 import { cn } from "@/lib/utils"
 
 export interface MarqueeItem {
@@ -20,25 +21,6 @@ export interface MarqueeSectionProps {
   speed?: "slow" | "medium" | "fast"
 }
 
-function ThemeAwareImage({ item }: { item: MarqueeItem }) {
-  return (
-    <>
-      {item.lightThemeSrc && (
-        <img
-          src={item.lightThemeSrc}
-          alt={item.alt}
-          className="w-full h-auto opacity-60 hover:opacity-100 transition-opacity duration-300 hidden light:block"
-        />
-      )}
-      <img
-        src={item.src}
-        alt={item.alt}
-        className={`w-full h-auto opacity-60 hover:opacity-100 transition-opacity duration-300 ${item.lightThemeSrc ? 'light:hidden' : ''}`}
-      />
-    </>
-  )
-}
-
 export function MarqueeSection({
   items,
   duration = 20,
@@ -48,8 +30,13 @@ export function MarqueeSection({
 }: MarqueeSectionProps) {
   const [duplicatedItems, setDuplicatedItems] = useState<MarqueeItem[]>([])
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false)
+  const { resolvedTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
+    setMounted(true)
+
+    // Check for reduced motion preference
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
     setPrefersReducedMotion(mediaQuery.matches)
 
@@ -71,6 +58,14 @@ export function MarqueeSection({
 
   const finalDuration = duration * speedMultiplier[speed]
 
+  const getSrc = (item: MarqueeItem) => {
+    if (!mounted) return item.src
+    if (resolvedTheme === "light" && item.lightThemeSrc) {
+      return item.lightThemeSrc
+    }
+    return item.src
+  }
+
   return (
     <div className={cn("relative overflow-hidden w-full", className)}>
       {prefersReducedMotion ? (
@@ -83,7 +78,11 @@ export function MarqueeSection({
               style={{ width: "150px" }}
               aria-label={item.name}
             >
-              <ThemeAwareImage item={item} />
+              <img
+                src={getSrc(item)}
+                alt={item.alt}
+                className="w-full h-auto opacity-60 hover:opacity-100 transition-opacity duration-300"
+              />
             </a>
           ))}
         </div>
@@ -108,7 +107,11 @@ export function MarqueeSection({
               style={{ width: "150px" }}
               aria-label={item.name}
             >
-              <ThemeAwareImage item={item} />
+              <img
+                src={getSrc(item)}
+                alt={item.alt}
+                className="w-full h-auto opacity-60 hover:opacity-100 transition-opacity duration-300"
+              />
             </a>
           ))}
         </motion.div>

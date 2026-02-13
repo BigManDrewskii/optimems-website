@@ -1,6 +1,6 @@
 "use client"
 
-import { BaseCard } from "@/components/shared/BaseCard"
+import { GlassCard } from "@/components/shared/GlassCard"
 import { LucideIcon } from "lucide-react"
 import { useLocale } from "next-intl"
 
@@ -111,7 +111,7 @@ export function IconCardGrid({
       {cards.map((card, index) => {
         const Icon = card.icon
         return (
-          <BaseCard key={index} className={`${cardPadding} ${alignClass}`}>
+          <GlassCard key={index} className={`${cardPadding} ${alignClass}`}>
             <div className={`${iconSize} ${iconAlignClass} mb-4 rounded-xl ${card.iconBg || "bg-primary/10"} flex items-center justify-center`}>
               <Icon className={`w-7 h-7 ${card.iconColor || "text-primary"}`} />
             </div>
@@ -121,7 +121,7 @@ export function IconCardGrid({
             <p className="text-sm text-muted-foreground">
               {card.description}
             </p>
-          </BaseCard>
+          </GlassCard>
         )
       })}
     </div>

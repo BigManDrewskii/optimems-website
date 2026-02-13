@@ -4,7 +4,6 @@ import { motion } from "framer-motion"
 import { Video } from "@/components/shared/Video"
 import { useTheme } from "next-themes"
 import { Sun, Wind, Droplets, Leaf, Trees, Battery } from "lucide-react"
-import { getVideoSrc } from "@/data/videos"
 
 /**
  * SolarWhatIs - "What is SolarControl" section with minimal layout
@@ -15,9 +14,6 @@ export function SolarWhatIs() {
   const t = useTranslations('solarControlPage.whatIsSolarControl')
   const { resolvedTheme } = useTheme()
   const isLight = resolvedTheme === "light"
-  
-  const hardwareVideo = getVideoSrc('hardwareBanner', isLight)
-  const softwareVideo = getVideoSrc('softwareBanner', isLight)
 
   return (
     <section className="py-24">
@@ -54,8 +50,12 @@ export function SolarWhatIs() {
             {/* Hardware Video Banner */}
             <div className="border border-border/20 rounded-lg overflow-hidden">
               <Video
-                src=""
-                sources={hardwareVideo || undefined}
+                src="/videos/hardware-banner-dark.webm"
+                sources={{
+                  webm: isLight
+                    ? "/videos/hardware-banner-light.webm"
+                    : "/videos/hardware-banner-dark.webm"
+                }}
                 aspectRatio="video"
                 autoplay={true}
                 muted={true}
@@ -82,8 +82,12 @@ export function SolarWhatIs() {
             {/* Software Video Banner */}
             <div className="border border-border/20 rounded-lg overflow-hidden">
               <Video
-                src=""
-                sources={softwareVideo || undefined}
+                src="/videos/software-banner-dark.webm"
+                sources={{
+                  webm: isLight
+                    ? "/videos/software-banner-light.webm"
+                    : "/videos/software-banner-dark.webm"
+                }}
                 aspectRatio="video"
                 autoplay={true}
                 muted={true}

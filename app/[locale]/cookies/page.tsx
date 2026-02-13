@@ -1,7 +1,7 @@
 import { AppLayout } from "@/app/app-layout"
 import { Container } from "@/components/shared/Container"
 import { AnimatedSection } from "@/components/shared/AnimatedSection"
-import { BaseCard } from "@/components/shared/BaseCard"
+import { GlassCard } from "@/components/shared/GlassCard"
 import Link from "next/link"
 import { ArrowLeft } from "lucide-react"
 
@@ -31,23 +31,23 @@ export default function CookiesPage() {
           <Container>
             <div className="pb-20 md:py-28 max-w-4xl mx-auto">
               <div className="prose prose-neutral max-w-none">
-                <BaseCard variant="standard" className="p-8 mb-8">
+                <GlassCard className="p-8 mb-8">
                   <p className="text-muted-foreground mb-4">
                     Last updated: January 2026
                   </p>
                   <p className="text-muted-foreground">
                     This Cookie Policy explains what Cookies are and how Optimems uses them on our website.
                   </p>
-                </BaseCard>
+                </GlassCard>
 
-                <BaseCard variant="standard" className="p-8 mb-8">
+                <GlassCard className="p-8 mb-8">
                   <h2 className="text-2xl font-bold mb-4">What Are Cookies</h2>
                   <p className="text-muted-foreground">
                     Cookies are small text files that are stored on your device when you visit our website. They help us provide you with a better experience and understand how you use our site.
                   </p>
-                </BaseCard>
+                </GlassCard>
 
-                <BaseCard variant="standard" className="p-8 mb-8">
+                <GlassCard className="p-8 mb-8">
                   <h2 className="text-2xl font-bold mb-4">Types of Cookies We Use</h2>
                   <div className="space-y-4">
                     <div>
@@ -69,9 +69,9 @@ export default function CookiesPage() {
                       </p>
                     </div>
                   </div>
-                </BaseCard>
+                </GlassCard>
 
-                <BaseCard variant="standard" className="p-8 mb-8">
+                <GlassCard className="p-8 mb-8">
                   <h2 className="text-2xl font-bold mb-4">Managing Cookies</h2>
                   <p className="text-muted-foreground mb-4">
                     Most web browsers allow you to control cookies through their settings. You can:
@@ -82,9 +82,9 @@ export default function CookiesPage() {
                     <li>Delete cookies when you close your browser</li>
                     <li>Receive a warning when a cookie is set</li>
                   </ul>
-                </BaseCard>
+                </GlassCard>
 
-                <BaseCard variant="standard" className="p-8">
+                <GlassCard className="p-8">
                   <h2 className="text-2xl font-bold mb-4">Contact Us</h2>
                   <p className="text-muted-foreground">
                     If you have any questions about our use of cookies, please contact us at{' '}
@@ -92,7 +92,7 @@ export default function CookiesPage() {
                       info@optimems.gr
                     </a>
                   </p>
-                </BaseCard>
+                </GlassCard>
               </div>
             </div>
           </Container>

@@ -17,7 +17,7 @@ function RequestCard({ request, index }: RequestCardProps) {
       case 'active':
         return 'bg-cyan-500/20 text-cyan-400 border-cyan-500/30';
       default:
-        return 'bg-[var(--dashboard-surface)] text-[var(--dashboard-text-secondary)] border-[var(--dashboard-border)]';
+        return 'bg-gray-500/20 text-gray-400 border-gray-500/30';
     }
   };
 
@@ -39,11 +39,11 @@ function RequestCard({ request, index }: RequestCardProps) {
       initial={{ opacity: 0, x: -20 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.4, delay: index * 0.1 }}
-      className="relative bg-[var(--dashboard-card-bg)] rounded-lg p-4 border border-[var(--dashboard-border)] hover:border-[var(--dashboard-accent)]/30 transition-all hover:scale-[1.02]"
+      className="relative bg-[#1a2942] rounded-lg p-4 border border-gray-800 hover:border-gray-700 transition-all hover:scale-[1.02]"
     >
       {/* Timeline connector */}
       {index < 4 && (
-        <div className="absolute left-6 top-12 w-0.5 h-4 bg-[var(--dashboard-surface)]" />
+        <div className="absolute left-6 top-12 w-0.5 h-4 bg-gray-700" />
       )}
 
       <div className="flex items-start justify-between mb-2">
@@ -54,18 +54,18 @@ function RequestCard({ request, index }: RequestCardProps) {
             >
               {getStatusLabel()}
             </span>
-            <span className="text-[var(--dashboard-text-secondary)] text-xs">{request.submittedDate}</span>
+            <span className="text-gray-500 text-xs">{request.submittedDate}</span>
           </div>
-          <h4 className="text-[var(--dashboard-text-primary)] text-sm font-semibold mb-1">
+          <h4 className="text-white text-sm font-semibold mb-1">
             {request.requestType}
           </h4>
-          <p className="text-[var(--dashboard-text-secondary)] text-xs">{request.description}</p>
+          <p className="text-gray-400 text-xs">{request.description}</p>
         </div>
       </div>
 
-      <div className="flex items-center justify-between mt-3 pt-3 border-t border-[var(--dashboard-border)]/50">
-        <span className="text-[var(--dashboard-text-secondary)] text-xs">{request.park} Park</span>
-        <span className="text-[var(--dashboard-text-secondary)] text-xs">ID: {request.id}</span>
+      <div className="flex items-center justify-between mt-3 pt-3 border-t border-gray-700/50">
+        <span className="text-gray-500 text-xs">{request.park} Park</span>
+        <span className="text-gray-400 text-xs">ID: {request.id}</span>
       </div>
     </motion.div>
   );
@@ -90,7 +90,7 @@ export default function RequestCardsDemo({
       animate="visible"
       className="space-y-3"
     >
-      <h3 className="text-[var(--dashboard-text-primary)] text-sm font-semibold mb-3">Recent Requests</h3>
+      <h3 className="text-white text-sm font-semibold mb-3">Recent Requests</h3>
       {displayRequests.map((request, index) => (
         <RequestCard key={request.id} request={request} index={index} />
       ))}

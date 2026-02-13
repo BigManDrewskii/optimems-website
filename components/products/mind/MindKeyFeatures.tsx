@@ -3,7 +3,7 @@
 import { useTranslations, useLocale } from "next-intl"
 import { motion } from "framer-motion"
 import { ProductPageSection } from "@/components/products/ProductPageSection"
-import { BaseCard } from "@/components/shared/BaseCard"
+import { GlassCard } from "@/components/shared/GlassCard"
 
 /**
  * MindKeyFeatures - Key Features & Capabilities section
@@ -41,14 +41,14 @@ export function MindKeyFeatures() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.05 }}
             >
-              <BaseCard variant="standard" className="h-full p-6">
+              <GlassCard className="h-full p-6">
                 <h3 className={`text-lg font-bold mb-3 text-foreground ${isGreek ? 'greek-heading' : ''}`}>
                   {feature.title}
                 </h3>
                 <p className={`text-sm text-muted-foreground leading-relaxed ${isGreek ? 'greek-text' : ''}`}>
                   {feature.description}
                 </p>
-              </BaseCard>
+              </GlassCard>
             </motion.div>
           ))}
         </div>

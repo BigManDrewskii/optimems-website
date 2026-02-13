@@ -4,42 +4,30 @@ import { ProductPageSection } from "@/components/products/ProductPageSection"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { useTranslations, useLocale } from "next-intl"
+import { useTheme } from "next-themes"
 import { motion } from "framer-motion"
-
-function ThemeBackgroundImage({ lightSrc, darkSrc, alt }: { lightSrc: string; darkSrc: string; alt: string }) {
-  return (
-    <>
-      <div
-        className="absolute inset-0"
-        style={{
-          backgroundImage: `url(${lightSrc})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'top center',
-          backgroundRepeat: 'no-repeat',
-        }}
-        role="img"
-        aria-label={alt}
-      />
-      <div
-        className="absolute inset-0 light:hidden"
-        style={{
-          backgroundImage: `url(${darkSrc})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'top center',
-          backgroundRepeat: 'no-repeat',
-        }}
-        role="img"
-        aria-label={alt}
-      />
-    </>
-  )
-}
+import { useEffect, useState } from "react"
 
 export function ValuesSection() {
   const t = useTranslations('aboutUsPage.values')
   const tWork = useTranslations('aboutUsPage.workWithUs')
   const locale = useLocale()
   const isGreek = locale === 'el'
+  const { resolvedTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  // Background images with SSR safety
+  const valuesBgImage = mounted && resolvedTheme === 'light'
+    ? '/images/sections/values-card-bg-light.jpg'
+    : '/images/sections/values-card-bg-dark.jpg'
+
+  const ctaBgImage = mounted && resolvedTheme === 'light'
+    ? '/images/sections/cta-card-about-us-banner-light.jpg'
+    : '/images/sections/cta-card-about-us-banner-dark.jpg'
 
   const values = [
     {
@@ -67,6 +55,7 @@ export function ValuesSection() {
         spacing="standard"
       >
         <div className="max-w-6xl mx-auto space-y-8">
+          {/* Values Card */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -76,15 +65,18 @@ export function ValuesSection() {
           >
             <div
               className="relative"
-              style={{ minHeight: '400px' }}
+              style={{
+                backgroundImage: `url(${valuesBgImage})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'top center',
+                backgroundRepeat: 'no-repeat',
+                minHeight: '400px'
+              }}
             >
-              <ThemeBackgroundImage
-                lightSrc="/images/sections/values-card-bg-light.jpg"
-                darkSrc="/images/sections/values-card-bg-dark.jpg"
-                alt="Company values background"
-              />
+              {/* Theme-aware solid overlay for text contrast */}
               <div className="absolute inset-0 bg-background/75" />
 
+              {/* Content */}
               <div className="relative z-10 px-4 md:px-8 lg:px-16 py-16 md:py-24">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6">
                   {values.map((value, index) => (
@@ -109,6 +101,7 @@ export function ValuesSection() {
             </div>
           </motion.div>
 
+          {/* Work With Us CTA Card */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -118,13 +111,15 @@ export function ValuesSection() {
           >
             <div
               className="relative"
-              style={{ minHeight: '350px' }}
+              style={{
+                backgroundImage: `url(${ctaBgImage})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat',
+                minHeight: '350px'
+              }}
             >
-              <ThemeBackgroundImage
-                lightSrc="/images/sections/cta-card-about-us-banner-light.jpg"
-                darkSrc="/images/sections/cta-card-about-us-banner-dark.jpg"
-                alt="Work with us background"
-              />
+              {/* Theme-aware solid overlay for text contrast */}
               <div className="absolute inset-0 bg-background/75" />
 
               <div className="relative z-10 p-12 lg:p-16 text-center flex flex-col items-center justify-center" style={{ minHeight: '350px' }}>

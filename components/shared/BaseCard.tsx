@@ -1,8 +1,15 @@
 "use client"
 
-import { ReactNode } from "react"
+import { ReactNode, useEffect, useState } from "react"
+import { Skeleton } from "@/components/ui/skeleton"
 import { cn } from "@/lib/utils"
-import { ClientOnly } from "@/components/shared/ClientOnly"
+import { useTheme } from "next-themes"
+
+// Theme-aware pattern color presets using CSS variables
+const getDefaultPattern = (isDark: boolean) => {
+  // Uses OKLCH color system --pattern-bg and --pattern-stripe variables
+  return { bg: 'var(--pattern-bg)', stripe: 'var(--pattern-stripe)' }
+}
 
 const PATTERNS = {
   'primary-tint': { bg: 'oklch(from var(--primary) l c h / 0.1)', stripe: 'oklch(from var(--primary) l c h / 0.2)' },
@@ -26,7 +33,9 @@ export interface BaseCardProps {
   as?: 'div' | 'a' | 'button'
   href?: string
   'aria-label'?: string
+  // CTA variant props
   colorScheme?: 'primary' | 'secondary'
+  // Patterned variant props
   pattern?: 'default' | 'primary-tint' | 'secondary-tint' | 'custom' | 'image'
   patternColors?: { bg: string; stripe: string }
   imageUrl?: string
@@ -52,7 +61,9 @@ export function BaseCard({
   as = 'div',
   href,
   'aria-label': ariaLabel,
+  // CTA props
   colorScheme = 'primary',
+  // Patterned props
   pattern = 'default',
   patternColors,
   imageUrl,
@@ -84,34 +95,90 @@ export function BaseCard({
     xl: 'px-8 py-12 md:px-12 md:py-16 lg:px-16 lg:py-[80px]',
   }
 
-  if (variant === 'patterned') {
+  // Get theme for pattern colors with SSR safety
+  const { resolvedTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  // Show skeleton before mount for patterned variant to prevent layout shift
+  if (!mounted && variant === 'patterned') {
     return (
-      <ClientOnly
-        fallback={
-          <div className={cn(
-            "w-full",
-            fullHeight && "h-full",
-            outerPaddingClasses[outerPadding]
-          )} />
-        }
-      >
-        <BaseCardPatterned
-          pattern={pattern}
-          patternColors={patternColors}
-          imageUrl={imageUrl}
-          innerPadding={innerPadding}
-          outerPadding={outerPadding}
-          rounded={rounded}
-          fullHeight={fullHeight}
-          overflow={overflow}
-          className={className}
-        >
-          {children}
-        </BaseCardPatterned>
-      </ClientOnly>
+      <Skeleton
+        className={cn(
+          "w-full",
+          fullHeight && "h-full",
+          outerPaddingClasses[outerPadding]
+        )}
+      />
     )
   }
 
+  // Now safe to use theme
+  const isDark = resolvedTheme === 'dark'
+
+  // Handle Patterned variant (double-layer)
+  if (variant === 'patterned') {
+    let colors
+    if (pattern === 'custom' && patternColors) {
+      colors = patternColors
+    } else if (pattern === 'default') {
+      colors = getDefaultPattern(isDark)
+    } else {
+      colors = PATTERNS[pattern as keyof typeof PATTERNS] || getDefaultPattern(isDark)
+    }
+
+    if (pattern === 'image' && imageUrl) {
+      // Image background variant
+      return (
+        <div className={cn(
+          'relative overflow-hidden border border-border',
+          roundedClasses[rounded],
+          fullHeight && 'h-full',
+          className
+        )}>
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: `url(${imageUrl})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+            }}
+          />
+          <div className="absolute inset-0 bg-card/75" />
+          <div className={cn('relative z-10', innerPaddingClasses[innerPadding])}>
+            {children}
+          </div>
+        </div>
+      )
+    }
+
+    // Striped pattern variant
+    return (
+      <div className={cn(
+        'rounded-3xl border border-border',
+        outerPaddingClasses[outerPadding]
+      )} style={{
+        backgroundColor: colors.bg,
+        backgroundSize: '9px 9px',
+        backgroundImage: `repeating-linear-gradient(45deg, ${colors.stripe} 0, ${colors.stripe} 0.9px, ${colors.bg} 0, ${colors.bg} 50%)`
+      }}>
+        <div className={cn(
+          'rounded-3xl border border-border bg-card',
+          innerPaddingClasses[innerPadding],
+          fullHeight && 'h-full',
+          overflow && 'overflow-hidden',
+          className
+        )}>
+          {children}
+        </div>
+      </div>
+    )
+  }
+
+  // Handle CTA variant
   if (variant === 'cta') {
     const ctaVariantClasses = {
       primary: 'bg-primary border-primary/40 text-primary-foreground',
@@ -126,22 +193,23 @@ export function BaseCard({
       hover && shadow && 'hover:shadow-lg',
       hover && 'transition-all duration-300',
       padding && paddingClasses[padding],
-      fullHeight && "h-full",
-      overflow && "overflow-hidden",
+      fullHeight && 'h-full',
+      overflow && 'overflow-hidden',
       className
     )
 
     return renderElement(baseClasses)
   }
 
+  // Handle Standard variant
   const standardBaseClasses = cn(
     'bg-card border border-border',
     roundedClasses[rounded],
     hover && 'hover:border-secondary',
     hover && 'transition-all duration-300',
     !hover && 'border-border/30',
-    fullHeight && "h-full",
-    overflow && "overflow-hidden",
+    fullHeight && 'h-full',
+    overflow && 'overflow-hidden',
     padding && paddingClasses[padding],
     className
   )
@@ -207,106 +275,4 @@ export function BaseCard({
       </div>
     )
   }
-}
-
-interface PatternedProps {
-  pattern?: 'default' | 'primary-tint' | 'secondary-tint' | 'custom' | 'image'
-  patternColors?: { bg: string; stripe: string }
-  imageUrl?: string
-  innerPadding?: 'md' | 'lg' | 'xl'
-  outerPadding?: 'md' | 'lg' | 'xl'
-  rounded?: 'xl' | '2xl' | '3xl'
-  fullHeight?: boolean
-  overflow?: boolean
-  className?: string
-  children: ReactNode
-}
-
-function BaseCardPatterned({
-  pattern = 'default',
-  patternColors,
-  imageUrl,
-  innerPadding = 'lg',
-  outerPadding = 'lg',
-  rounded = 'xl',
-  fullHeight = false,
-  overflow = false,
-  className,
-  children,
-}: PatternedProps) {
-  const outerPaddingClasses: Record<string, string> = {
-    md: 'p-8 md:p-12',
-    lg: 'p-8 md:p-12 lg:p-[64px]',
-    xl: 'p-12 md:p-16 lg:p-[80px]',
-  }
-
-  const innerPaddingClasses: Record<string, string> = {
-    md: 'px-6 py-8 md:px-8 md:py-12',
-    lg: 'px-6 py-8 md:px-8 md:py-12 lg:px-10 lg:py-[64px]',
-    xl: 'px-8 py-12 md:px-12 md:py-16 lg:px-16 lg:py-[80px]',
-  }
-
-  const roundedClasses: Record<string, string> = {
-    xl: 'rounded-xl',
-    '2xl': 'rounded-2xl',
-    '3xl': 'rounded-3xl',
-  }
-
-  const getDefaultPattern = () => {
-    return { bg: 'var(--pattern-bg)', stripe: 'var(--pattern-stripe)' }
-  }
-
-  let colors: { bg: string; stripe: string }
-  if (pattern === 'custom' && patternColors) {
-    colors = patternColors
-  } else if (pattern === 'default') {
-    colors = getDefaultPattern()
-  } else {
-    colors = PATTERNS[pattern as keyof typeof PATTERNS] || getDefaultPattern()
-  }
-
-  if (pattern === 'image' && imageUrl) {
-    return (
-      <div className={cn(
-        'relative overflow-hidden border border-border',
-        roundedClasses[rounded],
-        fullHeight && 'h-full',
-        className
-      )}>
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `url(${imageUrl})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          }}
-        />
-        <div className="absolute inset-0 bg-card/75" />
-        <div className={cn('relative z-10', innerPaddingClasses[innerPadding])}>
-          {children}
-        </div>
-      </div>
-    )
-  }
-
-  return (
-    <div className={cn(
-      'rounded-3xl border border-border',
-      outerPaddingClasses[outerPadding]
-    )} style={{
-      backgroundColor: colors.bg,
-      backgroundSize: '9px 9px',
-      backgroundImage: `repeating-linear-gradient(45deg, ${colors.stripe} 0, ${colors.stripe} 0.9px, ${colors.bg} 0, ${colors.bg} 50%)`
-    }}>
-      <div className={cn(
-        'rounded-3xl border border-border bg-card',
-        innerPaddingClasses[innerPadding],
-        fullHeight && 'h-full',
-        overflow && 'overflow-hidden',
-        className
-      )}>
-        {children}
-      </div>
-    </div>
-  )
 }

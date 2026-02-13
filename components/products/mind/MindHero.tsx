@@ -5,7 +5,6 @@ import { useTranslations, useLocale } from "next-intl"
 import { CustomPrimaryButton } from "@/components/shared"
 import { Video } from "@/components/shared/Video"
 import { useTheme } from "next-themes"
-import { getVideoSrc } from "@/data/videos"
 
 /**
  * MindHero - Hero section with video background
@@ -21,7 +20,11 @@ export function MindHero() {
 
   const supportedAssets = t.raw('supportedAssets') as string[]
 
-  const videoSources = getVideoSrc('mindHero', false) || undefined
+  // Video sources
+  const videoSources = {
+    webm: '/videos/mind-hero-banner.mp4',
+    mp4: '/videos/mind-hero-banner.mp4'
+  }
 
   return (
     <section className="relative min-h-[80vh] md:min-h-[85vh] lg:min-h-[90vh] pt-32 md:pt-40 lg:pt-48 pb-16 md:pb-20 lg:pb-24 flex items-center justify-center overflow-hidden">

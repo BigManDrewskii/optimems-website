@@ -2,7 +2,7 @@ import { AppLayout } from "@/app/app-layout"
 import { Container } from "@/components/shared/Container"
 import { SectionHeader } from "@/components/shared/SectionHeader"
 import { AnimatedSection } from "@/components/shared/AnimatedSection"
-import { BaseCard } from "@/components/shared/BaseCard"
+import { GlassCard } from "@/components/shared/GlassCard"
 import { Button } from "@/components/ui/button"
 import { useTranslations } from "next-intl"
 import Link from "next/link"
@@ -40,7 +40,7 @@ export default function SupportPage() {
           <Container>
             <div className="py-20 md:py-28">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-                <BaseCard variant="standard" className="p-8 text-center">
+                <GlassCard className="p-8 text-center">
                   <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-secondary/10 flex items-center justify-center">
                     <Mail className="w-8 h-8 text-primary" aria-hidden="true" />
                   </div>
@@ -51,8 +51,8 @@ export default function SupportPage() {
                   <a href="mailto:info@optimems.gr" className="text-secondary hover:underline">
                     info@optimems.gr
                   </a>
-                </BaseCard>
-                <BaseCard variant="standard" className="p-8 text-center">
+                </GlassCard>
+                <GlassCard className="p-8 text-center">
                   <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-secondary/10 flex items-center justify-center">
                     <Phone className="w-8 h-8 text-primary" aria-hidden="true" />
                   </div>
@@ -63,8 +63,8 @@ export default function SupportPage() {
                   <a href="tel:+302311257510" className="text-secondary hover:underline">
                     +30 2311 257 510
                   </a>
-                </BaseCard>
-                <BaseCard variant="standard" className="p-8 text-center">
+                </GlassCard>
+                <GlassCard className="p-8 text-center">
                   <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-secondary/10 flex items-center justify-center">
                     <FileQuestion className="w-8 h-8 text-primary" aria-hidden="true" />
                   </div>
@@ -76,10 +76,10 @@ export default function SupportPage() {
                     View Docs
                     <ArrowRight className="ml-1 w-3 h-3" aria-hidden="true" />
                   </Link>
-                </BaseCard>
+                </GlassCard>
               </div>
 
-              <BaseCard variant="standard" className="p-8 md:p-12">
+              <GlassCard className="p-8 md:p-12">
                 <h2 className="text-2xl font-bold mb-6 text-center">Frequently Asked Questions</h2>
                 <div className="space-y-4 max-w-2xl mx-auto">
                   <div className="p-4 bg-muted/50 rounded-lg">
@@ -101,7 +101,7 @@ export default function SupportPage() {
                     </p>
                   </div>
                 </div>
-              </BaseCard>
+              </GlassCard>
             </div>
           </Container>
         </AnimatedSection>

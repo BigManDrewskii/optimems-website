@@ -52,7 +52,7 @@ const StatItem = memo(function StatItem({
 })
 
 export const Stats = memo(function Stats() {
-  const t = useTranslations('home')
+  const t = useTranslations()
   const locale = useLocale()
   const isGreek = locale === "el"
 

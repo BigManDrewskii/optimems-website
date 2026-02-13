@@ -14,7 +14,7 @@ interface CompactValuePropCardProps {
 }
 
 function CompactValuePropCard({ valueProp, index }: CompactValuePropCardProps) {
-  const t = useTranslations('home')
+  const t = useTranslations()
   const key = valuePropKeys[index]
 
   const iconMap = {
@@ -74,7 +74,7 @@ function CompactValuePropCard({ valueProp, index }: CompactValuePropCardProps) {
 }
 
 function CTACard() {
-  const t = useTranslations('home')
+  const t = useTranslations()
 
   return (
     <motion.div
@@ -107,7 +107,7 @@ function CTACard() {
 }
 
 export function ValuePropositions() {
-  const t = useTranslations('home')
+  const t = useTranslations()
 
   return (
     <section className="py-24">

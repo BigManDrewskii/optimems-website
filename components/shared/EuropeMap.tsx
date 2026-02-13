@@ -33,9 +33,14 @@ const locations: LocationPin[] = [
   { name: "Portugal", coordinates: [-9.1393, 38.7223], status: "future" },
 ]
 
+interface Position {
+  coordinates: [number, number]
+  zoom: number
+}
+
 export function EuropeMap() {
   const { theme } = useTheme()
-  const t = useTranslations('common')
+  const t = useTranslations('aria')
   const [position, setPosition] = useState<Position>({
     coordinates: [15, 50],
     zoom: 1,
@@ -102,7 +107,7 @@ export function EuropeMap() {
                 <Geography
                   key={geo.rsmKey}
                   geography={geo}
-                  stroke="var(--map-border)"
+                  stroke="hsl(var(--map-border))"
                   strokeWidth={0.5}
                   fill={hoveredGeography === geo.rsmKey ? colors.hover : colors.default}
                   onMouseEnter={() => handleGeographyHover(geo.rsmKey)}
@@ -123,7 +128,7 @@ export function EuropeMap() {
                 <TooltipTrigger asChild>
                   <circle
                     r={pinSize}
-                    fill={status === "active" ? "var(--pin-active)" : "var(--pin-future)"}
+                    fill={status === "active" ? "hsl(var(--pin-active))" : "hsl(var(--pin-future))"}
                     style={{ cursor: "pointer" }}
                     tabIndex={0}
                     role="button"
@@ -176,12 +181,12 @@ export function EuropeMap() {
       <div className="absolute bottom-4 left-4 flex items-center gap-4 bg-card/80 backdrop-blur-sm px-3 py-2 rounded-lg border border-border/50">
         <div className="flex items-center gap-2">
           <Check className="w-3.5 h-3.5 text-primary" aria-hidden="true" />
-          <span className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: "var(--pin-active)" }} aria-hidden="true" />
+          <span className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: "hsl(var(--pin-active))" }} aria-hidden="true" />
           <span className="text-xs text-muted-foreground">{t('mapActive')}</span>
         </div>
         <div className="flex items-center gap-2">
           <Clock className="w-3.5 h-3.5 text-muted-foreground" aria-hidden="true" />
-          <span className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: "var(--pin-future)" }} aria-hidden="true" />
+          <span className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: "hsl(var(--pin-future))" }} aria-hidden="true" />
           <span className="text-xs text-muted-foreground">{t('mapComingSoon')}</span>
         </div>
       </div>

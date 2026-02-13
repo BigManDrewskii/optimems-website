@@ -52,7 +52,7 @@ export function SolarCTA() {
               {/* Button */}
               <div className="flex justify-center">
                 <CustomPrimaryButton
-                  href="/"
+                  href="/demo"
                   label={t('formSubmit')}
                 />
               </div>

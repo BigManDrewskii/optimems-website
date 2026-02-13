@@ -15,7 +15,7 @@ const segmentVideoMap: Record<string, string> = {
 }
 
 export function UserSegments() {
-  const t = useTranslations('home')
+  const t = useTranslations()
 
   const getSegmentTranslation = (key: typeof userSegmentKeys[number], field: 'title' | 'tagline' | 'description') => {
     return t(`userSegments.segments.${key}.${field}`)

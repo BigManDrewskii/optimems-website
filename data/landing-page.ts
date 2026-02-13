@@ -557,7 +557,7 @@ export const footer = {
     ],
     resources: [
       { label: 'Blog', href: '/blog' },
-
+      { label: 'Branding', href: '/branding' },
       { label: 'Documentation', href: '/docs' },
       { label: 'Support', href: '/support' },
     ],

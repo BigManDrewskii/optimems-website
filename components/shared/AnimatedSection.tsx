@@ -1,6 +1,8 @@
 "use client"
 
-import { useRef, useState, useEffect, ReactNode } from "react"
+import { motion } from "framer-motion"
+import { useInView } from "framer-motion"
+import { useRef, ReactNode } from "react"
 import { cn } from "@/lib/utils"
 
 export interface AnimatedSectionProps {
@@ -24,66 +26,26 @@ export function AnimatedSection({
   amount = 0.3,
   as = 'section',
 }: AnimatedSectionProps) {
-  const containerRef = useRef<HTMLDivElement>(null)
-  const [isVisible, setIsVisible] = useState(false)
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once, amount })
 
-  useEffect(() => {
-    const element = containerRef.current
-    if (!element) return
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true)
-          if (once && element) {
-            observer.unobserve(element)
-          }
-        } else if (!once) {
-          setIsVisible(false)
-        }
-      },
-      {
-        threshold: amount,
-      }
-    )
-
-    observer.observe(element)
-
-    return () => {
-      observer.disconnect()
-    }
-  }, [once, amount])
-
-  const style = isVisible
-    ? ({
-        opacity: 1,
-        transform: animation === 'fadeInUp' 
-          ? 'translateY(0)' 
-          : animation === 'scaleIn' 
-            ? 'scale(1)' 
-            : undefined,
-        transition: `opacity ${duration}s ease-out ${delay}s, transform ${duration}s ease-out ${delay}s`,
-      } as const)
-    : ({
-        opacity: 0,
-        transform: animation === 'fadeInUp' 
-          ? 'translateY(20px)' 
-          : animation === 'scaleIn' 
-            ? 'scale(0.95)' 
-            : undefined,
-      } as const)
-
-  if (as === 'section') {
-    return (
-      <section ref={containerRef} className={cn(className)} style={style}>
-        {children}
-      </section>
-    )
+  const animations = {
+    fadeInUp: { opacity: isInView ? 1 : 0, y: isInView ? 0 : 20 },
+    fadeIn: { opacity: isInView ? 1 : 0 },
+    scaleIn: { opacity: isInView ? 1 : 0, scale: isInView ? 1 : 0.95 },
   }
 
+  const MotionComponent = motion[as]
+
   return (
-    <div ref={containerRef} className={cn(className)} style={style}>
+    <MotionComponent
+      ref={ref}
+      initial={animations[animation]}
+      animate={animations[animation]}
+      transition={{ duration, delay }}
+      className={cn(className)}
+    >
       {children}
-    </div>
+    </MotionComponent>
   )
 }

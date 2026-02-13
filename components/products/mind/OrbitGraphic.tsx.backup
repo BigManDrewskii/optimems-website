@@ -1,0 +1,206 @@
+// Animated orbital visualization with icons orbiting concentric dashed rings around a central brain icon.
+// All colors reference CSS custom properties so they adapt to light/dark themes.
+// Orbiting icons share a unified color; the central icon uses a distinct color.
+import type { Icon as PhosphorIcon } from "@phosphor-icons/react";
+import {
+  Brain,
+  Sun,
+  BatteryFull,
+  Lightning,
+  Wind,
+  Drop,
+  Plug,
+  Leaf,
+  Fire,
+  Thermometer,
+} from "@phosphor-icons/react";
+
+interface OrbitIcon {
+  Icon: PhosphorIcon;
+  deg: number;
+}
+
+interface Ring {
+  orbitClass: string;
+  counterClass: string;
+  radius: number;
+  diameter: number;
+  icons: OrbitIcon[];
+}
+
+const rings: Ring[] = [
+  {
+    orbitClass: "animate-[orbit-cw_25s_linear_infinite]",
+    counterClass: "animate-[orbit-ccw_25s_linear_infinite]",
+    radius: 130,
+    diameter: 260,
+    icons: [
+      { Icon: Sun, deg: 0 },
+      { Icon: BatteryFull, deg: 120 },
+      { Icon: Lightning, deg: 240 },
+    ],
+  },
+  {
+    orbitClass: "animate-[orbit-ccw_35s_linear_infinite]",
+    counterClass: "animate-[orbit-cw_35s_linear_infinite]",
+    radius: 210,
+    diameter: 420,
+    icons: [
+      { Icon: Wind, deg: 0 },
+      { Icon: Drop, deg: 120 },
+      { Icon: Plug, deg: 240 },
+    ],
+  },
+  {
+    orbitClass: "animate-[orbit-ccw_50s_linear_infinite]",
+    counterClass: "animate-[orbit-cw_50s_linear_infinite]",
+    radius: 280,
+    diameter: 560,
+    icons: [
+      { Icon: Leaf, deg: 0 },
+      { Icon: Fire, deg: 120 },
+      { Icon: Thermometer, deg: 240 },
+    ],
+  },
+];
+
+const CONTAINER = 680;
+const CENTER = CONTAINER / 2;
+
+export default function OrbitGraphic() {
+  return (
+    <div
+      className="relative mx-auto animate-[fade-in-up_0.7s_ease-out_both]"
+      style={{ width: "100%", maxWidth: CONTAINER, aspectRatio: "1 / 1" }}
+    >
+      <div
+        className="absolute rounded-full pointer-events-none"
+        style={{
+          width: 480,
+          height: 480,
+          left: CENTER - 240,
+          top: CENTER - 240,
+          backgroundImage:
+            "radial-gradient(circle, var(--grid-dot) 1.5px, transparent 1.5px)",
+          backgroundSize: "16px 16px",
+          WebkitMaskImage:
+            "radial-gradient(circle, black 15%, transparent 65%)",
+          maskImage:
+            "radial-gradient(circle, black 15%, transparent 65%)",
+          animation: "dot-glow 6s ease-in-out infinite",
+        }}
+      />
+
+      <svg
+        className="absolute pointer-events-none"
+        width={CONTAINER}
+        height={CONTAINER}
+        style={{ left: 0, top: 0 }}
+      >
+        {rings.map((ring, i) => {
+          const dashLen = 8;
+          const gapLen = 8;
+          const duration = 3 + i * 1.5;
+          const direction = i % 2 === 0 ? "normal" : "reverse";
+          return (
+            <circle
+              key={`ring-${i}`}
+              cx={CENTER}
+              cy={CENTER}
+              r={ring.radius}
+              fill="none"
+              stroke="var(--orbit-ring-color)"
+              strokeWidth={1.5}
+              strokeDasharray={`${dashLen} ${gapLen}`}
+              style={{
+                animation: `dash-flow ${duration}s linear infinite`,
+                animationDirection: direction,
+              }}
+            />
+          );
+        })}
+      </svg>
+
+      <div
+        className="absolute"
+        style={{
+          width: 112,
+          height: 112,
+          left: CENTER - 56,
+          top: CENTER - 56,
+        }}
+      >
+        <div
+          className="w-full h-full rounded-full animate-[pulse-glow_4s_ease-in-out_infinite]"
+          style={{
+            background: "radial-gradient(circle, var(--orbit-pulse) 0%, transparent 70%)",
+          }}
+        />
+      </div>
+
+      <div
+        className="absolute z-10 rounded-full flex items-center justify-center"
+        style={{
+          width: 64,
+          height: 64,
+          left: CENTER - 32,
+          top: CENTER - 32,
+          background: "var(--orbit-hub-bg)",
+          border: "1px solid var(--orbit-hub-border)",
+          boxShadow: "var(--orbit-hub-glow)",
+        }}
+      >
+        <Brain size={30} weight="duotone" style={{ color: "var(--primary)" }} />
+      </div>
+
+      {rings.map((ring, i) => (
+        <div
+          key={`orbit-${i}`}
+          className={`absolute ${ring.orbitClass}`}
+          style={{
+            width: ring.diameter,
+            height: ring.diameter,
+            left: CENTER - ring.diameter / 2,
+            top: CENTER - ring.diameter / 2,
+            transformOrigin: "center center",
+            willChange: "transform",
+          }}
+        >
+          {ring.icons.map((icon, j) => {
+            const rad = (icon.deg * Math.PI) / 180;
+            const x = ring.diameter / 2 + ring.radius * Math.cos(rad);
+            const y = ring.diameter / 2 + ring.radius * Math.sin(rad);
+            return (
+              <div
+                key={j}
+                className="absolute"
+                style={{
+                  left: x,
+                  top: y,
+                  transform: "translate(-50%, -50%)",
+                }}
+              >
+                <div
+                  className={ring.counterClass}
+                  style={{ willChange: "transform" }}
+                >
+                  <div
+                    className="w-11 h-11 rounded-full backdrop-blur-sm flex items-center justify-center"
+                    style={{
+                      color: "var(--orbit-icon-color)",
+                      background: "var(--orbit-icon-bg)",
+                      border: "1px solid var(--orbit-icon-border)",
+                      boxShadow: "var(--orbit-icon-shadow), var(--orbit-icon-glow)",
+                    }}
+                  >
+                    <icon.Icon size={20} weight="duotone" />
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      ))}
+    </div>
+  );
+}

@@ -31,7 +31,7 @@ export function Dashboard3x4() {
   ];
 
   return (
-    <div className="h-full flex flex-col bg-[var(--dashboard-bg)] rounded-lg overflow-hidden p-4">
+    <div className="h-full flex flex-col bg-[#0d1f35] rounded-lg overflow-hidden p-4">
       {/* Logo Section */}
       <motion.div
         initial={{ opacity: 0, y: -20 }}
@@ -72,8 +72,8 @@ export function Dashboard3x4() {
         </div>
 
         {/* Power Bars */}
-        <div className="bg-[var(--dashboard-surface)] rounded-lg border border-[var(--dashboard-border)] p-4">
-          <h3 className="text-[var(--dashboard-text-primary)] text-sm font-semibold mb-2">Installations</h3>
+        <div className="bg-[#1d3557] rounded-lg border border-gray-700 p-4">
+          <h3 className="text-white text-sm font-semibold mb-2">Installations</h3>
           <PowerBarsDemo installations={installations} maxItems={3} />
         </div>
 
@@ -84,7 +84,7 @@ export function Dashboard3x4() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="text-center py-4"
         >
-          <p className="text-[var(--dashboard-text-secondary)] text-sm">Real-time solar energy management</p>
+          <p className="text-gray-300 text-sm">Real-time solar energy management</p>
         </motion.div>
       </motion.div>
     </div>

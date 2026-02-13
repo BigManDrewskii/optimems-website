@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion"
 import Image from "next/image"
+import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { hero, socialProof } from "@/data/landing-page"
 import { CustomPrimaryButton, MarqueeSection } from "@/components/shared"
@@ -9,7 +10,32 @@ import { useTranslations } from "next-intl"
 import { Link } from "@/i18n/navigation"
 
 export function Hero() {
-  const t = useTranslations('home')
+  const [mounted, setMounted] = useState(false)
+  const t = useTranslations()
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  // Show placeholder before mount to prevent layout shift
+  if (!mounted) {
+    return (
+      <section className="relative min-h-[80vh] md:min-h-[85vh] lg:min-h-[90vh] pt-32 md:pt-40 lg:pt-48 pb-16 md:pb-20 lg:pb-24 flex items-center overflow-hidden">
+        <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-[1400px]">
+          <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-4 lg:gap-6 items-center">
+            <div className="space-y-6 text-center lg:text-left max-w-[550px] lg:max-w-[600px] mx-auto lg:mx-0">
+              <div className="animate-pulse bg-muted h-8 w-3/4 mx-auto lg:mx-0 rounded" />
+              <div className="animate-pulse bg-muted/50 h-6 w-full rounded" />
+              <div className="animate-pulse bg-muted/50 h-4 w-1/2 rounded" />
+            </div>
+            <div className="w-full max-w-[500px] md:max-w-[550px] lg:max-w-[600px] xl:max-w-[650px]">
+              <div className="animate-pulse bg-muted w-full aspect-square rounded-lg" />
+            </div>
+          </div>
+        </div>
+      </section>
+    )
+  }
 
   const heroImage = '/images/hero/solar-control-hero-graphic.png'
 

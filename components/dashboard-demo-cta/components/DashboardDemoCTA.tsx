@@ -38,11 +38,11 @@ export function DashboardDemoCTA({
             transition={{ duration: 0.6 }}
             className="space-y-8 text-center lg:text-left"
           >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">
               {headline}
             </h2>
 
-            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+            <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
               {subheadline}
             </p>
 
@@ -55,13 +55,13 @@ export function DashboardDemoCTA({
             >
               <a
                 href={primaryCTA.href}
-                className="inline-flex items-center justify-center px-8 py-3 text-base font-semibold text-primary-foreground bg-primary hover:bg-primary/90 rounded-lg transition-colors shadow-lg"
+                className="inline-flex items-center justify-center px-8 py-3 text-base font-semibold text-white bg-[#e91e63] hover:bg-[#d81b60] rounded-lg transition-colors shadow-lg shadow-[#e91e63]/20 hover:shadow-[#e91e63]/30"
               >
                 {primaryCTA.label}
               </a>
               <a
                 href={secondaryCTA.href}
-                className="inline-flex items-center justify-center px-8 py-3 text-base font-semibold text-foreground border border-border hover:border-secondary rounded-lg transition-colors hover:bg-muted/20"
+                className="inline-flex items-center justify-center px-8 py-3 text-base font-semibold text-white border border-gray-600 hover:border-gray-500 rounded-lg transition-colors hover:bg-white/5"
               >
                 {secondaryCTA.label}
               </a>
@@ -75,16 +75,16 @@ export function DashboardDemoCTA({
               transition={{ duration: 0.6, delay: 0.4 }}
               className="pt-6 space-y-3"
             >
-              <div className="flex items-center space-x-2 text-sm text-muted-foreground">
+              <div className="flex items-center space-x-2 text-sm text-gray-400">
                 <div className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
                 <span>Real-time monitoring and control</span>
               </div>
-              <div className="flex items-center space-x-2 text-sm text-muted-foreground">
+              <div className="flex items-center space-x-2 text-sm text-gray-400">
                 <div className="w-1.5 h-1.5 rounded-full bg-cyan-500" />
                 <span>Intelligent automation and alerts</span>
               </div>
-              <div className="flex items-center space-x-2 text-sm text-muted-foreground">
-                <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+              <div className="flex items-center space-x-2 text-sm text-gray-400">
+                <div className="w-1.5 h-1.5 rounded-full bg-[#e91e63]" />
                 <span>Seamless integration with existing infrastructure</span>
               </div>
             </motion.div>
@@ -99,9 +99,9 @@ export function DashboardDemoCTA({
             className="relative"
           >
             {/* Dashboard container */}
-            <div className="relative rounded-2xl bg-[var(--dashboard-bg)] p-1.5 ring-1 ring-foreground/10 shadow-2xl">
+            <div className="relative rounded-2xl bg-[#0a1628] p-1.5 ring-1 ring-white/10 shadow-2xl">
               {/* Aspect ratio wrapper - 16:9 on desktop, 3:4 on mobile */}
-              <div className="relative aspect-[16/9] rounded-xl overflow-hidden bg-[var(--dashboard-bg)]">
+              <div className="relative aspect-[16/9] rounded-xl overflow-hidden bg-[#0a1628]">
                 {/* 16:9 layout - shown on lg+ screens */}
                 <div className="hidden lg:block absolute inset-0">
                   <Dashboard16x9 />
@@ -120,7 +120,7 @@ export function DashboardDemoCTA({
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.8 }}
-              className="absolute -bottom-4 -right-4 bg-primary text-primary-foreground text-xs font-semibold px-4 py-2 rounded-full shadow-lg"
+              className="absolute -bottom-4 -right-4 bg-primary text-white text-xs font-semibold px-4 py-2 rounded-full shadow-lg"
             >
               Live Demo
             </motion.div>

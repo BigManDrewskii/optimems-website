@@ -14,7 +14,7 @@ const logoMap: Record<string, { dark: string; light: string }> = {
 }
 
 export function Products() {
-  const t = useTranslations('home')
+  const t = useTranslations()
 
   const getProductFeatures = (index: number): string[] => {
     if (index === 0) {

@@ -1,7 +1,7 @@
 "use client"
 
 import { ProductPageSection } from "@/components/products/ProductPageSection"
-import { BaseCard } from "@/components/shared/BaseCard"
+import { GlassCard } from "@/components/shared/GlassCard"
 import { FeatureList } from "@/components/products/FeatureList"
 import { useTranslations, useLocale } from "next-intl"
 import { motion } from "framer-motion"
@@ -51,7 +51,7 @@ export function PartnershipWhyPartner() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
               >
-                <BaseCard variant="standard" className="h-full p-6">
+                <GlassCard className="h-full p-6">
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
                       <Icon className="w-6 h-6 text-primary" />
@@ -76,7 +76,7 @@ export function PartnershipWhyPartner() {
                       size="sm"
                     />
                   </div>
-                </BaseCard>
+                </GlassCard>
               </motion.div>
             )
           })}

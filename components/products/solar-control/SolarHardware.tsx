@@ -1,7 +1,7 @@
 "use client"
 import { useTranslations, useLocale } from "next-intl"
 import { motion } from "framer-motion"
-import { BaseCard } from "@/components/shared/BaseCard"
+import { GlassCard } from "@/components/shared/GlassCard"
 import { Thermometer } from "lucide-react"
 
 /**
@@ -82,13 +82,13 @@ export function SolarHardware() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="mb-20"
         >
-          <BaseCard variant="standard" className="p-8 md:p-12 text-center">
+          <GlassCard className="p-8 md:p-12 text-center">
             <p className={`text-lg md:text-xl leading-relaxed text-muted-foreground max-w-4xl mx-auto ${isGreek ? 'greek-text' : ''}`}>
               At the core of +SolarControl is an <span className="text-foreground font-semibold">industrial MiniPC</span> with custom firmware,
               housed in a sealed, pre-wired panel built to <span className="text-primary font-semibold">EN IEC 61439-1 & EN 61439-5</span> standards.
               It installs in minutes, operates in extreme temperatures and securely manages all communication with field devices.
             </p>
-          </BaseCard>
+          </GlassCard>
         </motion.div>
 
         {/* Key Features Grid */}
@@ -113,14 +113,14 @@ export function SolarHardware() {
                 transition={{ duration: 0.4, delay: 0.4 + (idx * 0.1) }}
                 whileHover={{ y: -4 }}
               >
-                <BaseCard variant="standard" className="p-6 h-full text-center hover:border-primary/30 transition-all duration-300">
+                <GlassCard className="p-6 h-full text-center hover:border-primary/30 transition-all duration-300">
                   <h4 className={`text-lg font-bold mb-2 text-foreground ${isGreek ? 'greek-heading' : ''}`}>
                     {feature.title}
                   </h4>
                   <p className={`text-sm text-muted-foreground leading-relaxed ${isGreek ? 'greek-text' : ''}`}>
                     {feature.description}
                   </p>
-                </BaseCard>
+                </GlassCard>
               </motion.div>
             ))}
           </div>
@@ -165,7 +165,7 @@ export function SolarHardware() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.7 }}
             >
-              <BaseCard variant="standard" className="p-8 h-full">
+              <GlassCard className="p-8 h-full">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
                     <Thermometer className="w-6 h-6 text-primary" />
@@ -197,7 +197,7 @@ export function SolarHardware() {
                     Certified for continuous operation in harsh environments
                   </p>
                 </div>
-              </BaseCard>
+              </GlassCard>
             </motion.div>
           </div>
         </motion.div>

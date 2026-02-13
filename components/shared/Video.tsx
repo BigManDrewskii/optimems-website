@@ -1,10 +1,10 @@
 "use client"
 
-import { useState, useEffect, useMemo, useRef, useCallback } from "react"
+import { useState, useEffect, useMemo, useRef } from "react"
 import { useTheme } from "next-themes"
 import { cn } from "@/lib/utils"
-import { ClientOnly } from "@/components/shared/ClientOnly"
 
+// Extend React types to support video loading attribute (not yet in React types)
 declare module "react" {
   interface HTMLAttributes<T> extends AriaAttributes, DOMAttributes<T> {
     loading?: "eager" | "lazy"
@@ -14,8 +14,8 @@ declare module "react" {
 interface VideoProps {
   src: string
   format?: "webm" | "mp4"
-  aspectRatio?: 'video' | 'square' | 'custom'
-  maxHeight?: string
+  aspectRatio?: 'video' | 'square' | 'custom'  // NEW from VideoContainer
+  maxHeight?: string  // NEW from VideoContainer
   autoplay?: boolean
   muted?: boolean
   loop?: boolean
@@ -26,16 +26,16 @@ interface VideoProps {
   preload?: "none" | "metadata" | "auto"
   sources?: { webm?: string; webmLight?: string; mp4?: string; mp4Light?: string }
   cacheBust?: boolean
-  title?: string
-  alt?: string
-  loading?: "eager" | "lazy"
+  title?: string  // Accessible description of video content
+  alt?: string   // Alternative text for the video
+  loading?: "eager" | "lazy"  // Enable lazy loading for below-fold videos
 }
 
 export function Video({
   src,
   format = "webm",
-  aspectRatio = 'video',
-  maxHeight,
+  aspectRatio = 'video',  // NEW from VideoContainer
+  maxHeight,  // NEW from VideoContainer
   autoplay = true,
   muted = true,
   loop = true,
@@ -43,23 +43,48 @@ export function Video({
   className,
   poster,
   controls = false,
-  preload = "metadata",
+  preload = "metadata",  // Changed from "auto" - only load metadata by default
   sources,
-  cacheBust = false,
+  cacheBust = false,  // Changed from true - disable cache-busting to allow browser caching
   title,
   alt,
-  loading = "lazy",
+  loading = "lazy",  // Changed from "eager" - lazy load videos by default
 }: VideoProps) {
   const [hasError, setHasError] = useState(false)
   const [isLoaded, setIsLoaded] = useState(false)
+  const [mounted, setMounted] = useState(false)
+  const { resolvedTheme } = useTheme()
+  const videoRef = useRef<HTMLVideoElement>(null)
 
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  useEffect(() => {
+    if (mounted && videoRef.current) {
+      videoRef.current.load()
+    }
+  }, [mounted, sources?.webm, sources?.mp4])
+
+  // Removed cache-busting code - cacheBust defaults to false for better browser caching
+
+  const resolvedSources = useMemo(() => {
+    if (!sources) return null
+    const isLight = mounted && resolvedTheme === "light"
+    return {
+      webm: isLight && sources.webmLight ? sources.webmLight : sources.webm,
+      mp4: isLight && sources.mp4Light ? sources.mp4Light : sources.mp4,
+    }
+  }, [mounted, resolvedTheme, sources])
+
+  // NEW from VideoContainer: Aspect ratio classes
   const aspectRatioClasses = useMemo(() => {
-    const classes: Record<string, string> = {
+    const classes = {
       video: 'aspect-video',
       square: 'aspect-square',
       custom: '',
     }
-    return classes[aspectRatio] || ''
+    return classes[aspectRatio]
   }, [aspectRatio])
 
   if (hasError) {
@@ -79,6 +104,7 @@ export function Video({
     )
   }
 
+  // Use title or alt for accessible description, require meaningful label
   const videoLabel = title || alt
 
   if (!videoLabel && !poster) {
@@ -89,10 +115,10 @@ export function Video({
     <div
       className={cn(
         "relative overflow-hidden bg-background/50",
-        aspectRatioClasses,
+        aspectRatioClasses,  // NEW from VideoContainer
         className
       )}
-      style={maxHeight ? { maxHeight } : undefined}
+      style={maxHeight ? { maxHeight } : undefined}  // NEW from VideoContainer
     >
       {!isLoaded && poster && (
         <img
@@ -101,130 +127,31 @@ export function Video({
           alt={alt || ""}
         />
       )}
-      <ClientOnly
-        fallback={
-          <video
-            autoPlay={autoplay}
-            muted={muted}
-            loop={loop}
-            playsInline={playsInline}
-            controls={controls}
-            preload={preload}
-            loading={loading}
-            className={cn(
-              "w-full h-full object-cover",
-              !isLoaded && poster && "opacity-0",
-              isLoaded && "opacity-100"
-            )}
-            onError={() => setHasError(true)}
-            onLoadedData={() => setIsLoaded(true)}
-            aria-label={videoLabel || "Video content"}
-          >
-            {!sources && <source src={src} type={`video/${format}`} />}
-          </video>
-        }
+      <video
+        ref={videoRef}
+        autoPlay={autoplay}
+        muted={muted}
+        loop={loop}
+        playsInline={playsInline}
+        controls={controls}
+        preload={preload}
+        loading={loading}
+        // Key changes when video source changes (theme switch), causing remount
+        // This ensures correct video loads for current theme
+        key={resolvedSources?.webm || resolvedSources?.mp4}
+        className={cn(
+          "w-full h-full object-cover",
+          !isLoaded && poster && "opacity-0",
+          isLoaded && "opacity-100"
+        )}
+        onError={() => setHasError(true)}
+        onLoadedData={() => setIsLoaded(true)}
+        aria-label={videoLabel || "Video content"}
       >
-        <VideoWithTheme
-          sources={sources}
-          src={src}
-          format={format}
-          autoplay={autoplay}
-          muted={muted}
-          loop={loop}
-          playsInline={playsInline}
-          controls={controls}
-          preload={preload}
-          loading={loading}
-          isLoaded={isLoaded}
-          setIsLoaded={setIsLoaded}
-          setHasError={setHasError}
-          poster={poster}
-          alt={alt}
-          videoLabel={videoLabel || ''}
-        />
-      </ClientOnly>
+        {resolvedSources?.webm && <source src={resolvedSources.webm} type="video/webm" />}
+        {resolvedSources?.mp4 && <source src={resolvedSources.mp4} type="video/mp4" />}
+        {!resolvedSources && <source src={src} type={`video/${format}`} />}
+      </video>
     </div>
-  )
-}
-
-interface VideoWithThemeProps {
-  sources?: { webm?: string; webmLight?: string; mp4?: string; mp4Light?: string }
-  src: string
-  format: string
-  autoplay: boolean
-  muted: boolean
-  loop: boolean
-  playsInline: boolean
-  controls: boolean
-  preload: "none" | "metadata" | "auto"
-  loading: "eager" | "lazy"
-  isLoaded: boolean
-  setIsLoaded: (v: boolean) => void
-  setHasError: (v: boolean) => void
-  poster?: string
-  alt?: string
-  videoLabel: string
-}
-
-function VideoWithTheme({
-  sources,
-  src,
-  format,
-  autoplay,
-  muted,
-  loop,
-  playsInline,
-  controls,
-  preload,
-  loading,
-  isLoaded,
-  setIsLoaded,
-  setHasError,
-  poster,
-  alt,
-  videoLabel,
-}: VideoWithThemeProps) {
-  const { resolvedTheme } = useTheme()
-  const videoRef = useRef<HTMLVideoElement>(null)
-  const isLight = resolvedTheme === "light"
-
-  const resolvedSources = useMemo(() => {
-    if (!sources) return null
-    return {
-      webm: isLight && sources.webmLight ? sources.webmLight : sources.webm,
-      mp4: isLight && sources.mp4Light ? sources.mp4Light : sources.mp4,
-    }
-  }, [isLight, sources])
-
-  useEffect(() => {
-    if (videoRef.current && resolvedSources) {
-      videoRef.current.load()
-    }
-  }, [resolvedSources])
-
-  return (
-    <video
-      ref={videoRef}
-      autoPlay={autoplay}
-      muted={muted}
-      loop={loop}
-      playsInline={playsInline}
-      controls={controls}
-      preload={preload}
-      loading={loading}
-      key={resolvedSources?.webm || resolvedSources?.mp4}
-      className={cn(
-        "w-full h-full object-cover",
-        !isLoaded && poster && "opacity-0",
-        isLoaded && "opacity-100"
-      )}
-      onError={() => setHasError(true)}
-      onLoadedData={() => setIsLoaded(true)}
-      aria-label={videoLabel || "Video content"}
-    >
-      {resolvedSources?.webm && <source src={resolvedSources.webm} type="video/webm" />}
-      {resolvedSources?.mp4 && <source src={resolvedSources.mp4} type="video/mp4" />}
-      {!resolvedSources && <source src={src} type={`video/${format}`} />}
-    </video>
   )
 }

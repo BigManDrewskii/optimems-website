@@ -51,7 +51,7 @@ export function LocaleSwitcher({
         )}
       >
         <span className="text-xs font-ubuntu" style={{ letterSpacing: "0.16px", lineHeight: "20px", fontWeight: 500 }}>
-          EL
+          GR
         </span>
       </button>
 

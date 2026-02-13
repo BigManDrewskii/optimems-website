@@ -4,10 +4,8 @@
 User-agent: *
 Allow: /
 
-# Disallow auth and internal routes
-Disallow: /login
-Disallow: /signup
-Disallow: /admin
+# Disallow admin and API routes
+Disallow: /admin/
 Disallow: /api/
 
 # Sitemap reference

@@ -1,7 +1,7 @@
 "use client"
 
 import { ProductPageSection } from "@/components/products/ProductPageSection"
-import { BaseCard } from "@/components/shared/BaseCard"
+import { GlassCard } from "@/components/shared/GlassCard"
 import { useTranslations, useLocale } from "next-intl"
 import { motion } from "framer-motion"
 
@@ -38,14 +38,14 @@ export function VisionSection() {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="relative"
           >
-            <BaseCard variant="standard" className="p-8 hover:scale-[1.02] transition-transform duration-300">
+            <GlassCard className="p-8 hover:scale-[1.02] transition-transform duration-300">
               <div className="aspect-video bg-primary/20 rounded-lg flex items-center justify-center">
                 <svg className="w-24 h-24 text-primary/40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                   <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
                   <circle cx="12" cy="12" r="3" />
                 </svg>
               </div>
-            </BaseCard>
+            </GlassCard>
           </motion.div>
         </div>
       </ProductPageSection>

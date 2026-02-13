@@ -33,6 +33,12 @@ export default function RootLayout({
                 const path = window.location.pathname;
                 const locale = path.split('/')[1] || 'el';
                 document.documentElement.setAttribute('lang', locale);
+
+                // Theme initialization
+                const theme = localStorage.getItem('theme') || 'dark';
+                if (theme === 'dark') {
+                  document.documentElement.classList.add('dark');
+                }
               })();
             `,
           }}
@@ -43,7 +49,6 @@ export default function RootLayout({
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/site.webmanifest" />
         <meta name="theme-color" content="#FC5855" />
-        <script src="/scripts/theme-init.js" />
       </head>
       <body className={`relative ${ibm.className} bg-background min-h-screen`}>
         {children}

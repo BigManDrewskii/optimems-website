@@ -55,9 +55,9 @@
 
   /* Map Colors - Light Mode */
   --map-land: oklch(0.98 0.01 250);
-  --map-border: oklch(0.85 0.02 250);
-  --pin-active: oklch(0.58 0.15 195);
-  --pin-future: oklch(0.65 0.02 250);
+  --map-border: 210 12% 75%;
+  --pin-active: 195 58% 45%;
+  --pin-future: 250 55% 55%;
 
   /* Sidebar */
   --sidebar: oklch(0.92 0.01 250);
@@ -91,15 +91,15 @@
   --shadow-blur: 0.3rem;
   --shadow-spread: -0.05rem;
   --shadow-opacity: 0.08;
-  --shadow-color: oklch(0.20 0.02 250 / 0.5);
-  --shadow-2xs: 0rem 0.1rem 0.3rem -0.05rem oklch(0.20 0.02 250 / 0.08);
-  --shadow-xs: 0rem 0.1rem 0.3rem -0.05rem oklch(0.20 0.02 250 / 0.08);
-  --shadow-sm: 0rem 0.1rem 0.3rem -0.05rem oklch(0.20 0.02 250 / 0.10), 0rem 1px 2px -1.1px oklch(0.20 0.02 250 / 0.10);
-  --shadow: 0rem 0.1rem 0.3rem -0.05rem oklch(0.20 0.02 250 / 0.10), 0rem 1px 2px -1.1px oklch(0.20 0.02 250 / 0.10);
-  --shadow-md: 0rem 0.1rem 0.3rem -0.05rem oklch(0.20 0.02 250 / 0.10), 0rem 2px 4px -1.1px oklch(0.20 0.02 250 / 0.10);
-  --shadow-lg: 0rem 0.1rem 0.3rem -0.05rem oklch(0.20 0.02 250 / 0.10), 0rem 4px 6px -1.1px oklch(0.20 0.02 250 / 0.10);
-  --shadow-xl: 0rem 0.1rem 0.3rem -0.05rem oklch(0.20 0.02 250 / 0.10), 0rem 8px 10px -1.1px oklch(0.20 0.02 250 / 0.10);
-  --shadow-2xl: 0rem 0.1rem 0.3rem -0.05rem oklch(0.20 0.02 250 / 0.20);
+  --shadow-color: hsl(0, 0%, 0%);
+  --shadow-2xs: 0rem 0.1rem 0.3rem -0.05rem hsl(0 0% 0% / 0.08);
+  --shadow-xs: 0rem 0.1rem 0.3rem -0.05rem hsl(0 0% 0% / 0.08);
+  --shadow-sm: 0rem 0.1rem 0.3rem -0.05rem hsl(0 0% 0% / 0.10), 0rem 1px 2px -1.1px hsl(0 0% 0% / 0.10);
+  --shadow: 0rem 0.1rem 0.3rem -0.05rem hsl(0 0% 0% / 0.10), 0rem 1px 2px -1.1px hsl(0 0% 0% / 0.10);
+  --shadow-md: 0rem 0.1rem 0.3rem -0.05rem hsl(0 0% 0% / 0.10), 0rem 2px 4px -1.1px hsl(0 0% 0% / 0.10);
+  --shadow-lg: 0rem 0.1rem 0.3rem -0.05rem hsl(0 0% 0% / 0.10), 0rem 4px 6px -1.1px hsl(0 0% 0% / 0.10);
+  --shadow-xl: 0rem 0.1rem 0.3rem -0.05rem hsl(0 0% 0% / 0.10), 0rem 8px 10px -1.1px hsl(0 0% 0% / 0.10);
+  --shadow-2xl: 0rem 0.1rem 0.3rem -0.05rem hsl(0 0% 0% / 0.20);
 
   --tracking-normal: 0.01em;
   --spacing: 0.25rem;
@@ -107,13 +107,13 @@
   --gap: 1rem;
 
   /* Blog prose colors - Light mode */
-  --prose-text: oklch(0.20 0.02 250);
-  --prose-link: oklch(0.65 0.18 25);
-  --prose-quote-border: oklch(0.65 0.18 25 / 0.3);
-  --prose-quote-bg: oklch(0.95 0.01 250 / 0.5);
-  --prose-hover-bg: oklch(0.95 0.01 250 / 0.3);
-  --prose-muted: oklch(0.45 0.02 250);
-  --prose-list-marker: oklch(0.65 0.18 25);
+  --prose-text: rgb(22, 22, 22);
+  --prose-link: rgb(220, 38, 38);
+  --prose-quote-border: rgba(220, 38, 38, 0.3);
+  --prose-quote-bg: rgba(243, 244, 246, 0.5);
+  --prose-hover-bg: rgba(243, 244, 246, 0.3);
+  --prose-muted: rgb(107, 114, 128);
+  --prose-list-marker: rgb(220, 38, 38);
 
    /* Orbit Graphic Variables - Enhanced Light Mode */
   --grid-dot: oklch(0.20 0.02 250 / 0.22);
@@ -127,20 +127,7 @@
   --orbit-icon-shadow: 0 1px 4px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.03);
   --orbit-pulse: oklch(0.58 0.15 195 / 0.12);
   --orbit-hub-glow: 0 0 25px oklch(0.58 0.15 195 / 0.18), 0 6px 16px rgba(0, 0, 0, 0.08); /* Enhanced */
-
-  /* Dashboard Colors - Light Mode */
-  --dashboard-bg: oklch(0.95 0.01 250);
-  --dashboard-surface: oklch(0.88 0.02 250);
-  --dashboard-sidebar-bg: oklch(0.92 0.01 250);
-  --dashboard-card-bg: oklch(0.88 0.02 250);
-  --dashboard-border: oklch(0.85 0.02 250);
-  --dashboard-text-primary: oklch(0.20 0.02 250);
-  --dashboard-text-secondary: oklch(0.45 0.02 250);
-  --dashboard-accent: oklch(0.65 0.18 25);
-  --dashboard-scrollbar-track: oklch(0.90 0.01 250);
-  --dashboard-scrollbar-thumb: oklch(0.80 0.02 250);
-  --dashboard-scrollbar-thumb-hover: oklch(0.70 0.02 250);
-
+  
   /* Better logo filtering for light theme */
   --orbit-logo-filter: brightness(0.1); /* Slight brightness boost for light mode */
 }
@@ -197,9 +184,9 @@
 
   /* Map Colors - Dark Mode */
   --map-land: oklch(0.35 0.05 250);
-  --map-border: oklch(0.40 0.03 250);
-  --pin-active: oklch(0.65 0.18 25);
-  --pin-future: oklch(0.70 0.02 250);
+  --map-border: 250 18% 45%;
+  --pin-active: 25 65% 58%;
+  --pin-future: 250 55% 60%;
 
   /* Sidebar */
   --sidebar: oklch(0.288 0.045 250);
@@ -223,15 +210,15 @@
   --shadow-blur: 0.6rem;
   --shadow-spread: -0.1rem;
   --shadow-opacity: 0.2;
-  --shadow-color: oklch(0.10 0.02 250 / 0.8);
-  --shadow-2xs: 0rem 0.3rem 0.6rem -0.1rem oklch(0.10 0.02 250 / 0.10);
-  --shadow-xs: 0rem 0.3rem 0.6rem -0.1rem oklch(0.10 0.02 250 / 0.10);
-  --shadow-sm: 0rem 0.3rem 0.6rem -0.1rem oklch(0.10 0.02 250 / 0.20), 0rem 1px 2px -1.1px oklch(0.10 0.02 250 / 0.20);
-  --shadow: 0rem 0.3rem 0.6rem -0.1rem oklch(0.10 0.02 250 / 0.20), 0rem 1px 2px -1.1px oklch(0.10 0.02 250 / 0.20);
-  --shadow-md: 0rem 0.3rem 0.6rem -0.1rem oklch(0.10 0.02 250 / 0.20), 0rem 2px 4px -1.1px oklch(0.10 0.02 250 / 0.20);
-  --shadow-lg: 0rem 0.3rem 0.6rem -0.1rem oklch(0.10 0.02 250 / 0.20), 0rem 4px 6px -1.1px oklch(0.10 0.02 250 / 0.20);
-  --shadow-xl: 0rem 0.3rem 0.6rem -0.1rem oklch(0.10 0.02 250 / 0.20), 0rem 8px 10px -1.1px oklch(0.10 0.02 250 / 0.20);
-  --shadow-2xl: 0rem 0.3rem 0.6rem -0.1rem oklch(0.10 0.02 250 / 0.50);
+  --shadow-color: hsl(0, 0%, 0%);
+  --shadow-2xs: 0rem 0.3rem 0.6rem -0.1rem hsl(0 0% 0% / 0.10);
+  --shadow-xs: 0rem 0.3rem 0.6rem -0.1rem hsl(0 0% 0% / 0.10);
+  --shadow-sm: 0rem 0.3rem 0.6rem -0.1rem hsl(0 0% 0% / 0.20), 0rem 1px 2px -1.1px hsl(0 0% 0% / 0.20);
+  --shadow: 0rem 0.3rem 0.6rem -0.1rem hsl(0 0% 0% / 0.20), 0rem 1px 2px -1.1px hsl(0 0% 0% / 0.20);
+  --shadow-md: 0rem 0.3rem 0.6rem -0.1rem hsl(0 0% 0% / 0.20), 0rem 2px 4px -1.1px hsl(0 0% 0% / 0.20);
+  --shadow-lg: 0rem 0.3rem 0.6rem -0.1rem hsl(0 0% 0% / 0.20), 0rem 4px 6px -1.1px hsl(0 0% 0% / 0.20);
+  --shadow-xl: 0rem 0.3rem 0.6rem -0.1rem hsl(0 0% 0% / 0.20), 0rem 8px 10px -1.1px hsl(0 0% 0% / 0.20);
+  --shadow-2xl: 0rem 0.3rem 0.6rem -0.1rem hsl(0 0% 0% / 0.50);
 
   --tracking-normal: 0.01em;
   --spacing: 0.25rem;
@@ -239,13 +226,13 @@
   --gap: 1rem;
 
   /* Blog prose colors - Dark mode */
-  --prose-text: oklch(0.95 0.01 250);
-  --prose-link: oklch(0.65 0.18 25);
-  --prose-quote-border: oklch(0.65 0.18 25 / 0.3);
-  --prose-quote-bg: oklch(0.30 0.04 250 / 0.5);
-  --prose-hover-bg: oklch(0.30 0.04 250 / 0.3);
-  --prose-muted: oklch(0.65 0.02 250);
-  --prose-list-marker: oklch(0.65 0.18 25);
+  --prose-text: rgb(241, 241, 241);
+  --prose-link: rgb(252, 88, 85);
+  --prose-quote-border: rgba(252, 88, 85, 0.3);
+  --prose-quote-bg: rgba(30, 30, 35, 0.5);
+  --prose-hover-bg: rgba(30, 30, 35, 0.3);
+  --prose-muted: rgb(163, 163, 163);
+  --prose-list-marker: rgb(252, 88, 85);
 
   /* Orbit Graphic Variables - Dark Mode */
   --grid-dot: oklch(0.50 0.12 250 / 0.24);
@@ -259,20 +246,7 @@
   --orbit-icon-shadow: 0 0 0 0 transparent;
   --orbit-pulse: oklch(0.65 0.18 25 / 0.15);
   --orbit-hub-glow: 0 0 24px oklch(0.65 0.18 25 / 0.2), 0 4px 12px rgba(0, 0, 0, 0.4);
-
-  /* Dashboard Colors - Dark Mode */
-  --dashboard-bg: oklch(0.28 0.04 250);
-  --dashboard-surface: oklch(0.34 0.04 250);
-  --dashboard-sidebar-bg: oklch(0.25 0.04 250);
-  --dashboard-card-bg: oklch(0.34 0.04 250);
-  --dashboard-border: oklch(0.40 0.03 250);
-  --dashboard-text-primary: oklch(0.95 0.01 250);
-  --dashboard-text-secondary: oklch(0.65 0.02 250);
-  --dashboard-accent: oklch(0.65 0.18 25);
-  --dashboard-scrollbar-track: oklch(0.30 0.04 250);
-  --dashboard-scrollbar-thumb: oklch(0.45 0.03 250);
-  --dashboard-scrollbar-thumb-hover: oklch(0.55 0.03 250);
-
+  
   /* Optimems logo filter for theme handling */
   --orbit-logo-filter: brightness(0) invert(1);
 }
@@ -531,12 +505,12 @@ body {
 /* Map Geography Styles */
 .map-geography {
   outline: none;
-  fill: var(--map-land);
+  fill: hsl(var(--map-land));
 }
 
 .map-geography:hover {
   outline: none;
-  fill: var(--primary);
+  fill: oklch(var(--primary));
 }
 
 .map-geography-pressed {
@@ -813,6 +787,38 @@ body {
 
 /* Orbit animations for MindProblem section */
 
+/* Orbit colors - light mode */
+:root {
+  --orbit-ring-color: oklch(0.20 0.02 250 / 0.18);
+  --orbit-icon-color: oklch(0.65 0.18 25);
+  --orbit-icon-glow: 0 0 14px oklch(0.65 0.18 25 / 0.25);
+  --orbit-hub-bg: oklch(0.97 0.005 250);
+  --orbit-hub-border: oklch(0.82 0.02 250);
+  --orbit-icon-bg: oklch(0.97 0.005 250 / 0.95);
+  --orbit-icon-border: oklch(0.80 0.02 250);
+  --orbit-icon-shadow: 0 1px 4px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.03);
+  --orbit-pulse: oklch(0.58 0.15 195 / 0.12);
+  --orbit-hub-glow: 0 0 20px oklch(0.58 0.15 195 / 0.12), 0 2px 8px rgba(0, 0, 0, 0.08);
+  --grid-dot: oklch(0.20 0.02 250 / 0.22);
+  --orbit-logo-filter: brightness(0.1); /* Slight brightness boost for light mode */
+}
+
+.dark {
+  /* Orbit colors - dark mode */
+  --orbit-ring-color: oklch(1 0 0 / 0.14);
+  --orbit-icon-color: oklch(0.58 0.15 195);
+  --orbit-icon-glow: 0 0 14px oklch(0.58 0.15 195 / 0.25);
+  --orbit-hub-bg: oklch(0.18 0.04 250);
+  --orbit-hub-border: oklch(1 0 0 / 0.12);
+  --orbit-icon-bg: oklch(0.18 0.04 250 / 0.92);
+  --orbit-icon-border: oklch(1 0 0 / 0.10);
+  --orbit-icon-shadow: 0 0 0 0 transparent;
+  --orbit-pulse: oklch(0.65 0.18 25 / 0.15);
+  --orbit-hub-glow: 0 0 24px oklch(0.65 0.18 25 / 0.2), 0 4px 12px rgba(0, 0, 0, 0.4);
+  --grid-dot: oklch(0.50 0.12 250 / 0.24);
+  --orbit-logo-filter: brightness(0) invert(1);
+}
+
 @keyframes orbit-cw {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
@@ -944,30 +950,13 @@ body {
   to { stroke-dashoffset: -16; }
 }
 
-/* Scroll-triggered animations using IntersectionObserver */
-.animate-on-scroll {
-  opacity: 0;
-  transition: opacity var(--animation-duration, 0.5s) ease-out,
-              transform var(--animation-duration, 0.5s) ease-out;
+@keyframes orbit-cw {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
-.animate-on-scroll.animate-visible {
-  opacity: 1;
-}
-
-.animate-on-scroll[data-animation="fadeInUp"] {
-  transform: translateY(20px);
-}
-
-.animate-on-scroll[data-animation="fadeInUp"].animate-visible {
-  transform: translateY(0);
-}
-
-.animate-on-scroll[data-animation="scaleIn"] {
-  transform: scale(0.95);
-}
-
-.animate-on-scroll[data-animation="scaleIn"].animate-visible {
-  transform: scale(1);
+@keyframes orbit-ccw {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
 }
 

@@ -66,12 +66,12 @@ export function ContactCTA() {
             className="relative"
           >
             {/* Dashboard container - laptop bezel frame */}
-            <div className="relative p-1.5 rounded-[20px] bg-[var(--dashboard-surface)] border border-[var(--dashboard-border)] shadow-2xl">
+            <div className="relative p-1.5 rounded-[20px] bg-[#1e2d3d] dark:bg-[#1e2d3d] bg-gray-300 border border-black/[0.08] dark:border-white/[0.08] shadow-[0_8px_32px_rgba(0,0,0,0.4)]">
               {/* Top light reflection */}
-              <div className="absolute inset-x-0 top-0 h-px rounded-t-[20px] bg-gradient-to-r from-transparent via-foreground/10 to-transparent" />
+              <div className="absolute inset-x-0 top-0 h-px rounded-t-[20px] bg-gradient-to-r from-transparent via-white/10 to-transparent" />
 
               {/* Aspect ratio wrapper - 16:9 on desktop, 3:4 on mobile */}
-              <div className="relative aspect-[16/9] rounded-[16px] overflow-hidden bg-[var(--dashboard-bg)]">
+              <div className="relative aspect-[16/9] rounded-[16px] overflow-hidden bg-[#0a1628]">
                 {/* 16:9 layout - shown on lg+ screens */}
                 <div className="hidden lg:block absolute inset-0">
                   <Dashboard16x9 />

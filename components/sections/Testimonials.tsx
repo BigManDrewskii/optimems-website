@@ -5,31 +5,9 @@ import { testimonials } from "@/data/landing-page"
 import { Marquee } from "@/components/magicui/marquee"
 import { useTranslations } from "next-intl"
 import { testimonialKeys } from "@/lib/i18n/translation-keys"
-import { useState, useCallback, memo, useMemo } from "react"
+import { useState, useEffect, useCallback, memo, useMemo } from "react"
 import Image from "next/image"
-
-function ThemeAwareLogo({ logo, lightThemeLogo, alt }: { logo: string; lightThemeLogo?: string; alt: string }) {
-  return (
-    <>
-      {lightThemeLogo && (
-        <Image
-          src={lightThemeLogo}
-          alt={alt}
-          width={200}
-          height={40}
-          className="h-10 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity hidden light:block"
-        />
-      )}
-      <Image
-        src={logo}
-        alt={alt}
-        width={200}
-        height={40}
-        className={`h-10 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity ${lightThemeLogo ? 'hidden dark:block' : ''}`}
-      />
-    </>
-  )
-}
+import { useTheme } from "next-themes"
 
 const FeaturedTestimonialCard = memo(function FeaturedTestimonialCard({
   testimonial,
@@ -39,6 +17,16 @@ const FeaturedTestimonialCard = memo(function FeaturedTestimonialCard({
   translationKey: string
 }) {
   const t = useTranslations()
+  const { resolvedTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  const logoSrc = mounted && resolvedTheme === 'light'
+    ? testimonial.lightThemeLogo || testimonial.logo
+    : testimonial.logo
 
   return (
     <BaseCard
@@ -92,12 +80,14 @@ const FeaturedTestimonialCard = memo(function FeaturedTestimonialCard({
             </div>
 
             {/* Company Logo */}
-            {testimonial.logo && (
+            {logoSrc && (
               <div className="flex-shrink-0 sm:self-center">
-                <ThemeAwareLogo
-                  logo={testimonial.logo}
-                  lightThemeLogo={testimonial.lightThemeLogo}
+                <Image
+                  src={logoSrc}
                   alt={t(`testimonials.items.${translationKey}.company`)}
+                  width={200}
+                  height={40}
+                  className="h-10 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity"
                 />
               </div>
             )}

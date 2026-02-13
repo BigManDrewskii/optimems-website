@@ -29,13 +29,13 @@ function StatCard({
       initial={{ opacity: 0, y: 20 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
       transition={{ duration: 0.5, delay }}
-      className="bg-[var(--dashboard-card-bg)] rounded-lg p-4 border border-[var(--dashboard-border)] shadow-lg hover:scale-[1.02] transition-transform duration-300"
+      className="bg-[#1d3557] rounded-lg p-4 border border-gray-700 shadow-lg hover:scale-[1.02] transition-transform duration-300"
     >
-      <h3 className="text-[var(--dashboard-text-primary)] text-sm font-semibold mb-1">{title}</h3>
-      <p className="text-2xl font-bold text-[var(--dashboard-text-primary)] mb-1">
+      <h3 className="text-white text-sm font-semibold mb-1">{title}</h3>
+      <p className="text-2xl font-bold text-white mb-1">
         {animatedValue}
       </p>
-      {subtitle && <p className="text-[var(--dashboard-text-secondary)] text-xs">{subtitle}</p>}
+      {subtitle && <p className="text-gray-300 text-xs">{subtitle}</p>}
 
       {trend && (
         <div className="mt-2">

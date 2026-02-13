@@ -64,8 +64,8 @@ export function SolarHeroNew() {
               className="flex flex-col sm:flex-row gap-4 justify-center"
             >
               <CustomPrimaryButton
-                href="/"
-                label={t('primaryCTA')}
+                href="/demo"
+                label={t('primaryCta')}
                 className="min-w-fit max-w-fit"
               />
               <Button asChild variant="outline" className="min-w-fit max-w-fit h-[52px] sm:h-[56px] md:h-[60px] px-8 rounded-full">

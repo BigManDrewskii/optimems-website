@@ -4,10 +4,9 @@ import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
 import { useTranslations } from "next-intl"
-import Link from "next/link"
 
 export function Vision() {
-  const t = useTranslations('home')
+  const t = useTranslations()
 
   return (
     <section className="py-20 px-4 md:px-6 lg:px-8 relative">
@@ -83,10 +82,10 @@ export function Vision() {
               </p>
             </div>
             <Button asChild variant="primary" size="default" className="gap-2">
-              <Link href="/demo">
+              <a href="/demo">
                 {t('vision.exploreCTA')}
                 <ArrowRight className="w-4 h-4" />
-              </Link>
+              </a>
             </Button>
           </motion.div>
         </div>

@@ -36,7 +36,7 @@ export function Dashboard16x9() {
   ];
 
   return (
-    <div className="h-full flex bg-[var(--dashboard-bg)] rounded-lg overflow-hidden">
+    <div className="h-full flex bg-[#0d1f35] rounded-lg overflow-hidden">
       {/* Sidebar - Fixed width to match content */}
       <SidebarDemo autoCycle={false} />
 
@@ -48,14 +48,14 @@ export function Dashboard16x9() {
           }
         `}</style>
         {/* Stat Cards - Full width row */}
-        <div className="bg-[var(--dashboard-surface)] rounded-lg border border-[var(--dashboard-border)] p-3">
-          <h3 className="text-[var(--dashboard-text-primary)] text-sm font-semibold mb-3">Overview</h3>
+        <div className="bg-[#1d3557] rounded-lg border border-gray-700 p-3">
+          <h3 className="text-white text-sm font-semibold mb-3">Overview</h3>
           <StatCardsDemo stats={statCardsData} columns={1} />
         </div>
 
         {/* Power Bars - Full width */}
-        <div className="bg-[var(--dashboard-surface)] rounded-lg border border-[var(--dashboard-border)] p-3">
-          <h3 className="text-[var(--dashboard-text-primary)] text-sm font-semibold mb-3">Installations</h3>
+        <div className="bg-[#1d3557] rounded-lg border border-gray-700 p-3">
+          <h3 className="text-white text-sm font-semibold mb-3">Installations</h3>
           <PowerBarsDemo installations={installations} maxItems={5} />
         </div>
       </div>

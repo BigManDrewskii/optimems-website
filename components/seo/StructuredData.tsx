@@ -1,5 +1,7 @@
+"use client"
+
 /**
- * Server component to inject JSON-LD structured data into the page
+ * Component to inject JSON-LD structured data into the page
  */
 interface StructuredDataProps {
   data: Record<string, unknown> | unknown

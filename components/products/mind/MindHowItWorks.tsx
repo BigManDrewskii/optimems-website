@@ -3,7 +3,7 @@
 import { useTranslations, useLocale } from "next-intl"
 import { motion } from "framer-motion"
 import { ProductPageSection } from "@/components/products/ProductPageSection"
-import { BaseCard } from "@/components/shared/BaseCard"
+import { GlassCard } from "@/components/shared/GlassCard"
 import { CheckCircle2 } from "lucide-react"
 
 /**
@@ -45,7 +45,7 @@ export function MindHowItWorks() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
             >
-              <BaseCard variant="standard" className="p-8">
+              <GlassCard className="p-8">
                 <div className="flex items-start gap-6">
                   {/* Step Number */}
                   <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
@@ -78,7 +78,7 @@ export function MindHowItWorks() {
                     )}
                   </div>
                 </div>
-              </BaseCard>
+              </GlassCard>
             </motion.div>
           ))}
         </div>
@@ -90,11 +90,11 @@ export function MindHowItWorks() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
         >
-          <BaseCard variant="standard" className="p-8 text-center bg-primary/5">
+          <GlassCard className="p-8 text-center bg-primary/5">
             <p className={`text-lg md:text-xl font-semibold text-foreground ${isGreek ? 'greek-heading' : ''}`}>
               {t('result')}
             </p>
-          </BaseCard>
+          </GlassCard>
         </motion.div>
       </div>
     </ProductPageSection>

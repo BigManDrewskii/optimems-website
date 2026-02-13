@@ -6,7 +6,8 @@ import { ArrowRight } from "lucide-react"
 import { Link } from "@/i18n/navigation"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { useMemo } from "react"
+import { useTheme } from "next-themes"
+import { useMemo, useState, useEffect } from "react"
 import { useTranslations, useLocale } from "next-intl"
 
 function formatBlogDate(dateString: string, locale: string): string {
@@ -27,6 +28,12 @@ function formatBlogDate(dateString: string, locale: string): string {
   })
 }
 
+// Derive light image from dark image path
+const getLightImage = (darkPath: string): string => {
+  return darkPath.replace('-dark.jpeg', '-light.jpeg')
+}
+
+// Featured blog posts to show on homepage
 const featuredSlugs = [
   '2025-06-26-optimems-nbg-business-seeds',
   '2025-06-02-optimems-web-summit-vancouver',
@@ -37,31 +44,37 @@ interface BlogPreviewProps {
   featuredPosts?: BlogPost[]
 }
 
-function BlogImage({ src, alt }: { src: string; alt: string }) {
-  return (
-    <>
-      <Image
-        src={src.replace('-dark.jpeg', '-light.jpeg')}
-        alt={alt}
-        fill
-        className="object-cover group-hover:scale-105 transition-transform duration-500 hidden light:block"
-      />
-      <Image
-        src={src}
-        alt={alt}
-        fill
-        className="object-cover group-hover:scale-105 transition-transform duration-500 light:hidden"
-      />
-    </>
-  )
-}
-
 export function BlogPreview({ featuredPosts: postsProp }: BlogPreviewProps) {
+  const { resolvedTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
   const t = useTranslations('blog')
   const locale = useLocale()
 
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  // Use provided posts or empty array (will be populated by server component)
   const featuredPosts = postsProp || []
 
+  // Resolve images based on theme
+  const resolvedPosts = useMemo(() => {
+    return featuredPosts.map((post) => {
+      const lightImage = post.featured_image?.endsWith('-dark.jpeg')
+        ? getLightImage(post.featured_image)
+        : null
+      const resolvedImage = mounted && resolvedTheme === "light" && lightImage
+        ? lightImage
+        : post.featured_image
+
+      return {
+        ...post,
+        resolvedImage,
+      }
+    })
+  }, [featuredPosts, mounted, resolvedTheme])
+
+  // Don't render if no posts
   if (!featuredPosts || featuredPosts.length === 0) {
     return null
   }
@@ -76,12 +89,17 @@ export function BlogPreview({ featuredPosts: postsProp }: BlogPreviewProps) {
         />
 
         <AnimatedGrid columns={3} gap="lg" staggerDelay={0.1} className="grid sm:grid-cols-2 md:grid-cols-3">
-          {featuredPosts.map((post) => (
+          {resolvedPosts.map((post) => (
               <div key={post.slug} className="block group h-full">
                 <div className="h-full rounded-xl md:rounded-2xl bg-card/60 backdrop-blur-sm border border-border/30 shadow-sm transition-all duration-300 hover:border-secondary overflow-hidden flex flex-col">
-                {post.featured_image && (
+                {post.resolvedImage && (
                   <div className="relative w-full aspect-video overflow-hidden bg-foreground/20">
-                    <BlogImage src={post.featured_image} alt={post.title} />
+                    <Image
+                      src={post.resolvedImage}
+                      alt={post.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
                     <div className="absolute top-3 left-3 md:top-4 md:left-4">
                       <span className="inline-block px-2.5 py-1 text-xs font-semibold bg-background/90 backdrop-blur-sm rounded-full border border-border/50">
                         {post.category}

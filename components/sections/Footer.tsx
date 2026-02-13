@@ -4,11 +4,13 @@ import { footer } from "@/data/landing-page"
 import { filterFooterSections } from "@/lib/footer-utils"
 import { Mail, ChevronDown } from "lucide-react"
 import { Link } from "@/i18n/navigation"
-import { OptimemsLogo } from "@/components/shared"
-import { useState } from "react"
+import { Video, OptimemsLogo } from "@/components/shared"
+import { getVideoSrc } from "@/data/videos"
+import { useState, useEffect } from "react"
 import { useTranslations, useLocale } from "next-intl"
-import NextLink from "next/link"
+import { useTheme } from "next-themes"
 
+// Filter footer links to remove hidden pages
 const footerLinks = filterFooterSections([
   { title: "Products", links: footer.links.products },
   { title: "Company", links: footer.links.company },
@@ -45,8 +47,40 @@ function FooterSection({ title, links, isOpen, onToggle }: { title: string; link
 
 export function Footer() {
   const [openSections, setOpenSections] = useState<Record<number, boolean>>({})
-  const t = useTranslations('common')
+  const [mounted, setMounted] = useState(false)
+  const t = useTranslations()
   const locale = useLocale()
+  const { resolvedTheme } = useTheme()
+  const isGreek = locale === "el"
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  // Show placeholder before mount to prevent layout shift
+  if (!mounted) {
+    return (
+      <footer className="relative pb-0 pt-8 sm:pt-12 bg-transparent" role="contentinfo">
+        <div className="relative z-20 mx-auto max-w-[1400px] px-3 sm:px-6 lg:px-8">
+          <div
+            className="rounded-t-xl sm:rounded-t-3xl border-t-2 border-border p-4 sm:p-6 md:p-10 bg-background/95 min-h-[300px]"
+            style={{
+              backgroundColor: 'hsl(var(--background))',
+            }}>
+            <div className="animate-pulse space-y-4">
+              <div className="h-6 w-32 bg-muted rounded" />
+              <div className="h-4 w-48 bg-muted/50 rounded" />
+              <div className="grid grid-cols-3 gap-4">
+                <div className="h-16 bg-muted/30 rounded" />
+                <div className="h-16 bg-muted/30 rounded" />
+                <div className="h-16 bg-muted/30 rounded" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    )
+  }
 
   const toggleSection = (index: number) => {
     setOpenSections(prev => ({ ...prev, [index]: !prev[index] }))
@@ -71,14 +105,13 @@ export function Footer() {
           className="rounded-t-xl sm:rounded-t-3xl backdrop-blur-md border-0 border-t-2 border-primary shadow-xl p-4 sm:p-6 md:p-10 bg-background/95"
           style={{
             backgroundColor: 'hsl(var(--background))',
-            backgroundImage: "url('/images/sections/grid-pattern-light.png')",
+            backgroundImage: `url('/images/sections/grid-pattern-${resolvedTheme === 'dark' ? 'dark' : 'light'}.png')`,
             backgroundRepeat: 'repeat',
-          }}
-        >
+          }}>
           <div className="mb-6 sm:mb-8">
-            <NextLink className="flex items-center gap-2.5 mb-3 w-fit hover:opacity-80 transition-opacity" href="/" aria-label="Optimems home">
+            <a className="flex items-center gap-2.5 mb-3 w-fit hover:opacity-80 transition-opacity" href="/" aria-label="Optimems home">
               <OptimemsLogo className="w-8 h-8 sm:w-9 sm:h-9" />
-            </NextLink>
+            </a>
 
             <p className="text-muted-foreground text-xs mb-2">
               {t('footer.company.description')}
@@ -125,14 +158,15 @@ export function Footer() {
 
               <div className="flex items-center gap-4 sm:gap-3">
                 {footer.social.map((social) => {
-                  const iconMap: { [key: string]: { dark: string; light: string } } = {
-                    'X': { dark: '/images/logos/social-x.svg', light: '/images/logos/social-x-dark.svg' },
-                    'Facebook': { dark: '/images/logos/social-facebook.svg', light: '/images/logos/social-facebook-dark.svg' },
-                    'YouTube': { dark: '/images/logos/social-youtube.svg', light: '/images/logos/social-youtube-dark.svg' },
-                    'LinkedIn': { dark: '/images/logos/social-linkedin.svg', light: '/images/logos/social-linkedin-dark.svg' },
+                  const isDark = resolvedTheme === "dark"
+                  const iconMap: { [key: string]: string } = {
+                    'X': isDark ? '/images/logos/social-x.svg' : '/images/logos/social-x-dark.svg',
+                    'Facebook': isDark ? '/images/logos/social-facebook.svg' : '/images/logos/social-facebook-dark.svg',
+                    'YouTube': isDark ? '/images/logos/social-youtube.svg' : '/images/logos/social-youtube-dark.svg',
+                    'LinkedIn': isDark ? '/images/logos/social-linkedin.svg' : '/images/logos/social-linkedin-dark.svg',
                   }
-                  const icons = iconMap[social.platform]
-                  if (!icons) return null
+                  const iconSrc = iconMap[social.platform]
+                  if (!iconSrc) return null
 
                   return (
                     <a
@@ -144,14 +178,9 @@ export function Footer() {
                       aria-label={`${social.platform} (opens in new tab)`}
                     >
                       <img
-                        src={icons.dark}
+                        src={iconSrc}
                         alt={`${social.platform} social icon`}
-                        className="h-6 w-6 sm:h-5 sm:w-5 dark:block hidden"
-                      />
-                      <img
-                        src={icons.light}
-                        alt={`${social.platform} social icon`}
-                        className="h-6 w-6 sm:h-5 sm:w-5 dark:hidden"
+                        className="h-6 w-6 sm:h-5 sm:w-5"
                       />
                     </a>
                   )

@@ -3,12 +3,25 @@
 import { Container } from "@/components/shared/Container"
 import { AnimatedSection } from "@/components/shared/AnimatedSection"
 import { useTranslations, useLocale } from "next-intl"
+import { useTheme } from "next-themes"
 import { motion } from "framer-motion"
+import { useEffect, useState } from "react"
 
 export function CompanyTagline() {
   const t = useTranslations('aboutUsPage.tagline')
   const locale = useLocale()
   const isGreek = locale === 'el'
+  const { resolvedTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  // Background image based on theme with SSR safety
+  const heroBackground = mounted && resolvedTheme === 'light'
+    ? '/images/sections/about-us-hero-background-light.jpg'
+    : '/images/sections/about-us-hero-background-dark.jpg'
 
   return (
     <AnimatedSection animation="fadeIn">
@@ -17,17 +30,9 @@ export function CompanyTagline() {
       >
         {/* Background image */}
         <div
-          className="absolute inset-0 opacity-80 light:hidden"
+          className="absolute inset-0 opacity-80"
           style={{
-            backgroundImage: `url('/images/sections/about-us-hero-background-dark.jpg')`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          }}
-        />
-        <div
-          className="absolute inset-0 opacity-80 hidden light:block"
-          style={{
-            backgroundImage: `url('/images/sections/about-us-hero-background-light.jpg')`,
+            backgroundImage: `url(${heroBackground})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}

@@ -4,6 +4,8 @@ import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { SectionHeader } from "@/components/shared/SectionHeader"
 import { workflow } from "@/data/landing-page"
+import { useTheme } from "next-themes"
+import { useEffect, useState } from "react"
 import { useTranslations } from "next-intl"
 import { workflowStepKeys } from "@/lib/i18n/translation-keys"
 import { Link } from "@/i18n/navigation"
@@ -15,25 +17,23 @@ const iconFiles = [
   { dark: "/images/sections/workflow-icon-04-dark.svg", light: "/images/sections/workflow-icon-04-light.svg" },
 ]
 
-function WorkflowIcon({ icon, alt }: { icon: { dark: string; light: string }; alt: string }) {
-  return (
-    <>
-      <img
-        src={icon.light}
-        alt={alt}
-        className="w-14 h-14 md:w-20 md:h-20 lg:w-32 lg:h-32 object-contain hidden light:block"
-      />
-      <img
-        src={icon.dark}
-        alt={alt}
-        className="w-14 h-14 md:w-20 md:h-20 lg:w-32 lg:h-32 object-contain dark:block"
-      />
-    </>
-  )
-}
-
 export function Workflow() {
+  const { resolvedTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
   const t = useTranslations()
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  const getIconSrc = (index: number): string => {
+    const icon = iconFiles[index]!
+    if (!mounted) return icon.dark
+    if (resolvedTheme === "light" && icon.light) {
+      return icon.light
+    }
+    return icon.dark
+  }
 
   return (
     <section className="py-24 relative">
@@ -62,7 +62,11 @@ export function Workflow() {
                     <div
                       className="w-24 h-24 md:w-32 md:h-32 lg:w-[200px] lg:h-[200px] rounded-xl md:rounded-2xl flex items-center justify-center bg-primary/15"
                     >
-                      <WorkflowIcon icon={iconFiles[index]} alt={t(`workflow.steps.${workflowStepKeys[index]}.title`)} />
+                      <img
+                        src={getIconSrc(index)}
+                        alt={t(`workflow.steps.${workflowStepKeys[index]}.title`)}
+                        className="w-14 h-14 md:w-20 md:h-20 lg:w-32 lg:h-32 object-contain"
+                      />
                     </div>
 
                     <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 px-3 py-1 rounded-md bg-background/80 backdrop-blur-sm border border-primary/40">
@@ -85,7 +89,7 @@ export function Workflow() {
 
           <div className="mt-10 md:mt-16 text-center">
             <Button variant="primary" size="lg" asChild>
-              <Link href="/" className="inline-flex items-center gap-2">
+              <Link href="/demo" className="inline-flex items-center gap-2">
                 {t('workflow.scheduleAssessment')}
                 <svg
                   className="w-4 h-4"

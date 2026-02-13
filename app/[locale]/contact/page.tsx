@@ -4,7 +4,7 @@ import { AppLayout } from "@/app/app-layout"
 import { Container } from "@/components/shared/Container"
 import { SectionHeader } from "@/components/shared/SectionHeader"
 import { AnimatedSection } from "@/components/shared/AnimatedSection"
-import { BaseCard } from "@/components/shared/BaseCard"
+import { GlassCard } from "@/components/shared/GlassCard"
 import { ContactForm } from "@/components/contact/ContactForm"
 import { Mail, Phone, MapPin, Clock } from "lucide-react"
 import { useTranslations, useLocale } from "next-intl"
@@ -41,14 +41,14 @@ export default function ContactPage() {
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                   {/* Contact Form - Takes 2 columns on large screens */}
                   <div className="lg:col-span-2">
-                    <BaseCard variant="standard" className="p-8 md:p-12">
+                    <GlassCard className="p-8 md:p-12">
                       <ContactForm />
-                    </BaseCard>
+                    </GlassCard>
                   </div>
 
                   {/* Contact Information - Takes 1 column on large screens */}
                   <div className="lg:col-span-1">
-                    <BaseCard variant="standard" className="p-8 sticky top-28">
+                    <GlassCard className="p-8 sticky top-28">
                       <h2 className={`text-2xl font-bold mb-6 text-foreground ${isGreek ? 'greek-heading' : ''}`}>
                         {t('info.title')}
                       </h2>
@@ -116,7 +116,7 @@ export default function ContactPage() {
                           </div>
                         </div>
                       </div>
-                    </BaseCard>
+                    </GlassCard>
                   </div>
                 </div>
               </div>

@@ -259,16 +259,16 @@ export default function PowerGaugeDemo({
       <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
         {isWarning && (
           <div className="absolute top-8 flex items-center space-x-1 animate-pulse">
-            <div className="w-2 h-2 bg-destructive rounded-full" />
-            <span className="text-destructive text-xs font-medium">Low Power</span>
+            <div className="w-2 h-2 bg-[#EB333D] rounded-full" />
+            <span className="text-[#EB333D] text-xs font-medium">Low Power</span>
           </div>
         )}
-        <p className="text-[var(--dashboard-text-secondary)] text-xs mb-1 tracking-wide uppercase">
+        <p className="text-gray-500 text-xs mb-1 tracking-wide uppercase">
           Total Power
         </p>
         <p
           className={`${sizeConfig[size].text} font-bold tracking-tight transition-all duration-300 ${
-            useRedGradient ? 'text-destructive' : 'text-[var(--dashboard-text-primary)]'
+            useRedGradient ? 'text-[#EB333D]' : 'text-white'
           }`}
         >
           {isAnimating ? Math.round(animatedValue) : totalPower}
@@ -280,11 +280,11 @@ export default function PowerGaugeDemo({
         >
           MW
         </p>
-        <div className="mt-2 pt-2 border-t border-[var(--dashboard-border)]/50">
-          <p className="text-[var(--dashboard-text-secondary)] text-xs tracking-wide uppercase">
+        <div className="mt-2 pt-2 border-t border-gray-700/50">
+          <p className="text-gray-500 text-xs tracking-wide uppercase">
             Total Size
           </p>
-          <p className="text-[var(--dashboard-text-primary)] text-lg font-semibold">{totalSize}</p>
+          <p className="text-white text-lg font-semibold">{totalSize}</p>
           <p className="text-emerald-400 text-sm font-medium">MWp</p>
         </div>
       </div>

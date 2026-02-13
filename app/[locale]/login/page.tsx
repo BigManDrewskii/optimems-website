@@ -17,8 +17,10 @@ export default function LoginPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsLoading(true)
+    // Simulate login process
     await new Promise((resolve) => setTimeout(resolve, 1000))
     setIsLoading(false)
+    console.log("[v0] Login attempt:", { email, password })
   }
 
   return (

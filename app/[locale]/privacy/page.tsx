@@ -1,7 +1,7 @@
 import { AppLayout } from "@/app/app-layout"
 import { Container } from "@/components/shared/Container"
 import { AnimatedSection } from "@/components/shared/AnimatedSection"
-import { BaseCard } from "@/components/shared/BaseCard"
+import { GlassCard } from "@/components/shared/GlassCard"
 import Link from "next/link"
 import { ArrowLeft } from "lucide-react"
 
@@ -31,16 +31,16 @@ export default function PrivacyPage() {
           <Container>
             <div className="pb-20 md:py-28 max-w-4xl mx-auto">
               <div className="prose prose-neutral max-w-none">
-                <BaseCard variant="standard" className="p-8 mb-8">
+                <GlassCard className="p-8 mb-8">
                   <p className="text-muted-foreground mb-4">
                     Last updated: January 2026
                   </p>
                   <p className="text-muted-foreground">
                     At Optimems, we take your privacy seriously. This Privacy Policy explains how we collect, use, and protect your personal information when you use our website and services.
                   </p>
-                </BaseCard>
+                </GlassCard>
 
-                <BaseCard variant="standard" className="p-8 mb-8">
+                <GlassCard className="p-8 mb-8">
                   <h2 className="text-2xl font-bold mb-4">Information We Collect</h2>
                   <p className="text-muted-foreground mb-4">
                     We may collect the following types of information:
@@ -51,9 +51,9 @@ export default function PrivacyPage() {
                     <li>Usage data and analytics</li>
                     <li>Technical information about your device</li>
                   </ul>
-                </BaseCard>
+                </GlassCard>
 
-                <BaseCard variant="standard" className="p-8 mb-8">
+                <GlassCard className="p-8 mb-8">
                   <h2 className="text-2xl font-bold mb-4">How We Use Your Information</h2>
                   <p className="text-muted-foreground mb-4">
                     We use your information to:
@@ -64,16 +64,16 @@ export default function PrivacyPage() {
                     <li>Send you relevant communications</li>
                     <li>Comply with legal obligations</li>
                   </ul>
-                </BaseCard>
+                </GlassCard>
 
-                <BaseCard variant="standard" className="p-8 mb-8">
+                <GlassCard className="p-8 mb-8">
                   <h2 className="text-2xl font-bold mb-4">Data Protection</h2>
                   <p className="text-muted-foreground">
                     We implement appropriate technical and organizational measures to protect your personal data against unauthorized access, alteration, disclosure, or destruction.
                   </p>
-                </BaseCard>
+                </GlassCard>
 
-                <BaseCard variant="standard" className="p-8">
+                <GlassCard className="p-8">
                   <h2 className="text-2xl font-bold mb-4">Contact Us</h2>
                   <p className="text-muted-foreground">
                     If you have any questions about this Privacy Policy, please contact us at{' '}
@@ -81,7 +81,7 @@ export default function PrivacyPage() {
                       info@optimems.gr
                     </a>
                   </p>
-                </BaseCard>
+                </GlassCard>
               </div>
             </div>
           </Container>

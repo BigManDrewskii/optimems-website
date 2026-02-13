@@ -4,12 +4,13 @@ import { useState, useEffect, useRef } from "react"
 import { cn } from "@/lib/utils"
 import { useLocale, useTranslations } from "next-intl"
 import { useRouter, usePathname, Link } from "@/i18n/navigation"
+import { useTheme } from "next-themes"
 import { OptimemsLogo } from "../Logo"
 import { Navigation } from "./Navigation"
 import { HeaderDesktop } from "./HeaderDesktop"
 import { HeaderMobile } from "./HeaderMobile"
 import { MobileNavigation } from "./MobileNavigation"
-import type { NavItem, HeaderProps } from "./types"
+import type { NavItem, NavDropdownItem, HeaderProps } from "./types"
 
 export function Header({ className }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -19,7 +20,13 @@ export function Header({ className }: HeaderProps) {
   const locale = useLocale()
   const router = useRouter()
   const pathname = usePathname()
-  const t = useTranslations('common')
+  const { resolvedTheme, setTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+  const t = useTranslations()
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   useEffect(() => {
     let ticking = false
@@ -49,8 +56,11 @@ export function Header({ className }: HeaderProps) {
     return () => document.removeEventListener("mousedown", handleClickOutside)
   }, [])
 
+  const isGreek = locale === "el"
+
   const handleLocaleToggle = () => {
     const newLocale = locale === "el" ? "en" : "el"
+    // Preserve current path when switching locale
     router.replace(pathname, { locale: newLocale })
   }
 
@@ -62,6 +72,7 @@ export function Header({ className }: HeaderProps) {
     setOpenDropdown(null)
   }
 
+  // Navigation data based on locale
   const primaryNavItems: NavItem[] = [
     {
       label: t("navigation.products"),
@@ -77,7 +88,9 @@ export function Header({ className }: HeaderProps) {
       href: "#",
       dropdown: [
         { label: t("navigation.aboutUs"), href: "/about-us" },
+        // { label: t("navigation.caseStudies"), href: "/case-studies" }, // Temporarily hidden
         { label: t("navigation.partnership"), href: "/partnership" },
+        // { label: t("navigation.careers"), href: "/careers" }, // Temporarily hidden
         { label: t("navigation.rndProjects"), href: "/rnd-projects" },
         { label: t("navigation.contactAndSupport"), href: "/contact" },
       ],
@@ -97,8 +110,8 @@ export function Header({ className }: HeaderProps) {
   const getStartedLabel = t("navigation.getStarted")
   const menuLabel = t("navigation.menu")
 
-  return (
-    <>
+  if (!mounted) {
+    return (
       <header
         className={cn(
           "fixed top-4 left-4 right-4 z-50 mx-auto rounded-2xl backdrop-blur-md border border-border/30 max-w-[1400px]",
@@ -107,17 +120,20 @@ export function Header({ className }: HeaderProps) {
           isScrolled ? "bg-background/95 dark:bg-background/95" : ""
         )}
         style={{
-          backgroundImage: "url('/images/sections/grid-pattern-light.png')",
+          backgroundImage: "url('/images/sections/grid-pattern-dark.png')",
           backgroundRepeat: "repeat",
         }}
-        role="banner"
       >
         <div className="flex items-center gap-3 cursor-pointer">
           <OptimemsLogo className="w-10 h-10 flex-shrink-0" />
           <OptimemsLogo variant="text" className="w-40 h-16 hidden xl:block flex-shrink-0" />
         </div>
       </header>
+    )
+  }
 
+  return (
+    <>
       <header
         className={cn(
           "fixed top-4 left-4 right-4 z-50 mx-auto rounded-2xl backdrop-blur-md border-0 border-b-2 border-primary max-w-[1400px]",
@@ -126,16 +142,18 @@ export function Header({ className }: HeaderProps) {
           isScrolled ? "bg-background/95 dark:bg-background/95" : ""
         )}
         style={{
-          backgroundImage: "url('/images/sections/grid-pattern-dark.png')",
+          backgroundImage: `url('/images/sections/grid-pattern-${resolvedTheme === "dark" ? "dark" : "light"}.png')`,
           backgroundRepeat: "repeat",
         }}
         role="banner"
       >
+        {/* Logo */}
         <Link href="/" className="flex items-center gap-3 cursor-pointer" aria-label="Optimems Home">
           <OptimemsLogo className="w-10 h-10 flex-shrink-0" />
           <OptimemsLogo variant="text" className="w-40 h-16 hidden xl:block flex-shrink-0" />
         </Link>
 
+        {/* Desktop Navigation */}
         <Navigation
           items={primaryNavItems}
           openDropdown={openDropdown}
@@ -145,6 +163,7 @@ export function Header({ className }: HeaderProps) {
           ref={dropdownRef}
         />
 
+        {/* Desktop Right Section */}
         <HeaderDesktop
           currentLocale={locale}
           onLocaleToggle={handleLocaleToggle}
@@ -152,12 +171,14 @@ export function Header({ className }: HeaderProps) {
           getStartedLabel={getStartedLabel}
         />
 
+        {/* Mobile Right Section */}
         <HeaderMobile
           getStartedLabel={getStartedLabel}
           onMenuOpen={() => setIsMobileMenuOpen(true)}
         />
       </header>
 
+      {/* Mobile Navigation Drawer */}
       <MobileNavigation
         isOpen={isMobileMenuOpen}
         onClose={() => setIsMobileMenuOpen(false)}

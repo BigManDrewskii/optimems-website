@@ -20,26 +20,8 @@ export interface VideoCardProps {
   showVignette?: boolean
   className?: string
   isInView?: boolean
-  displayOrder?: number
+  displayOrder?: number  // Used for animation delay calculation
   children?: React.ReactNode
-}
-
-function ThemeAwareLogo({ logo, title }: { logo?: { dark: string; light: string }; title?: string }) {
-  if (!logo) return null
-  return (
-    <div className="mb-3 md:mb-4">
-      <img
-        src={logo.light}
-        alt={title || 'Logo'}
-        className="h-6 md:h-8 w-auto hidden light:block"
-      />
-      <img
-        src={logo.dark}
-        alt={title || 'Logo'}
-        className="h-6 md:h-8 w-auto light:hidden"
-      />
-    </div>
-  )
 }
 
 export function VideoCard({
@@ -57,16 +39,18 @@ export function VideoCard({
   displayOrder = 0,
   children,
 }: VideoCardProps) {
+  const [mounted, setMounted] = useState(false)
   const { resolvedTheme } = useTheme()
-  const [videoData, setVideoData] = useState<{ webm?: string; mp4?: string } | null>(null)
 
   useEffect(() => {
-    const data = getVideoSrc(videoKey, resolvedTheme === 'light')
-    setVideoData(data)
-  }, [videoKey, resolvedTheme])
+    setMounted(true)
+  }, [])
+
+  const videoData = mounted ? getVideoSrc(videoKey, resolvedTheme === 'light') : null
 
   const cardContent = (
     <>
+      {/* Video Banner */}
       {videoData && (
         <div className={`relative w-full ${aspectRatio === 'video' ? 'aspect-video' : 'aspect-square'} overflow-hidden bg-background`}>
           <Video
@@ -78,8 +62,17 @@ export function VideoCard({
         </div>
       )}
 
+      {/* Content */}
       <div className="p-4 md:p-6 lg:p-8">
-        <ThemeAwareLogo logo={logo} title={title} />
+        {logo && mounted && (
+          <div className="mb-3 md:mb-4">
+            <img
+              src={resolvedTheme === "light" ? logo.light : logo.dark}
+              alt={title || 'Logo'}
+              className="h-6 md:h-8 w-auto"
+            />
+          </div>
+        )}
 
         {title && (
           <h3 className="text-xl md:text-2xl font-semibold text-foreground mb-2 md:mb-3 group-hover:text-primary transition-colors">

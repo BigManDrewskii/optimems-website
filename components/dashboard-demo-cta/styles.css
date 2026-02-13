@@ -10,23 +10,23 @@
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {
-  background: var(--dashboard-scrollbar-track);
+  background: #0a1628;
   border-radius: 3px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: var(--dashboard-scrollbar-thumb);
+  background: #1a2942;
   border-radius: 3px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: var(--dashboard-scrollbar-thumb-hover);
+  background: #2a3952;
 }
 
 /* Firefox scrollbar */
 .custom-scrollbar {
   scrollbar-width: thin;
-  scrollbar-color: var(--dashboard-scrollbar-thumb) var(--dashboard-scrollbar-track);
+  scrollbar-color: #1a2942 #0a1628;
 }
 
 /* Hide scrollbar but keep functionality */

@@ -3,7 +3,7 @@
 import { useTranslations, useLocale } from "next-intl"
 import { motion } from "framer-motion"
 import { ProductPageSection } from "@/components/products/ProductPageSection"
-import { BaseCard } from "@/components/shared/BaseCard"
+import { GlassCard } from "@/components/shared/GlassCard"
 
 /**
  * MindProblem - Problem section showing energy management challenges
@@ -95,11 +95,11 @@ export function MindProblem() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="mt-16"
         >
-          <BaseCard variant="standard" className="p-8 text-center">
+          <GlassCard className="p-8 text-center">
             <p className={`text-lg md:text-xl font-semibold text-foreground ${isGreek ? 'greek-heading' : ''}`}>
               {t('bottomLine')}
             </p>
-          </BaseCard>
+          </GlassCard>
         </motion.div>
       </div>
     </ProductPageSection>

@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { BaseCard } from "@/components/shared/BaseCard"
+import { GlassCard } from "@/components/shared/GlassCard"
 
 interface LogoCardProps {
   title: string
@@ -26,7 +26,7 @@ export function LogoCard({
   downloadPng,
 }: LogoCardProps) {
   return (
-    <BaseCard variant="standard" className="p-8">
+    <GlassCard className="p-8">
       <h3 className="text-lg font-semibold mb-4 text-foreground">{title}</h3>
       <div className="bg-muted/30 rounded-xl p-12 flex items-center justify-center min-h-[200px] mb-6">
         <div className="relative text-white" style={{ width: logoWidth, height: logoHeight }}>
@@ -46,6 +46,6 @@ export function LogoCard({
           </Button>
         )}
       </div>
-    </BaseCard>
+    </GlassCard>
   )
 }
