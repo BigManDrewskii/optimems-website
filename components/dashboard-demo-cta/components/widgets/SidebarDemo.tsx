@@ -114,7 +114,7 @@ export default function SidebarDemo({
       </div>
 
       {/* Navigation */}
-      <div className="flex-1 overflow-y-auto py-4 custom-scrollbar">
+      <div className="flex-1 overflow-y-auto py-4 [&::-webkit-scrollbar]:hidden" style={{ scrollbarWidth: 'none' }}>
         {sections.map((section) => (
           <div key={section} className="mb-4">
             <AnimatePresence mode="wait">

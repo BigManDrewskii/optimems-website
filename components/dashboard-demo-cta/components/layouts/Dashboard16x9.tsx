@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import { useMockData } from '../hooks/useMockData';
 import StatCardsDemo from '../widgets/StatCardsDemo';
 import PowerBarsDemo from '../widgets/PowerBarsDemo';
@@ -7,7 +6,6 @@ import SidebarDemo from '../widgets/SidebarDemo';
 export function Dashboard16x9() {
   const { stats, installations } = useMockData();
 
-  // Prepare stat cards data
   const statCardsData = [
     {
       title: 'Parks',
@@ -36,26 +34,46 @@ export function Dashboard16x9() {
   ];
 
   return (
-    <div className="h-full flex bg-[#0d1f35] rounded-lg overflow-hidden">
-      {/* Sidebar - Fixed width to match content */}
+    <div className="h-full flex rounded-lg overflow-hidden" style={{ background: 'var(--dashboard-bg)' }}>
+      {/* Sidebar */}
       <SidebarDemo autoCycle={false} />
 
-      {/* Main Canvas - 2/3 width - No animations */}
-      <div className="flex-1 py-3 px-3 overflow-y-auto space-y-4" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
-        <style>{`
-          div > div::-webkit-scrollbar {
-            display: none;
-          }
-        `}</style>
-        {/* Stat Cards - Full width row */}
-        <div className="bg-[#1d3557] rounded-lg border border-gray-700 p-3">
-          <h3 className="text-white text-sm font-semibold mb-3">Overview</h3>
+      {/* Main Content */}
+      <div
+        className="flex-1 py-3 px-3 overflow-y-auto space-y-4 [&::-webkit-scrollbar]:hidden"
+        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+      >
+        {/* Stat Cards */}
+        <div
+          className="rounded-lg p-3"
+          style={{
+            background: 'var(--dashboard-surface)',
+            border: '1px solid var(--dashboard-border)',
+          }}
+        >
+          <h3
+            className="text-sm font-semibold mb-3"
+            style={{ color: 'var(--dashboard-text-primary)' }}
+          >
+            Overview
+          </h3>
           <StatCardsDemo stats={statCardsData} columns={1} />
         </div>
 
-        {/* Power Bars - Full width */}
-        <div className="bg-[#1d3557] rounded-lg border border-gray-700 p-3">
-          <h3 className="text-white text-sm font-semibold mb-3">Installations</h3>
+        {/* Power Bars */}
+        <div
+          className="rounded-lg p-3"
+          style={{
+            background: 'var(--dashboard-surface)',
+            border: '1px solid var(--dashboard-border)',
+          }}
+        >
+          <h3
+            className="text-sm font-semibold mb-3"
+            style={{ color: 'var(--dashboard-text-primary)' }}
+          >
+            Installations
+          </h3>
           <PowerBarsDemo installations={installations} maxItems={5} />
         </div>
       </div>

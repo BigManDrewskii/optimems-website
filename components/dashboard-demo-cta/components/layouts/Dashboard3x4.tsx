@@ -31,7 +31,7 @@ export function Dashboard3x4() {
   ];
 
   return (
-    <div className="h-full flex flex-col bg-[#0d1f35] rounded-lg overflow-hidden p-4">
+    <div className="h-full flex flex-col rounded-lg overflow-hidden p-4" style={{ background: 'var(--dashboard-bg)' }}>
       {/* Logo Section */}
       <motion.div
         initial={{ opacity: 0, y: -20 }}
@@ -58,22 +58,17 @@ export function Dashboard3x4() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.2 }}
-        className="flex-1 space-y-4 overflow-y-auto"
+        className="flex-1 space-y-4 overflow-y-auto [&::-webkit-scrollbar]:hidden"
         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
       >
-        <style>{`
-          div > div::-webkit-scrollbar {
-            display: none;
-          }
-        `}</style>
         {/* Stat Cards - Vertical stack */}
         <div>
           <StatCardsDemo stats={statCardsData} columns={1} />
         </div>
 
         {/* Power Bars */}
-        <div className="bg-[#1d3557] rounded-lg border border-gray-700 p-4">
-          <h3 className="text-white text-sm font-semibold mb-2">Installations</h3>
+        <div className="rounded-lg p-4" style={{ background: 'var(--dashboard-surface)', border: '1px solid var(--dashboard-border)' }}>
+          <h3 className="text-sm font-semibold mb-2" style={{ color: 'var(--dashboard-text-primary)' }}>Installations</h3>
           <PowerBarsDemo installations={installations} maxItems={3} />
         </div>
 
@@ -84,7 +79,7 @@ export function Dashboard3x4() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="text-center py-4"
         >
-          <p className="text-gray-300 text-sm">Real-time solar energy management</p>
+          <p className="text-sm" style={{ color: 'var(--dashboard-text-secondary)' }}>Real-time solar energy management</p>
         </motion.div>
       </motion.div>
     </div>

@@ -69,6 +69,16 @@
   --sidebar-border: oklch(0.85 0.02 250);
   --sidebar-ring: oklch(0.58 0.15 195);
 
+  /* Dashboard Demo - Always dark product preview */
+  --dashboard-bg: #0a1628;
+  --dashboard-sidebar-bg: #0d1a2d;
+  --dashboard-surface: #1d3557;
+  --dashboard-border: #2a3f5f;
+  --dashboard-text-primary: #f1f5f9;
+  --dashboard-text-secondary: #94a3b8;
+  --dashboard-accent: #03a7aa;
+  --dashboard-bar-track: #0d1f35;
+
   /* Z-Index Scale */
   --z-dropdown: 50;
   --z-sticky: 100;
@@ -197,6 +207,16 @@
   --sidebar-accent-foreground: oklch(0.98 0.005 195);
   --sidebar-border: oklch(0.342 0.03 250);
   --sidebar-ring: oklch(0.65 0.18 25);
+
+  /* Dashboard Demo - Always dark product preview */
+  --dashboard-bg: #0a1628;
+  --dashboard-sidebar-bg: #0d1a2d;
+  --dashboard-surface: #1d3557;
+  --dashboard-border: #2a3f5f;
+  --dashboard-text-primary: #f1f5f9;
+  --dashboard-text-secondary: #94a3b8;
+  --dashboard-accent: #fc5855;
+  --dashboard-bar-track: #0d1f35;
 
   /* Typography */
   --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;

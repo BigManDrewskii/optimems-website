@@ -252,7 +252,7 @@ export default function PowerGaugeDemo({
         })}
 
         {/* Center circle background */}
-        <circle cx="100" cy="100" r="45" fill="#0f172a" opacity="0.8" />
+        <circle cx="100" cy="100" r="45" fill="var(--dashboard-bg)" opacity="0.9" />
       </svg>
 
       {/* Center content */}
@@ -263,13 +263,14 @@ export default function PowerGaugeDemo({
             <span className="text-[#EB333D] text-xs font-medium">Low Power</span>
           </div>
         )}
-        <p className="text-gray-500 text-xs mb-1 tracking-wide uppercase">
+        <p className="text-xs mb-1 tracking-wide uppercase" style={{ color: 'var(--dashboard-text-secondary)' }}>
           Total Power
         </p>
         <p
           className={`${sizeConfig[size].text} font-bold tracking-tight transition-all duration-300 ${
-            useRedGradient ? 'text-[#EB333D]' : 'text-white'
+            useRedGradient ? 'text-[#EB333D]' : ''
           }`}
+          style={!useRedGradient ? { color: 'var(--dashboard-text-primary)' } : undefined}
         >
           {isAnimating ? Math.round(animatedValue) : totalPower}
         </p>
@@ -280,11 +281,11 @@ export default function PowerGaugeDemo({
         >
           MW
         </p>
-        <div className="mt-2 pt-2 border-t border-gray-700/50">
-          <p className="text-gray-500 text-xs tracking-wide uppercase">
+        <div className="mt-2 pt-2" style={{ borderTop: '1px solid var(--dashboard-border)' }}>
+          <p className="text-xs tracking-wide uppercase" style={{ color: 'var(--dashboard-text-secondary)' }}>
             Total Size
           </p>
-          <p className="text-white text-lg font-semibold">{totalSize}</p>
+          <p className="text-lg font-semibold" style={{ color: 'var(--dashboard-text-primary)' }}>{totalSize}</p>
           <p className="text-emerald-400 text-sm font-medium">MWp</p>
         </div>
       </div>
