@@ -3,6 +3,7 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
+import { SITE_URL } from '@/lib/constants/urls';
 import { ThemeProvider } from "@/components/theme-provider"
 
 type Props = {
@@ -28,7 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const meta = metadata[locale] || metadata.en
 
   return {
-    metadataBase: new URL("https://optimems.gr"),
+    metadataBase: new URL(SITE_URL),
     title: {
       default: meta.title,
       template: "%s | Optimems",
@@ -74,7 +75,7 @@ export default async function LocaleLayout({
   const { locale } = await params
 
   // Ensure that the incoming `locale` is valid
-  if (!routing.locales.includes(locale as any)) {
+  if (!(routing.locales as readonly string[]).includes(locale)) {
     notFound()
   }
 

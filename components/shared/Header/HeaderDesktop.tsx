@@ -37,7 +37,7 @@ export function HeaderDesktop({
       </div>
 
       {/* Auth Buttons */}
-      <div className="flex items-center gap-3 text-xs font-ubuntu text-primary">
+      <div className="flex items-center gap-3 text-xs font-display text-primary">
         <Link
           href="/login"
           className="h-8 rounded-md flex items-center justify-center px-4 transition-colors hover:bg-secondary/10 hover:text-secondary text-foreground"

@@ -2,6 +2,8 @@
  * Structured data (JSON-LD) utilities for SEO
  */
 
+import { SITE_URL, SOCIAL_LINKS } from '@/lib/constants/urls'
+
 export interface OrganizationSchema {
   '@context': string
   '@type': 'Organization'
@@ -77,13 +79,13 @@ export function createOrganizationSchema(): OrganizationSchema {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: 'Optimems',
-    url: 'https://optimems.gr',
-    logo: 'https://optimems.gr/optimems-logos/optimems-logo-icon-dark.svg',
+    url: SITE_URL,
+    logo: `${SITE_URL}/optimems-logos/optimems-logo-icon-dark.svg`,
     description: 'AI-powered energy management solutions for grid optimization',
     sameAs: [
-      'https://linkedin.com/company/optimems',
-      'https://twitter.com/optimems',
-      'https://youtube.com/@optimems'
+      SOCIAL_LINKS.linkedin,
+      SOCIAL_LINKS.x,
+      SOCIAL_LINKS.youtube
     ]
   }
 }

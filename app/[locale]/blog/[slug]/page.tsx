@@ -8,7 +8,7 @@ import { Container } from "@/components/shared/Container"
 import { SectionHeader } from "@/components/shared/SectionHeader"
 import { StructuredData } from "@/components/seo/StructuredData"
 import { createArticleSchema, createBreadcrumbSchema, createOrganizationSchema } from "@/lib/structured-data"
-import { Clock } from '@/lib/icons'
+import { Clock } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { getTranslations } from 'next-intl/server'
 

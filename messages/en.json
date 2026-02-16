@@ -534,7 +534,9 @@
       "primaryCTA": "Book your Demo",
       "secondaryCTA": "Download Datasheet",
       "primaryCta": "Book your Demo",
-      "secondaryCta": "Download Datasheet"
+      "secondaryCta": "Download Datasheet",
+      "distributorNote": "Available for purchase exclusively through certified distributors: PHAOS, BayWa r.e.",
+      "checkmarks": ["Plug & Play", "Certified", "For every RES plant type"]
     },
     "problem": {
       "headline": "Renewable energy is growing faster than ever. But as more plants connect to the grid, operators face a new set of challenges:",
@@ -820,6 +822,13 @@
           "description": "Hardware only",
           "details": "This entry-level option includes only the hardware required for compliance and basic operations.",
           "useCase": "It is ideal for RES plants that must meet DSO requirements but do not need cloud-based monitoring or remote dashboard access.",
+          "distributorNote": "Hardware available exclusively through certified distributors PHAOS and BayWa r.e.",
+          "excludes": [
+            "Online platform",
+            "Live data viewing",
+            "Remote dashboard",
+            "Historical data & reports"
+          ],
           "includes": [
             "Certified plug-and-play control hardware",
             "Fully pre-wired, sealed electrical panel",
@@ -837,6 +846,7 @@
           "subtitle": "Subscription Plan",
           "description": "Full Cloud Monitoring & Remote Control",
           "details": "SolarShield is the core subscription plan that activates the full power of +SolarControl.",
+          "distributorNote": "Available directly from Optimems — contact us.",
           "includesLabel": "Includes Everything in the Hardware package, plus:",
           "includes": [
             "Full cloud-based SCADA platform",
@@ -856,6 +866,7 @@
           "subtitle": "Advanced Add-On",
           "description": "Analytics & Historical Intelligence",
           "details": "The +Insights add-on enhances SolarShield with deep analytics and long-term trend visibility.",
+          "distributorNote": "Available directly from Optimems — contact us.",
           "includes": [
             "Long-term production and performance analytics",
             "Inverter-level analysis and comparative insights",
@@ -897,10 +908,12 @@
       "formCompany": "Company",
       "formMessage": "Message",
       "formSubmit": "Book Your Demo",
+      "formSubmitSecondary": "Request a Quote",
       "trustSignals": [
-        "Trusted by 1200+ RES plants",
+        "Trusted by 1,200+ RES plants",
         "Independently certified",
-        "100% developed in EU"
+        "100% developed in EU",
+        "2-year warranty"
       ]
     },
     "technicalSpecs": {
@@ -1078,6 +1091,16 @@
           "body": "Even if your inverter's data logger is offline, malfunctioning, or replaced, +Insights maintains continuous data flow via the SolarControl hardware. Your history stays intact. Your reports stay complete. Your forecasting never breaks."
         }
       }
+    },
+    "announcement": {
+      "badge": "HEDNO Regulatory Update",
+      "headline": "Mandatory telemetry and remote control installation for autoproducers >400 kW",
+      "subheadline": "Deadline: 15/09/2026",
+      "body": "The recent HEDNO announcement (implementing Article 9A of Law 4951/2022) introduces significant and immediate changes for autoproducers in Greece.",
+      "details": "If you are an autoproducer with a PV plant exceeding 400 kW capacity, you now have a strict 8-month deadline — until 15/09/2026 — to install remote monitoring and control systems.",
+      "warning": "In case of non-compliance, HEDNO will proceed with disconnecting your installation from the Grid, until compliance with the above requirement is confirmed.",
+      "affected": "This applies to autoproducers with PV installations of all categories: net metering, synchronized metering, with or without compensation for injected energy, with or without grid injection, virtual net metering, virtual synchronized metering, with or without storage systems.",
+      "cta": "See how +SolarControl ensures your compliance"
     }
   },
   "aboutUsPage": {

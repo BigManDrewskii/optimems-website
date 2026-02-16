@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import { IBM_Plex_Sans } from "next/font/google"
+import { SITE_URL } from "@/lib/constants/urls"
 import "./globals.css"
 
 // Optimized font loading with next/font
@@ -13,7 +14,7 @@ const ibm = IBM_Plex_Sans({
 // Root layout is minimal - actual rendering happens in [locale]/layout.tsx
 // This layout is used for middleware and static assets
 export const metadata: Metadata = {
-  metadataBase: new URL("https://optimems.gr"),
+  metadataBase: new URL(SITE_URL),
   generator: "Optimems",
 }
 

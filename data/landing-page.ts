@@ -3,6 +3,8 @@
 // Ready for Next.js Component Integration
 // ============================================
 
+import { SOCIAL_LINKS, CONTACT } from '@/lib/constants/urls'
+
 // ─────────────────────────────────────────────
 // TYPE DEFINITIONS
 // ─────────────────────────────────────────────
@@ -568,16 +570,16 @@ export const footer = {
     ],
   },
   contact: {
-    email: 'info@optimems.gr',
+    email: CONTACT.email,
     // TODO: Replace with actual phone number
     phone: '+30 XXX XXX XXXX',
-    address: 'Athens, Greece',
+    address: CONTACT.address,
   },
   social: [
-    { platform: 'Facebook', href: 'https://www.facebook.com/people/Optimems/61567697585194/' },
-    { platform: 'X', href: 'https://x.com/optimemsGR' },
-    { platform: 'YouTube', href: 'https://www.youtube.com/channel/UCFKMlmRTkLwXRNa1qmRpPew' },
-    { platform: 'LinkedIn', href: 'https://www.linkedin.com/company/optimems/posts/?feedView=all&viewAsMember=true' },
+    { platform: 'Facebook', href: SOCIAL_LINKS.facebook },
+    { platform: 'X', href: SOCIAL_LINKS.x },
+    { platform: 'YouTube', href: SOCIAL_LINKS.youtube },
+    { platform: 'LinkedIn', href: SOCIAL_LINKS.linkedin },
   ],
   copyright: `© ${new Date().getFullYear()} Optimems. All rights reserved.`,
 };

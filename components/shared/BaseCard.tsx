@@ -41,7 +41,7 @@ export interface BaseCardProps {
   imageUrl?: string
   outerPadding?: 'md' | 'lg' | 'xl'
   innerPadding?: 'md' | 'lg' | 'xl'
-  [key: string]: any
+  [key: string]: unknown
 }
 
 export function BaseCard({
@@ -121,7 +121,7 @@ export function BaseCard({
 
   // Handle Patterned variant (double-layer)
   if (variant === 'patterned') {
-    let colors
+    let colors: { bg: string; stripe: string }
     if (pattern === 'custom' && patternColors) {
       colors = patternColors
     } else if (pattern === 'default') {

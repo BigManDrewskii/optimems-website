@@ -50,7 +50,7 @@ export function LocaleSwitcher({
             : "text-muted-foreground hover:text-foreground"
         )}
       >
-        <span className="text-xs font-ubuntu" style={{ letterSpacing: "0.16px", lineHeight: "20px", fontWeight: 500 }}>
+        <span className="text-xs font-display" style={{ letterSpacing: "0.16px", lineHeight: "20px", fontWeight: 500 }}>
           GR
         </span>
       </button>
@@ -67,7 +67,7 @@ export function LocaleSwitcher({
             : "text-muted-foreground hover:text-foreground"
         )}
       >
-        <span className="text-xs font-ubuntu" style={{ letterSpacing: "0.16px", lineHeight: "20px", fontWeight: 500 }}>
+        <span className="text-xs font-display" style={{ letterSpacing: "0.16px", lineHeight: "20px", fontWeight: 500 }}>
           EN
         </span>
       </button>

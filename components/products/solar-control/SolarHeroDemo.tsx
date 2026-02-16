@@ -32,6 +32,11 @@ function formatSubheadline(text: string, locale: string) {
  * Center-aligned hero with trust badge, bold headline, and CTAs.
  * Video background with bottom gradient overlay matching About Us style.
  */
+const HERO_VIDEO_SOURCES = {
+  webm: '/videos/solar-control-hero-banner-light.webm',
+  mp4: '/videos/mp4-videos/solar-control-hero-banner-light.mp4'
+}
+
 export function SolarHeroDemo() {
   const t = useTranslations('solarControlPage.hero')
   const locale = useLocale()
@@ -43,19 +48,13 @@ export function SolarHeroDemo() {
     setMounted(true)
   }, [])
 
-  // Video sources based on theme
-  const videoSources = {
-    webm: '/videos/solar-control-hero-banner-light.webm',
-    mp4: '/videos/solar-control-hero-banner-light.webm' // Same file for now, can be updated
-  }
-
   return (
     <section className="relative min-h-[80vh] md:min-h-[85vh] lg:min-h-[90vh] flex items-center justify-center overflow-hidden">
       {/* Video Background */}
       <div className="absolute inset-0 opacity-60">
         <Video
           src=""
-          sources={videoSources}
+          sources={HERO_VIDEO_SOURCES}
           autoplay
           muted
           loop

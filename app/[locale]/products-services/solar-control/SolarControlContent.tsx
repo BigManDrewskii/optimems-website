@@ -8,6 +8,7 @@ import { Skeleton } from "@/components/ui/skeleton"
 import { SolarHeroDemo } from "@/components/products/solar-control/SolarHeroDemo"
 import { MarqueeSection } from "@/components/shared"
 import { socialProof } from "@/data/landing-page"
+import { SolarAnnouncement } from "@/components/products/solar-control/SolarAnnouncement"
 import { SolarProblem } from "@/components/products/solar-control/SolarProblem"
 import { SolarSolution } from "@/components/products/solar-control/SolarSolution"
 
@@ -68,6 +69,9 @@ export function SolarControlContent() {
           duration={20}
           pauseOnHover={true}
         />
+
+        {/* ΔΕΔΔΗΕ Regulatory Announcement */}
+        <SolarAnnouncement />
 
         {/* Phase 2: Problem & Solution Sections */}
         <SolarProblem />

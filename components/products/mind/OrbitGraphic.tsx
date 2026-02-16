@@ -4,7 +4,7 @@
 import { useState, useEffect } from "react";
 import { useResponsiveScale } from "./useResponsiveScale";
 import { useTheme } from "next-themes";
-import type { LucideIcon } from "@/lib/icons";
+import type { LucideIcon } from "lucide-react";
 import {
   Sun,
   BatteryCharging,
@@ -15,7 +15,7 @@ import {
   Leaf,
   Flame,
   Thermometer,
-} from "@/lib/icons";
+} from "lucide-react";
 
 interface OrbitIcon {
   Icon: LucideIcon;

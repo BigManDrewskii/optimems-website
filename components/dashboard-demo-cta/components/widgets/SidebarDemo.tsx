@@ -9,7 +9,7 @@ import {
   User,
   FileText,
   FileCheck,
-} from '@/lib/icons';
+} from 'lucide-react';
 import { SidebarState } from '../../types/dashboard.types';
 
 const menuItems = [

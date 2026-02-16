@@ -50,6 +50,9 @@ session-*
 *-session-*.md
 optimems-screenshot.png
 
+# Playwright MCP
+.playwright-mcp/
+
 # Slack messages
 slack-update-message-*.md
 team-members-data.md

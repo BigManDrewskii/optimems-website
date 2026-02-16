@@ -130,7 +130,7 @@ export function SolarPricing() {
               </p>
             )}
             <ul className="space-y-3 flex-grow mb-6">
-              {(pkg.includes || pkg.includesLabel ? [] : pkg.includes).map((item, itemIndex) => (
+              {(pkg.includes || []).map((item, itemIndex) => (
                 <li key={itemIndex} className="flex items-start gap-2 text-sm">
                   <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 shrink-0" />
                   <span className="text-muted-foreground">{item}</span>

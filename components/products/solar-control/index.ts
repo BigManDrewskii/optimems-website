@@ -4,8 +4,6 @@
  * Section components for the SolarControl product page.
  */
 
-// Original components (legacy)
-export { SolarHero } from "./SolarHero"
 export { SolarTrust } from "./SolarTrust"
 export { SolarWhatIs } from "./SolarWhatIs"
 export { SolarDifferentiator } from "./SolarDifferentiator"
@@ -17,13 +15,7 @@ export { SolarWhoBenefits } from "./SolarWhoBenefits"
 export { SolarInsights } from "./SolarInsights"
 export { SolarPricing } from "./SolarPricing"
 export { SolarCTA } from "./SolarCTA"
-export { SolarTechnicalSpecs } from "./SolarTechnicalSpecs"
 export { SolarWarranty } from "./SolarWarranty"
-
-// Concept A components (new accordion-based design)
-export { SolarHeroNew } from "./SolarHeroNew"
-export { StatsBar } from "./StatsBar"
-export { ProductOverview } from "./ProductOverview"
-export { FeaturesAccordion } from "./FeaturesAccordion"
-export { WhoBenefitsTabs } from "./WhoBenefitsTabs"
+export { SolarAnnouncement } from "./SolarAnnouncement"
+export { SolarHeroDemo } from "./SolarHeroDemo"
 

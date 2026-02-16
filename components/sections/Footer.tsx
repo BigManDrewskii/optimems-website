@@ -7,6 +7,7 @@ import { OptimemsLogo } from "@/components/shared"
 import { useState, useEffect } from "react"
 import { useTranslations } from "next-intl"
 import { useTheme } from "next-themes"
+import { SOCIAL_LINKS } from "@/lib/constants/urls"
 
 function FooterSection({ title, links, isOpen, onToggle }: { title: string; links: { label: string; href: string }[]; isOpen: boolean; onToggle: () => void }) {
   return (
@@ -66,10 +67,10 @@ export function Footer() {
   ]
 
   const socialLinks = [
-    { platform: 'X', href: 'https://x.com/optimems' },
-    { platform: 'Facebook', href: 'https://www.facebook.com/optimems' },
-    { platform: 'YouTube', href: 'https://www.youtube.com/@optimems' },
-    { platform: 'LinkedIn', href: 'https://www.linkedin.com/company/optimems' },
+    { platform: 'X', href: SOCIAL_LINKS.x },
+    { platform: 'Facebook', href: SOCIAL_LINKS.facebook },
+    { platform: 'YouTube', href: SOCIAL_LINKS.youtube },
+    { platform: 'LinkedIn', href: SOCIAL_LINKS.linkedin },
   ]
 
   if (!mounted) {

@@ -8,6 +8,12 @@ interface PowerGaugeDemoProps {
   size?: 'sm' | 'md' | 'lg';
 }
 
+const SIZE_CONFIG = {
+  sm: { container: 'w-full max-w-[200px]', text: 'text-xl' },
+  md: { container: 'w-full max-w-sm', text: 'text-3xl' },
+  lg: { container: 'w-full max-w-md', text: 'text-4xl' },
+} as const;
+
 export default function PowerGaugeDemo({
   data,
   size = 'md',
@@ -18,13 +24,6 @@ export default function PowerGaugeDemo({
   const [isAnimating, setIsAnimating] = useState(false);
 
   const { totalPower, totalSize, percentage, isLowPower = false, warningThreshold = 30 } = data;
-
-  // Size configurations
-  const sizeConfig = {
-    sm: { container: 'w-full max-w-[200px]', text: 'text-xl' },
-    md: { container: 'w-full max-w-sm', text: 'text-3xl' },
-    lg: { container: 'w-full max-w-md', text: 'text-4xl' },
-  };
 
   // SVG geometry
   const radius = 85;
@@ -92,7 +91,7 @@ export default function PowerGaugeDemo({
       initial={{ opacity: 0, scale: 0.95 }}
       animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
       transition={{ duration: 0.6 }}
-      className={`${sizeConfig[size].container} mx-auto py-4`}
+      className={`${SIZE_CONFIG[size].container} mx-auto py-4`}
     >
       <svg
         className="w-full h-auto"
@@ -267,7 +266,7 @@ export default function PowerGaugeDemo({
           Total Power
         </p>
         <p
-          className={`${sizeConfig[size].text} font-bold tracking-tight transition-all duration-300 ${
+          className={`${SIZE_CONFIG[size].text} font-bold tracking-tight transition-all duration-300 ${
             useRedGradient ? 'text-[#EB333D]' : ''
           }`}
           style={!useRedGradient ? { color: 'var(--dashboard-text-primary)' } : undefined}

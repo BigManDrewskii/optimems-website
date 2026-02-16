@@ -1,8 +1,9 @@
 import { MetadataRoute } from 'next'
 import { routing } from '@/i18n/routing'
 import { getAllPosts } from '@/lib/blog'
+import { SITE_URL } from '@/lib/constants/urls'
 
-const baseUrl = 'https://optimems.gr'
+const baseUrl = SITE_URL
 
 const routes = [
   '',

@@ -12,12 +12,6 @@ export type { ProductPageSectionProps } from "./ProductPageSection"
 export { FeatureList } from "./FeatureList"
 export type { FeatureListProps, FeatureItem } from "./FeatureList"
 
-export { ComparisonGrid } from "./ComparisonGrid"
-export type { ComparisonGridProps, ComparisonColumn } from "./ComparisonGrid"
-
-export { StatsGrid } from "./StatsGrid"
-export type { StatsGridProps, Stat } from "./StatsGrid"
-
 export { TechnologyStrip } from "./TechnologyStrip"
 export type { TechnologyStripProps, Technology, TechnologyItem } from "./TechnologyStrip"
 

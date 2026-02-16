@@ -44,7 +44,6 @@ export function ConsultHero() {
 
   // Delay video loading to prioritize LCP (poster image)
   useEffect(() => {
-    setMounted(true)
     const timer = setTimeout(() => {
       setShouldLoadVideo(true)
     }, 1500) // Start loading video after 1.5s
