@@ -121,11 +121,11 @@ export function Footer() {
             </p>
 
             <a
-              href={`mailto:info@optimems.com`}
+              href={`mailto:info@optimems.gr`}
               className="inline-flex items-center gap-1.5 text-muted-foreground hover:text-secondary text-xs transition-colors"
             >
               <Mail className="h-3 w-3" />
-              <span className="truncate max-w-[180px]">info@optimems.com</span>
+              <span className="truncate max-w-[180px]">info@optimems.gr</span>
             </a>
           </div>
 

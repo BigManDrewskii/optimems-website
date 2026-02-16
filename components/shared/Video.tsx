@@ -107,10 +107,6 @@ export function Video({
   // Use title or alt for accessible description, require meaningful label
   const videoLabel = title || alt
 
-  if (!videoLabel && !poster) {
-    console.warn('Video component should have either title, alt, or poster prop for accessibility')
-  }
-
   return (
     <div
       className={cn(

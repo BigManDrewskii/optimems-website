@@ -97,8 +97,8 @@ export interface BlogPreview {
 // ─────────────────────────────────────────────
 
 export const navigation: NavItem[] = [
-  { label: 'Products', href: '/products' },
-  { label: 'About Us', href: '/about' },
+  { label: 'Products', href: '/products-services' },
+  { label: 'About Us', href: '/about-us' },
   { label: 'Partnership', href: '/partnership' },
   { label: 'Case Studies', href: '/case-studies' },
   { label: 'Careers', href: '/careers' },
@@ -548,11 +548,11 @@ export const footer = {
   },
   links: {
     products: [
-      { label: '+SolarControl', href: '/products/solar-control' },
-      { label: '+Mind', href: '/products/mind' },
+      { label: '+SolarControl', href: '/products-services/solar-control' },
+      { label: '+Mind', href: '/products-services/mind' },
     ],
     company: [
-      { label: 'About Us', href: '/about' },
+      { label: 'About Us', href: '/about-us' },
       { label: 'Partnership', href: '/partnership' },
       { label: 'Case Studies', href: '/case-studies' },
       { label: 'Careers', href: '/careers' },
@@ -571,8 +571,7 @@ export const footer = {
   },
   contact: {
     email: CONTACT.email,
-    // TODO: Replace with actual phone number
-    phone: '+30 XXX XXX XXXX',
+    phone: '+30 2311 257 510',
     address: CONTACT.address,
   },
   social: [

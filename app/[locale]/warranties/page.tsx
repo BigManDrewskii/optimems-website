@@ -7,8 +7,8 @@ import { Container } from "@/components/shared/Container"
 import { SectionHeader } from "@/components/shared/SectionHeader"
 import { BaseCard } from "@/components/shared/BaseCard"
 import { CustomPrimaryButton } from "@/components/shared"
-import { Shield, HeadphonesIcon, RefreshCw } from "lucide-react"
-import { CheckCircle2 } from "lucide-react"
+import { Shield, HeadphonesIcon, RefreshCw, CheckCircle2 } from "lucide-react"
+import type { LucideIcon } from "lucide-react"
 
 /**
  * Warranties Page - Comprehensive warranty information for all Optimems products
@@ -64,7 +64,7 @@ export default function WarrantiesPage() {
               {/* Features Grid */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {Object.entries(features).map(([key, feature]) => {
-                  const icons: Record<string, any> = {
+                  const icons: Record<string, LucideIcon> = {
                     hardware: Shield,
                     software: RefreshCw,
                     support: HeadphonesIcon,
@@ -178,7 +178,7 @@ export default function WarrantiesPage() {
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
                   {(t.raw('support.features') as Array<{ icon: string, title: string, description: string }>).map((feature, idx) => {
-                    const icons: Record<string, any> = {
+                    const icons: Record<string, LucideIcon> = {
                       HeadphonesIcon,
                       RefreshCw,
                       Shield

@@ -472,11 +472,15 @@
       "links": [
         {
           "label": "Πολιτική Απορρήτου",
-          "href": "/privacy-policy"
+          "href": "/privacy"
         },
         {
           "label": "Όροι Παροχής Υπηρεσιών",
-          "href": "/terms-of-service"
+          "href": "/terms"
+        },
+        {
+          "label": "Πολιτική Cookies",
+          "href": "/cookies"
         }
       ]
     },
