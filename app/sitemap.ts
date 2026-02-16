@@ -27,7 +27,7 @@ const routes = [
   '/privacy',
   '/terms',
   '/cookies',
-  '/docs',
+
 ]
 
 export default function sitemap(): MetadataRoute.Sitemap {

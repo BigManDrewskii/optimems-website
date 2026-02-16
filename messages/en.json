@@ -357,34 +357,6 @@
       "integration": "Seamless integration with existing infrastructure"
     }
   },
-  "docs": {
-    "hero": {
-      "title": "Documentation",
-      "description": "Technical documentation, guides, and resources to help you get the most out of Optimems solutions."
-    },
-    "cards": {
-      "userManuals": {
-        "title": "User Manuals",
-        "description": "Comprehensive guides for end users and administrators.",
-        "cta": "View Manuals"
-      },
-      "apiDocs": {
-        "title": "API Documentation",
-        "description": "Technical specifications for developers and integrators.",
-        "cta": "View API Docs"
-      },
-      "dataSheets": {
-        "title": "Data Sheets",
-        "description": "Technical specifications and datasheets for hardware.",
-        "cta": "Download PDFs"
-      }
-    },
-    "support": {
-      "title": "Need Additional Support?",
-      "description": "Can't find what you're looking for? Our support team is here to help.",
-      "cta": "Contact Support"
-    }
-  },
   "careers": {
     "hero": {
       "title": "Join Our Team",
@@ -2566,36 +2538,88 @@
     "backToHome": "Back to Home",
     "title": "Cookie Policy",
     "subtitle": "Learn how we use cookies and similar technologies on our website.",
-    "lastUpdated": "Last updated: January 2026",
-    "intro": "This Cookie Policy explains what Cookies are and how Optimems uses them on our website.",
+    "lastUpdated": "Last updated: February 2026",
+    "intro": "This Cookie Policy explains what cookies are, how Optimems (VAT: EL801977020, Thessaloniki, Greece) uses them on optimems.gr, and your choices regarding their use. This policy should be read alongside our Privacy Policy.",
     "whatAreCookies": {
       "title": "What Are Cookies",
-      "description": "Cookies are small text files that are stored on your device when you visit our website. They help us provide you with a better experience and understand how you use our site."
+      "description": "Cookies are small text files placed on your device (computer, tablet, or mobile phone) when you visit a website. They are widely used to make websites work more efficiently, provide information to the site owners, and improve the user experience. Cookies can be \"session\" cookies (deleted when you close your browser) or \"persistent\" cookies (remain until they expire or you delete them)."
+    },
+    "howWeUse": {
+      "title": "How We Use Cookies",
+      "description": "We use a minimal number of cookies, primarily to ensure our website functions correctly and to remember your preferences. We currently do not use any third-party analytics or advertising cookies. If this changes in the future, we will update this policy and request your consent before setting non-essential cookies."
     },
     "types": {
       "title": "Types of Cookies We Use",
       "essential": {
-        "title": "Essential Cookies",
-        "description": "Required for the website to function properly. These cannot be disabled."
+        "title": "Strictly Necessary Cookies",
+        "description": "These cookies are essential for the website to function and cannot be switched off. They are set in response to actions made by you, such as setting your language preference or filling in forms. Without these cookies, the site cannot function properly."
+      },
+      "functional": {
+        "title": "Functional Cookies",
+        "description": "These cookies allow the website to remember choices you make (such as your preferred language or visual theme) and provide enhanced, personalized features. They may be set by us or by third-party providers whose services we have added to our pages."
       },
       "analytics": {
         "title": "Analytics Cookies",
-        "description": "Help us understand how visitors interact with our website by collecting and reporting information anonymously."
-      },
-      "functionality": {
-        "title": "Functionality Cookies",
-        "description": "Allow the website to remember choices you make and provide enhanced features."
+        "description": "We do not currently use analytics cookies. If we introduce analytics tools in the future (such as Google Analytics or Plausible), we will update this policy, list the specific cookies, and obtain your consent before they are set."
       }
     },
-    "managing": {
-      "title": "Managing Cookies",
-      "description": "Most web browsers allow you to control cookies through their settings. You can:",
-      "options": {
-        "block": "Block all cookies",
-        "allow": "Allow all cookies",
-        "delete": "Delete cookies when you close your browser",
-        "warning": "Receive a warning when a cookie is set"
+    "inventory": {
+      "title": "Cookie Inventory",
+      "description": "Below is a complete list of cookies currently used on optimems.gr:",
+      "headers": {
+        "name": "Cookie Name",
+        "provider": "Provider",
+        "purpose": "Purpose",
+        "duration": "Duration",
+        "type": "Type"
       }
+    },
+    "cookieTable": [
+      {
+        "name": "NEXT_LOCALE",
+        "provider": "Optimems",
+        "purpose": "Stores your preferred language (Greek or English)",
+        "duration": "1 year",
+        "type": "Essential"
+      },
+      {
+        "name": "optimems-consent",
+        "provider": "Optimems",
+        "purpose": "Records your cookie consent preference (accepted or declined)",
+        "duration": "1 year",
+        "type": "Essential"
+      },
+      {
+        "name": "theme",
+        "provider": "Optimems",
+        "purpose": "Remembers your preferred visual theme (dark or light)",
+        "duration": "1 year",
+        "type": "Functional"
+      }
+    ],
+    "managing": {
+      "title": "Managing Your Cookie Preferences",
+      "consentBanner": "When you first visit our website, a cookie consent banner will appear at the bottom of the page. You can accept or decline non-essential cookies using the buttons provided.",
+      "browserSettings": "You can also manage cookies through your browser settings. Most browsers allow you to:",
+      "options": {
+        "block": "Block all or certain types of cookies",
+        "delete": "Delete existing cookies from your device",
+        "notification": "Receive a notification before a cookie is set"
+      },
+      "impact": "Please note that blocking essential cookies may prevent parts of our website from functioning correctly, such as language preferences."
+    },
+    "rights": {
+      "title": "Your Rights",
+      "description": "Under the General Data Protection Regulation (GDPR) and the Greek Data Protection Act (Law 4624/2019), you have the right to withdraw your consent to non-essential cookies at any time. You can do this through the cookie consent banner or by adjusting your browser settings. For more information about your data protection rights, please see our Privacy Policy."
+    },
+    "changes": {
+      "title": "Changes to This Policy",
+      "description": "We may update this Cookie Policy from time to time to reflect changes in the cookies we use or for other operational, legal, or regulatory reasons. We will notify you of any material changes by updating the \"Last updated\" date at the top of this page. We encourage you to review this policy periodically."
+    },
+    "related": {
+      "title": "Related Policies",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service"
     },
     "contactUs": {
       "title": "Contact Us",
@@ -2606,55 +2630,157 @@
     "backToHome": "Back to Home",
     "title": "Privacy Policy",
     "subtitle": "Learn how we collect, use, and protect your personal data.",
-    "lastUpdated": "Last updated: January 2026",
-    "intro": "At Optimems, we take your privacy seriously. This Privacy Policy explains how we collect, use, and protect your personal information when you use our website and services.",
+    "lastUpdated": "Last updated: February 2026",
+    "intro": "At Optimems, we are committed to protecting your privacy and personal data. This Privacy Policy explains how we collect, use, store, and protect your personal information when you visit our website (optimems.gr) or use our services, in accordance with the General Data Protection Regulation (EU) 2016/679 (GDPR) and the Greek Data Protection Act (Law 4624/2019).",
+    "controller": {
+      "title": "Data Controller",
+      "description": "The data controller responsible for your personal data is:",
+      "name": "Optimems",
+      "address": "Thessaloniki, Greece",
+      "vat": "VAT: EL801977020",
+      "emailLabel": "Email:"
+    },
     "infoCollect": {
       "title": "Information We Collect",
-      "description": "We may collect the following types of information:",
-      "items": {
-        "name": "Name and contact information",
-        "company": "Company information",
-        "usage": "Usage data and analytics",
-        "technical": "Technical information about your device"
+      "description": "We collect personal data that you provide directly to us and data that is collected automatically when you use our website.",
+      "provided": {
+        "title": "Information You Provide",
+        "name": "Name, email address, and phone number (when you submit a contact or demo request form)",
+        "company": "Company name, job title, and organization details",
+        "message": "The content of any messages or inquiries you send us"
+      },
+      "automatic": {
+        "title": "Information Collected Automatically",
+        "device": "Device type, browser type, and operating system",
+        "usage": "Pages visited, time spent on pages, and navigation patterns",
+        "cookies": "Cookie data as described in our Cookie Policy"
       }
+    },
+    "legalBasis": {
+      "title": "Legal Basis for Processing",
+      "description": "We process your personal data based on the following legal grounds under GDPR Article 6:",
+      "consent": "Consent: When you voluntarily submit a form or accept non-essential cookies (Art. 6(1)(a))",
+      "contract": "Contract: When processing is necessary to respond to your inquiry or provide requested services (Art. 6(1)(b))",
+      "legitimate": "Legitimate Interest: To improve our website, ensure security, and analyze usage patterns in an anonymized manner (Art. 6(1)(f))",
+      "legal": "Legal Obligation: When we are required to process data to comply with applicable laws (Art. 6(1)(c))"
     },
     "howWeUse": {
       "title": "How We Use Your Information",
-      "description": "We use your information to:",
       "items": {
-        "provide": "Provide and improve our services",
-        "respond": "Respond to your inquiries",
-        "send": "Send you relevant communications",
-        "comply": "Comply with legal obligations"
+        "provide": "To respond to your inquiries and provide the services you request",
+        "respond": "To process and manage demo and partnership requests",
+        "improve": "To improve our website, products, and services",
+        "comply": "To comply with legal and regulatory obligations",
+        "security": "To protect the security and integrity of our website and services"
       }
     },
-    "dataProtection": {
-      "title": "Data Protection",
-      "description": "We implement appropriate technical and organizational measures to protect your personal data against unauthorized access, alteration, disclosure, or destruction."
+    "dataSharing": {
+      "title": "Data Sharing & Recipients",
+      "description": "We may share your personal data with the following categories of recipients:",
+      "providers": "Service providers who assist us in operating our website and delivering services (e.g., hosting providers, email services), bound by data processing agreements",
+      "legal": "Legal authorities when required by law, regulation, or legal process",
+      "protection": "Professional advisors (lawyers, accountants) where necessary for the exercise or defense of legal claims",
+      "noSale": "We do not sell, rent, or trade your personal data to any third parties for marketing purposes."
+    },
+    "retention": {
+      "title": "Data Retention",
+      "description": "We retain your personal data only for as long as necessary to fulfill the purposes for which it was collected, including to satisfy any legal, accounting, or reporting requirements. Contact form submissions and demo requests are retained for up to 24 months from the date of submission, after which they are securely deleted unless a business relationship has been established."
+    },
+    "transfers": {
+      "title": "International Data Transfers",
+      "description": "Your personal data is primarily stored and processed within the European Economic Area (EEA). If any data is transferred outside the EEA, we ensure that appropriate safeguards are in place, such as Standard Contractual Clauses approved by the European Commission, to protect your data in accordance with GDPR requirements."
+    },
+    "rights": {
+      "title": "Your Rights",
+      "description": "Under the GDPR, you have the following rights regarding your personal data:",
+      "access": "Right of Access: You can request a copy of the personal data we hold about you",
+      "rectification": "Right to Rectification: You can ask us to correct any inaccurate or incomplete data",
+      "erasure": "Right to Erasure: You can request that we delete your personal data, subject to legal retention obligations",
+      "restriction": "Right to Restriction: You can ask us to restrict the processing of your data in certain circumstances",
+      "portability": "Right to Data Portability: You can request to receive your data in a structured, commonly used, machine-readable format",
+      "objection": "Right to Object: You can object to the processing of your data based on legitimate interests",
+      "withdraw": "Right to Withdraw Consent: Where processing is based on consent, you can withdraw it at any time without affecting the lawfulness of prior processing",
+      "complaint": "You also have the right to lodge a complaint with the Hellenic Data Protection Authority (HDPA) at www.dpa.gr if you believe your data protection rights have been violated."
+    },
+    "security": {
+      "title": "Data Security",
+      "description": "We implement appropriate technical and organizational measures to protect your personal data against unauthorized access, alteration, disclosure, or destruction. These measures include encrypted data transmission (TLS/SSL), secure hosting infrastructure, access controls, and regular security reviews. However, no method of transmission over the Internet is 100% secure, and we cannot guarantee absolute security."
+    },
+    "changes": {
+      "title": "Changes to This Policy",
+      "description": "We may update this Privacy Policy from time to time to reflect changes in our practices or for legal, regulatory, or operational reasons. We will notify you of any material changes by updating the \"Last updated\" date at the top of this page. We encourage you to review this policy periodically."
+    },
+    "related": {
+      "title": "Related Policies",
+      "cookies": "Cookie Policy",
+      "terms": "Terms of Service"
     },
     "contactUs": {
       "title": "Contact Us",
-      "description": "If you have any questions about this Privacy Policy, please contact us at"
+      "description": "If you have any questions about this Privacy Policy or wish to exercise your data protection rights, please contact us at"
     }
   },
   "termsPage": {
     "backToHome": "Back to Home",
     "title": "Terms of Service",
     "subtitle": "Terms and conditions governing the use of our website and services.",
-    "lastUpdated": "Last updated: January 2026",
-    "intro": "By accessing and using this website, you accept and agree to be bound by the terms and provisions of this agreement.",
+    "lastUpdated": "Last updated: February 2026",
+    "intro": "These Terms of Service govern your access to and use of the Optimems website (optimems.gr) and related services. By accessing or using our website, you agree to be bound by these Terms. If you do not agree with any part of these Terms, please do not use our website.",
+    "acceptance": {
+      "title": "Acceptance of Terms",
+      "description": "By accessing and using this website, you confirm that you have read, understood, and agree to be bound by these Terms of Service and our Privacy Policy. These Terms constitute a legally binding agreement between you and Optimems (VAT: EL801977020, Thessaloniki, Greece)."
+    },
     "useOfWebsite": {
       "title": "Use of Website",
-      "description": "This website and its contents are intended for informational purposes only. You may not use this website for any unlawful purpose or in any way that could damage, disable, or impair our services."
+      "description": "This website is provided for informational and business purposes. You agree to use the website only for lawful purposes and in accordance with these Terms. You agree not to:",
+      "items": {
+        "lawful": "Use the website in any way that violates applicable Greek, European, or international laws or regulations",
+        "noHarm": "Attempt to interfere with, damage, or disrupt the website, servers, or networks connected to it",
+        "noUnauthorized": "Attempt to gain unauthorized access to any part of the website, other accounts, or computer systems",
+        "noMalware": "Introduce any viruses, trojans, worms, or other malicious or technologically harmful material"
+      }
     },
     "intellectualProperty": {
       "title": "Intellectual Property",
-      "description1": "All content, features, and functionality of this website are owned by Optimems and are protected by international copyright, trademark, and other intellectual property laws.",
-      "description2": "You may not reproduce, distribute, modify, create derivative works of, publicly display, or exploit any content from this website without our prior written consent."
+      "description1": "All content, features, functionality, trademarks, logos, and design elements of this website are owned by Optimems and are protected by Greek, European, and international copyright, trademark, and other intellectual property laws.",
+      "description2": "You may not reproduce, distribute, modify, create derivative works of, publicly display, perform, republish, or exploit any content from this website without our prior written consent. Limited personal, non-commercial use is permitted provided you do not modify the content and retain all copyright and proprietary notices."
+    },
+    "accounts": {
+      "title": "User Accounts",
+      "description": "Certain features of our services may require you to create an account. You are responsible for maintaining the confidentiality of your account credentials and for all activities that occur under your account. You agree to notify us immediately of any unauthorized use of your account. We reserve the right to suspend or terminate accounts that violate these Terms."
+    },
+    "warranties": {
+      "title": "Disclaimer of Warranties",
+      "description": "This website and its content are provided on an \"as is\" and \"as available\" basis without warranties of any kind, either express or implied, including but not limited to implied warranties of merchantability, fitness for a particular purpose, and non-infringement. Optimems does not warrant that the website will be uninterrupted, error-free, secure, or free from viruses or other harmful components. This disclaimer does not affect any statutory rights that cannot be excluded or limited under applicable EU consumer protection law."
     },
     "limitation": {
       "title": "Limitation of Liability",
-      "description": "Optimems shall not be liable for any direct, indirect, incidental, special, or consequential damages arising out of or in any way connected with the use of this website or our services."
+      "description": "To the maximum extent permitted by applicable law, Optimems shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to loss of profits, data, or other intangible losses, arising out of your access to or use of (or inability to use) this website. Nothing in these Terms excludes or limits our liability for death or personal injury caused by negligence, fraud, or any other liability that cannot be excluded or limited under Greek or EU law."
+    },
+    "thirdParty": {
+      "title": "Third-Party Links",
+      "description": "Our website may contain links to third-party websites or services that are not owned or controlled by Optimems. We have no control over, and assume no responsibility for, the content, privacy policies, or practices of any third-party sites. You acknowledge and agree that Optimems shall not be responsible or liable for any damage or loss caused by your use of any third-party websites."
+    },
+    "governingLaw": {
+      "title": "Governing Law & Jurisdiction",
+      "description": "These Terms of Service shall be governed by and construed in accordance with the laws of the Hellenic Republic (Greece), without regard to its conflict of law provisions. Any disputes arising out of or relating to these Terms shall be subject to the exclusive jurisdiction of the courts of Thessaloniki, Greece, except where mandatory EU consumer protection rules provide otherwise."
+    },
+    "termination": {
+      "title": "Termination",
+      "description": "We reserve the right to suspend or terminate your access to the website at any time, without prior notice, for conduct that we determine, in our sole discretion, violates these Terms, is harmful to other users, or is otherwise objectionable. Upon termination, your right to use the website will immediately cease."
+    },
+    "changes": {
+      "title": "Changes to These Terms",
+      "description": "We reserve the right to modify these Terms of Service at any time. Changes will take effect immediately upon posting to the website. The \"Last updated\" date at the top of this page indicates when the Terms were last revised. Your continued use of the website after any changes constitutes your acceptance of the revised Terms."
+    },
+    "severability": {
+      "title": "Severability",
+      "description": "If any provision of these Terms is found to be invalid, illegal, or unenforceable by a court of competent jurisdiction, the remaining provisions shall continue in full force and effect. The invalid provision shall be modified to the minimum extent necessary to make it valid and enforceable while preserving its original intent."
+    },
+    "related": {
+      "title": "Related Policies",
+      "privacy": "Privacy Policy",
+      "cookies": "Cookie Policy"
     },
     "contactUs": {
       "title": "Contact Information",
@@ -2730,5 +2856,13 @@
       "message": "We'll be in touch within 24 hours to schedule your demo.",
       "submitAnother": "Submit Another Request"
     }
+  },
+  "cookieConsent": {
+    "message": "We use cookies to ensure you get the best experience on our website.",
+    "accept": "Accept",
+    "decline": "Decline",
+    "learnMore": "Learn more",
+    "ariaAccept": "Accept cookies",
+    "ariaDecline": "Decline cookies"
   }
 }

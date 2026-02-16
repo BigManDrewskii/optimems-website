@@ -2,12 +2,12 @@
   "name": "Optimems",
   "short_name": "Optimems",
   "description": "Energy Command Center for Grid Optimization",
-  "start_url": "/el",
+  "start_url": "/",
   "display": "standalone",
   "background_color": "#000000",
   "theme_color": "#FC5855",
   "orientation": "portrait-primary",
-  "scope": "/el",
+  "scope": "/",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",

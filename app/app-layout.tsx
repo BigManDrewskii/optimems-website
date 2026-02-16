@@ -2,6 +2,7 @@
 
 import { Header } from "@/components/shared/Header"
 import { Footer } from "@/components/sections/Footer"
+import { CookieConsentBanner } from "@/components/shared/CookieConsentBanner"
 
 export function AppLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -11,6 +12,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
         {children}
       </div>
       <Footer />
+      <CookieConsentBanner />
     </>
   )
 }

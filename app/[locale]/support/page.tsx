@@ -66,7 +66,7 @@ export default function SupportPage() {
                   <p className="text-muted-foreground text-sm mb-6">
                     {t("cards.docs.description")}
                   </p>
-                  <Link href="/docs" className="text-secondary hover:underline inline-flex items-center">
+                  <Link href="/contact" className="text-secondary hover:underline inline-flex items-center">
                     {t("cards.docs.link")}
                     <ArrowRight className="ml-1 w-3 h-3" aria-hidden="true" />
                   </Link>

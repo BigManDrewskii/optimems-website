@@ -103,7 +103,6 @@ export const navigation: NavItem[] = [
   { label: 'Case Studies', href: '/case-studies' },
   { label: 'Careers', href: '/careers' },
   { label: 'Request Demo', href: '/demo' },
-  { label: 'Documentation', href: '/docs' },
   { label: 'Support', href: '/support' },
   { label: 'Blog', href: '/blog' },
   { label: 'Contact Us', href: '/contact' },
@@ -371,7 +370,7 @@ export const testimonials: Testimonial[] = [
     role: 'CEO',
     company: 'CheckWatt',
     location: 'Sweden',
-    avatar: '/dan_eric_grayscale.jpeg',
+    avatar: '/images/testimonials/dan-eric-archer.jpeg',
     logo: '/images/logos/checkwatt-logo-dark.svg',
     lightThemeLogo: '/images/logos/checkwatt-logo-light.svg',
     featured: true,
@@ -560,7 +559,6 @@ export const footer = {
     resources: [
       { label: 'Blog', href: '/blog' },
       { label: 'Branding', href: '/branding' },
-      { label: 'Documentation', href: '/docs' },
       { label: 'Support', href: '/support' },
     ],
     legal: [

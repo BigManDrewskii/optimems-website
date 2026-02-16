@@ -126,7 +126,7 @@ export function SolarHeroDemo() {
               className="px-8 py-3.5 rounded-full"
             />
             <a
-              href="/docs"
+              href="/contact"
               className="inline-flex items-center justify-center px-8 py-3.5 rounded-full font-medium text-muted-foreground hover:text-foreground border border-border/30 hover:border-border/50 transition-all duration-300"
             >
               {t('secondaryCTA')}

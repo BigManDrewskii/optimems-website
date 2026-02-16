@@ -10,7 +10,7 @@ export const SOCIAL_LINKS = {
   x: "https://x.com/optimemsGR",
   facebook: "https://www.facebook.com/people/Optimems/61567697585194/",
   youtube: "https://www.youtube.com/channel/UCFKMlmRTkLwXRNa1qmRpPew",
-  linkedin: "https://www.linkedin.com/company/optimems/posts/?feedView=all&viewAsMember=true",
+  linkedin: "https://www.linkedin.com/company/optimems/posts/?feedView=all",
 } as const
 
 export const CONTACT = {
