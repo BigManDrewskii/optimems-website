@@ -143,12 +143,6 @@ export function Footer() {
 
           <div className="pt-4 sm:pt-4">
             <div className="flex flex-col-reverse sm:flex-row justify-between items-center gap-4">
-              <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-4 w-full sm:w-auto text-[10px] sm:text-xs">
-                <p className="text-muted-foreground text-[10px] sm:text-xs text-center sm:text-left">
-                  {t('vat')}
-                </p>
-              </div>
-
               <p className="text-muted-foreground text-[10px] sm:text-xs text-center sm:text-left">
                 {t('copyright', { year: new Date().getFullYear() })}
               </p>
