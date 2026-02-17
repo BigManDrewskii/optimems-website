@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import { SITE_URL } from '@/lib/constants/urls';
 import { ThemeProvider } from "@/components/theme-provider"
+import { LogoIntroGate } from "@/components/shared/LogoIntro"
 
 type Props = {
   children: React.ReactNode
@@ -90,9 +91,11 @@ export default async function LocaleLayout({
       enableSystem
       disableTransitionOnChange
     >
-      <NextIntlClientProvider messages={messages}>
-        {children}
-      </NextIntlClientProvider>
+      <LogoIntroGate>
+        <NextIntlClientProvider messages={messages}>
+          {children}
+        </NextIntlClientProvider>
+      </LogoIntroGate>
     </ThemeProvider>
   )
 }
