@@ -3,11 +3,11 @@
 import { motion, AnimatePresence } from "framer-motion"
 import { X, ChevronRight } from "lucide-react"
 import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
+
 import { Link } from "@/i18n/navigation"
 import { LocaleSwitcher } from "./LocaleSwitcher"
 import { ThemeToggle } from "./ThemeToggle"
-import type { MobileNavigationProps, LocaleSwitcherProps, ThemeToggleProps } from "./types"
+import type { MobileNavigationProps, LocaleSwitcherProps } from "./types"
 import { useEffect } from "react"
 
 export interface MobileNavigationWithControlsProps extends MobileNavigationProps, LocaleSwitcherProps {}

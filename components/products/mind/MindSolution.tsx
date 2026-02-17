@@ -3,8 +3,7 @@
 import { useTranslations, useLocale } from "next-intl"
 import { motion } from "framer-motion"
 import { ProductPageSection } from "@/components/products/ProductPageSection"
-import { GlassCard } from "@/components/shared/GlassCard"
-import { Brain } from "lucide-react"
+
 import { OrbitGraphic } from "@/components/products/mind/OrbitGraphic"
 
 /**

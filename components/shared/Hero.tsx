@@ -6,9 +6,9 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Container } from "@/components/shared/Container"
 import { Video } from "@/components/shared"
-import { SectionHeader } from "@/components/shared/SectionHeader"
+
 import { CustomPrimaryButton } from "@/components/shared"
-import { useTranslations, useLocale } from "next-intl"
+import { useLocale } from "next-intl"
 import { Link } from "@/i18n/navigation"
 import { getVideoSrc } from "@/data/videos"
 import { useTheme } from "next-themes"
@@ -84,13 +84,6 @@ export interface HeroProps {
   showBottomGradient?: boolean
 }
 
-const animationVariants = {
-  default: {
-    hidden: { opacity: 0 },
-    show: { opacity: 1 },
-  },
-}
-
 export function Hero({
   headline,
   subheadline,
@@ -109,7 +102,6 @@ export function Hero({
   spacing = "standard",
   showBottomGradient = false,
 }: HeroProps) {
-  const t = useTranslations()
   const locale = useLocale()
   const isGreek = locale === "el"
   const { resolvedTheme } = useTheme()

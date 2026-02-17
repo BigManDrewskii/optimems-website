@@ -2,7 +2,7 @@
 
 import { ProductPageSection } from "@/components/products/ProductPageSection"
 import { GlassCard } from "@/components/shared/GlassCard"
-import { FeatureList } from "@/components/products/FeatureList"
+
 import { useTranslations, useLocale } from "next-intl"
 import { motion } from "framer-motion"
 import { FileText, Phone, Rocket } from "lucide-react"

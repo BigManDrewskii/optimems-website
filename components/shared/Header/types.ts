@@ -1,5 +1,3 @@
-import { ReactNode } from "react"
-
 /**
  * Navigation item with optional dropdown menu
  */

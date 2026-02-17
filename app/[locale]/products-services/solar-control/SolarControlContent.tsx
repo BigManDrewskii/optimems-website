@@ -1,6 +1,6 @@
 "use client"
 import { AppLayout } from "@/app/app-layout"
-import { useTranslations, useLocale } from "next-intl"
+
 import dynamic from "next/dynamic"
 import { Skeleton } from "@/components/ui/skeleton"
 
@@ -55,10 +55,6 @@ const SolarCTA = dynamic(() => import("@/components/products/solar-control/Solar
 })
 
 export function SolarControlContent() {
-   const t = useTranslations('solarControlPage')
-   const locale = useLocale()
-   const isGreek = locale === 'el'
-
   return (
     <AppLayout>
       <main className="min-h-screen">

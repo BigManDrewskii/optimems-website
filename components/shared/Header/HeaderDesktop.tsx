@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import { LocaleSwitcher } from "./LocaleSwitcher"
 import { ThemeToggle } from "./ThemeToggle"
 import { Link } from "@/i18n/navigation"
-import type { LocaleSwitcherProps, ThemeToggleProps } from "./types"
+
 
 export interface HeaderDesktopProps {
   currentLocale: string

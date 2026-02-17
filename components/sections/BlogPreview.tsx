@@ -33,13 +33,6 @@ const getLightImage = (darkPath: string): string => {
   return darkPath.replace('-dark.jpeg', '-light.jpeg')
 }
 
-// Featured blog posts to show on homepage
-const featuredSlugs = [
-  '2025-06-26-optimems-nbg-business-seeds',
-  '2025-06-02-optimems-web-summit-vancouver',
-  '2025-05-10-job-opening-tech-support'
-]
-
 interface BlogPreviewProps {
   featuredPosts?: BlogPost[]
 }
@@ -54,8 +47,8 @@ export function BlogPreview({ featuredPosts: postsProp }: BlogPreviewProps) {
     setMounted(true)
   }, [])
 
-  // Use provided posts or empty array (will be populated by server component)
-  const featuredPosts = postsProp || []
+  // Use provided posts or stable empty array
+  const featuredPosts = useMemo(() => postsProp || [], [postsProp])
 
   // Resolve images based on theme
   const resolvedPosts = useMemo(() => {

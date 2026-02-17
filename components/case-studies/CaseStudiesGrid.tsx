@@ -21,7 +21,7 @@ export function CaseStudiesGrid() {
     <AnimatedSection animation="fadeIn" className="pt-24 pb-8 md:pb-12">
       <Container>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-          {CASE_STUDIES.map((caseKey, index) => (
+          {CASE_STUDIES.map((caseKey) => (
             <CaseStudyCard
               key={caseKey}
               client={t(`${caseKey}.client`)}

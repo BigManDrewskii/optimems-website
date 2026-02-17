@@ -2,7 +2,7 @@
 
 import * as React from "react"
 import { cn } from "@/lib/utils"
-import { useLocale, useTranslations } from "next-intl"
+import { useTranslations } from "next-intl"
 
 interface HamburgerMenuProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   isOpen?: boolean
@@ -16,8 +16,6 @@ export function HamburgerMenu({
   ...props
 }: HamburgerMenuProps) {
   const t = useTranslations()
-  const locale = useLocale()
-  const isGreek = locale === "el"
 
   return (
     <button

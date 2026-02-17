@@ -109,7 +109,6 @@ const TestimonialCard = memo(function TestimonialCard({
 }) {
   const t = useTranslations()
   const key = testimonialKeys[index]
-  const testimonial = testimonials[index]
 
   const handleKeyDown = useCallback((e: React.KeyboardEvent<HTMLDivElement>) => {
     if (e.key === 'Enter' || e.key === ' ') {
@@ -178,7 +177,7 @@ export const Testimonials = memo(function Testimonials() {
   const isPaused = hoverCount > 0
 
   // Memoize computed values to prevent recalculation
-  const { featuredTestimonial, featuredIndex, marqueeTestimonials, firstColumn, secondColumn, thirdColumn } = useMemo(() => {
+  const { featuredTestimonial, featuredIndex, firstColumn, secondColumn, thirdColumn } = useMemo(() => {
     const featuredTestimonial = testimonials.find(t => t.featured)
     const featuredIndex = testimonials.findIndex(t => t.featured)
     const marqueeTestimonials = testimonials.filter(t => !t.featured)

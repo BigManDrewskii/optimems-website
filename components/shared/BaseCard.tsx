@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils"
 import { useTheme } from "next-themes"
 
 // Theme-aware pattern color presets using CSS variables
-const getDefaultPattern = (isDark: boolean) => {
+const getDefaultPattern = (_isDark: boolean) => {
   // Uses OKLCH color system --pattern-bg and --pattern-stripe variables
   return { bg: 'var(--pattern-bg)', stripe: 'var(--pattern-stripe)' }
 }

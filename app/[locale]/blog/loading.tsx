@@ -23,8 +23,8 @@ export default function Loading() {
       {/* Blog grid skeleton */}
       <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-[1400px] py-8">
         <div className="animate-pulse grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {Array.from({ length: 6 }).map((_, i) => (
-            <div key="blog-card-1" className="space-y-4">
+          {Array.from({ length: 6 }).map((_item, index) => (
+            <div key={`blog-card-${index}`} className="space-y-4">
               <div className="h-[200px] bg-muted/30 rounded-xl" />
               <div className="h-5 w-3/4 bg-muted/40 rounded" />
               <div className="h-3 w-1/2 bg-muted/30 rounded" />

@@ -1,5 +1,5 @@
 import { useInView } from 'framer-motion';
-import { useRef, useEffect, useState } from 'react';
+import { useRef } from 'react';
 
 /**
  * Hook for scroll-triggered animations

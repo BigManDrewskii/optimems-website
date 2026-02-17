@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Link } from "@/i18n/navigation"
 
 export default function ErrorPage({
-  error,
+  error: _error,
   reset,
 }: {
   error: Error & { digest?: string }

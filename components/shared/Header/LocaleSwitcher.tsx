@@ -9,7 +9,6 @@ export function LocaleSwitcher({
   className,
 }: LocaleSwitcherProps) {
   const isGreek = currentLocale === "el"
-  const otherLocale = isGreek ? "en" : "el"
 
   const localePillStyles: LocalePillStyles = {
     container: cn(

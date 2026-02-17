@@ -5,7 +5,7 @@
  */
 "use client"
 
-import { ReactNode, ButtonHTMLAttributes, AnchorHTMLAttributes } from "react"
+import { ReactNode } from "react"
 import { cn } from "@/lib/utils"
 
 export interface GlassCardProps {

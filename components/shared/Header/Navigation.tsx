@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { ChevronDown } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Link } from "@/i18n/navigation"
-import type { NavigationProps, NavItem } from "./types"
+import type { NavigationProps } from "./types"
 
 export const Navigation = forwardRef<HTMLElement, NavigationProps>(({
   items,

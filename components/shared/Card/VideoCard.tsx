@@ -33,7 +33,7 @@ export function VideoCard({
   href,
   logo,
   aspectRatio = 'video',
-  showVignette = true,
+  showVignette: _showVignette = true,
   className,
   isInView = true,
   displayOrder = 0,

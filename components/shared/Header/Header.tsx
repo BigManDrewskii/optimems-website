@@ -10,9 +10,9 @@ import { Navigation } from "./Navigation"
 import { HeaderDesktop } from "./HeaderDesktop"
 import { HeaderMobile } from "./HeaderMobile"
 import { MobileNavigation } from "./MobileNavigation"
-import type { NavItem, NavDropdownItem, HeaderProps } from "./types"
+import type { NavItem, HeaderProps } from "./types"
 
-export function Header({ className }: HeaderProps) {
+export function Header({ className: _className }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [openDropdown, setOpenDropdown] = useState<string | null>(null)
@@ -20,7 +20,7 @@ export function Header({ className }: HeaderProps) {
   const locale = useLocale()
   const router = useRouter()
   const pathname = usePathname()
-  const { resolvedTheme, setTheme } = useTheme()
+  const { resolvedTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
   const t = useTranslations()
 
@@ -55,8 +55,6 @@ export function Header({ className }: HeaderProps) {
     document.addEventListener("mousedown", handleClickOutside)
     return () => document.removeEventListener("mousedown", handleClickOutside)
   }, [])
-
-  const isGreek = locale === "el"
 
   const handleLocaleToggle = () => {
     const newLocale = locale === "el" ? "en" : "el"

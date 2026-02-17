@@ -5,7 +5,7 @@ import { motion } from "framer-motion"
 import { useTranslations } from "next-intl"
 import { AnimatedSection } from "@/components/shared/AnimatedSection"
 import { Container } from "@/components/shared/Container"
-import { CustomPrimaryButton } from "@/components/shared"
+
 import { 
   Mail, 
   Phone, 
@@ -261,7 +261,7 @@ export function ConsultContact() {
                     className="w-full px-4 py-2 rounded-lg border border-border bg-background text-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
                   >
                     <option value="">{t('form.selectService')}</option>
-                    {services.map((service, index) => (
+                    {services.map((service) => (
                       <option key={service} value={service}>
                         {service}
                       </option>

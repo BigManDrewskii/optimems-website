@@ -2,13 +2,11 @@
 
 import { ProductPageSection } from "@/components/products/ProductPageSection"
 import { IconCardGrid } from "@/components/products/IconCardGrid"
-import { useTranslations, useLocale } from "next-intl"
+import { useTranslations } from "next-intl"
 import { GraduationCap, Headset, DollarSign, Globe, Database } from "lucide-react"
 
 export function PartnershipBenefits() {
   const t = useTranslations('partnershipPage.benefits')
-  const locale = useLocale()
-  const isGreek = locale === 'el'
 
   const benefitCards = [
     {

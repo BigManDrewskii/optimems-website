@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+
 import { motion } from "framer-motion"
 import { BaseCard } from "../BaseCard"
 import { Check } from "lucide-react"
@@ -20,15 +20,10 @@ export function WarrantyCard({
   displayOrder = 0,
   href,
 }: WarrantyCardProps) {
-  const [mounted, setMounted] = useState(false)
   const t = useTranslations("warranty")
   const { resolvedTheme } = useTheme()
   const locale = useLocale()
   const isGreek = locale === "el"
-
-  useEffect(() => {
-    setMounted(true)
-  }, [])
 
   const warrantyFeatures = t.raw("features") as string[]
 

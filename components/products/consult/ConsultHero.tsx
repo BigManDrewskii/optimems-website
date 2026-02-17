@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { useTranslations, useLocale } from "next-intl"
+import { useTranslations } from "next-intl"
 import { CustomPrimaryButton } from "@/components/shared"
 import { Video } from "@/components/shared/Video"
 import { useTheme } from "next-themes"
@@ -16,8 +16,6 @@ import { useState, useEffect } from "react"
  */
 export function ConsultHero() {
   const t = useTranslations('consultPage.hero')
-  const locale = useLocale()
-  const isGreek = locale === 'el'
   const { resolvedTheme } = useTheme()
   const [shouldLoadVideo, setShouldLoadVideo] = useState(false)
   const [mounted, setMounted] = useState(false)
@@ -136,7 +134,7 @@ export function ConsultHero() {
             transition={{ duration: 0.7, delay: 1.0 }}
             className="mt-16 grid grid-cols-2 lg:grid-cols-4 gap-8 max-w-4xl mx-auto"
           >
-            {t.raw('serviceHighlights').map((service: string, index: number) => (
+            {t.raw('serviceHighlights').map((service: string) => (
               <div key={service.toString()} className="text-center">
                 <p className="text-sm text-muted-foreground">{service}</p>
               </div>

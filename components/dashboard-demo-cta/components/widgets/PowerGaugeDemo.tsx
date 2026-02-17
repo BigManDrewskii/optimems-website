@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useId, useEffect, useState } from 'react';
 import { PowerGaugeData } from '../../types/dashboard.types';
-import { useDashboardAnimation, useDecimalAnimation } from '../hooks';
+import { useDashboardAnimation } from '../hooks';
 
 interface PowerGaugeDemoProps {
   data: PowerGaugeData;

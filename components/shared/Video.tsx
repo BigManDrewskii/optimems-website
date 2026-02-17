@@ -45,7 +45,7 @@ export function Video({
   controls = false,
   preload = "metadata",  // Changed from "auto" - only load metadata by default
   sources,
-  cacheBust = false,  // Changed from true - disable cache-busting to allow browser caching
+  cacheBust: _cacheBust = false,  // Changed from true - disable cache-busting to allow browser caching
   title,
   alt,
   loading = "lazy",  // Changed from "eager" - lazy load videos by default

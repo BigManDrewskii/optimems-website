@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { useTranslations, useLocale } from "next-intl"
+import { useTranslations } from "next-intl"
 import { AnimatedSection } from "@/components/shared/AnimatedSection"
 import { Container } from "@/components/shared/Container"
 import { CustomPrimaryButton } from "@/components/shared"
@@ -28,8 +28,6 @@ interface ServiceCard {
  */
 export function ConsultServices() {
   const t = useTranslations('consultPage.services')
-  const locale = useLocale()
-  const isGreek = locale === 'el'
 
   const services: ServiceCard[] = [
     {

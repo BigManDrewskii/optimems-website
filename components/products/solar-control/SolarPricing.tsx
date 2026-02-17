@@ -1,6 +1,6 @@
 "use client"
 import { ProductPageSection } from "@/components/products/ProductPageSection"
-import { FeatureList } from "@/components/products/FeatureList"
+
 import { BaseCard } from "@/components/shared/BaseCard"
 import { Button } from "@/components/ui/button"
 import { Link } from "@/i18n/navigation"

@@ -1,12 +1,12 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { TrendingUp, Coins, ShieldCheck, Zap, ArrowRight } from "lucide-react"
+import { TrendingUp, Coins, ShieldCheck, Zap } from "lucide-react"
 import { useTranslations } from "next-intl"
 import { valuePropKeys } from "@/lib/i18n/translation-keys"
-import { valuePropositions, contactCTA } from "@/data/landing-page"
-import { SectionHeader, BaseCard, CustomPrimaryButton } from "@/components/shared"
-import { Link } from "@/i18n/navigation"
+import { valuePropositions } from "@/data/landing-page"
+import { SectionHeader, BaseCard } from "@/components/shared"
+
 
 interface CompactValuePropCardProps {
   valueProp: typeof valuePropositions[0]
@@ -68,39 +68,6 @@ function CompactValuePropCard({ valueProp, index }: CompactValuePropCardProps) {
         <p className="text-sm text-muted-foreground leading-relaxed">
           {t(`valuePropositions.${key}.description`)}
         </p>
-      </BaseCard>
-    </motion.div>
-  )
-}
-
-function CTACard() {
-  const t = useTranslations()
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: 0.15 }}
-    >
-      <BaseCard
-        variant="cta"
-        colorScheme="primary"
-        rounded="2xl"
-        scale={true}
-        shadow={true}
-        padding="lg"
-        className="h-full"
-      >
-        <div className="flex flex-col h-full justify-center items-center text-center">
-          <h3 className="text-xl font-bold text-background mb-4">
-            {t('valuePropositions.ctaCard.title')}
-          </h3>
-          <CustomPrimaryButton
-            href={contactCTA.primaryCTA.href}
-            label={t('valuePropositions.ctaCard.buttonLabel')}
-          />
-        </div>
       </BaseCard>
     </motion.div>
   )
