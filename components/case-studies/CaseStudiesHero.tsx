@@ -51,7 +51,7 @@ export function CaseStudiesHero() {
             transition={{ duration: 0.5, delay: 0.3 }}
             className={`text-lg text-muted-foreground italic leading-relaxed ${isGreek ? "greek-text" : ""}`}
           >
-            "{t("manifesto")}"
+            &ldquo;{t("manifesto")}&rdquo;
           </motion.div>
         </div>
       </Container>

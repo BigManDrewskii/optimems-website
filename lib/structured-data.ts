@@ -137,7 +137,7 @@ export function createArticleSchema(post: {
       name: 'Optimems',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://optimems.gr/optimems-logos/optimems-logo-icon-dark.svg'
+        url: `${SITE_URL}/optimems-logos/optimems-logo-icon-dark.svg`
       }
     },
     mainEntityOfPage: {

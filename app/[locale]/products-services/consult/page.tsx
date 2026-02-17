@@ -1,4 +1,5 @@
 import { Metadata } from "next"
+import { SITE_URL } from "@/lib/constants/urls"
 import { getTranslations } from "next-intl/server"
 import { ConsultContent } from "./ConsultContent"
 import { StructuredData } from "@/components/seo/StructuredData"
@@ -21,7 +22,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description: t('meta.description'),
       type: 'website',
       locale: locale,
-      url: `https://optimems.gr/${locale}/products-services/consult`,
+      url: `${SITE_URL}/${locale}/products-services/consult`,
       siteName: 'Optimems',
     },
     twitter: {
@@ -30,10 +31,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description: t('meta.description'),
     },
     alternates: {
-      canonical: `https://optimems.gr/${locale}/products-services/consult`,
+      canonical: `${SITE_URL}/${locale}/products-services/consult`,
       languages: {
-        el: 'https://optimems.gr/el/products-services/consult',
-        en: 'https://optimems.gr/en/products-services/consult',
+        el: `${SITE_URL}/el/products-services/consult`,
+        en: `${SITE_URL}/en/products-services/consult`,
       },
     },
   }
@@ -50,9 +51,9 @@ export default async function ConsultPage({ params }: PageProps) {
     t('meta.description')
   )
   const breadcrumbSchema = createBreadcrumbSchema([
-    { name: 'Home', url: `https://optimems.gr/${locale}` },
-    { name: 'Products', url: `https://optimems.gr/${locale}/products-services` },
-    { name: 'Consulting', url: `https://optimems.gr/${locale}/products-services/consult` }
+    { name: 'Home', url: `${SITE_URL}/${locale}` },
+    { name: 'Products', url: `${SITE_URL}/${locale}/products-services` },
+    { name: 'Consulting', url: `${SITE_URL}/${locale}/products-services/consult` }
   ])
 
   return (

@@ -16,14 +16,25 @@ declare module "react-simple-maps" {
     style?: React.CSSProperties
   }
 
+  export interface GeoFeature {
+    type: string
+    id: string
+    properties: Record<string, string | number | undefined>
+    geometry: {
+      type: string
+      coordinates: number[] | number[][] | number[][][]
+    }
+    rsmKey: string
+  }
+
   export interface GeographiesProps {
-    children: (props: { geographies: any[] }) => React.ReactNode
+    children: (props: { geographies: GeoFeature[] }) => React.ReactNode
     geography: string | object
-    parseOutline?: (geo: any) => any
+    parseOutline?: (geo: GeoFeature) => GeoFeature
   }
 
   export interface GeographyProps {
-    geography: any
+    geography: GeoFeature
     fill?: string
     stroke?: string
     strokeWidth?: number

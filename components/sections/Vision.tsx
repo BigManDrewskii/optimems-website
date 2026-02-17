@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
 import { useTranslations } from "next-intl"
+import { Link } from "@/i18n/navigation"
 
 export function Vision() {
   const t = useTranslations()
@@ -82,10 +83,10 @@ export function Vision() {
               </p>
             </div>
             <Button asChild variant="primary" size="default" className="gap-2">
-              <a href="/demo">
+              <Link href="/demo">
                 {t('vision.exploreCTA')}
                 <ArrowRight className="w-4 h-4" />
-              </a>
+              </Link>
             </Button>
           </motion.div>
         </div>

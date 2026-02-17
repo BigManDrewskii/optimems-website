@@ -32,15 +32,40 @@ app/                    # Next.js 15 App Router
   - page.tsx           # Landing page entry
 
 components/
-  - sections/          # Page section components
-  - shared/            # Shared/reusable components (Container, AnimatedSection, etc.)
+  - sections/          # Landing page section components
+  - shared/            # Shared/reusable components (Container, AnimatedSection, Header, Footer, etc.)
   - ui/                # shadcn/ui primitives (Radix-based)
   - magicui/           # Magic UI animated components (marquee, etc.)
-  - branding/          # Theme-specific branding components
+  - about-us/          # About page components
+  - blog/              # Blog listing and post components
+  - case-studies/      # Case studies components
+  - contact/           # Contact form component
+  - dashboard-demo-cta/ # Dashboard demo CTA (self-contained module)
+  - partnership/       # Partnership page components
+  - products/          # Product page components (mind, solar-control, consult)
+  - seo/               # Structured data component
   - theme-provider.tsx # Theme provider wrapper
 
 lib/
   - utils.ts           # Utility functions (cn() helper)
+  - blog.ts            # Blog post parsing and helpers
+  - structured-data.ts # JSON-LD schema generators
+  - constants/         # Centralized constants (urls.ts, typography.ts)
+
+data/
+  - landing-page.ts    # Landing page data and navigation
+  - about-us.ts        # Team member data
+  - compatibility.ts   # Hardware compatibility data
+  - videos.ts          # Video asset registry (dark/light theme variants)
+
+messages/
+  - en.json            # English translations
+  - el.json            # Greek translations
+
+i18n/
+  - routing.ts         # Locale routing config (default: el)
+  - navigation.ts      # i18n-aware Link, redirect, usePathname, useRouter
+  - request.ts         # Server-side locale request config
 
 hooks/
   - use-*.ts           # Custom React hooks
@@ -114,13 +139,13 @@ hooks/
 - **Tailwind CSS v4** with OKLCH colors
 - **shadcn/ui** (Radix UI primitives + Tailwind)
 - **Framer Motion** and **Motion One** for animations
-- **Zod** + react-hook-form for validation
+- **next-intl** for internationalization (Greek/English)
 - **Lucide React** for icons
 
 ## Important Constraints
 
 - Path alias: `@/*` maps to project root (see tsconfig.json)
-- Image optimization disabled (`unoptimized: true` in next.config)
+- Image optimization enabled with WebP/AVIF support (see next.config.mjs)
 - Dark mode forced by default (next-themes)
 - No empty catch blocks - always handle errors
 - No TypeScript suppressors - fix types properly

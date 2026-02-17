@@ -1,4 +1,5 @@
 import { Metadata } from "next"
+import { SITE_URL } from "@/lib/constants/urls"
 import { getTranslations } from "next-intl/server"
 import { MindContent } from "./MindContent"
 import { StructuredData } from "@/components/seo/StructuredData"
@@ -21,7 +22,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description: t('meta.description'),
       type: 'website',
       locale: locale,
-      url: `https://optimems.gr/${locale}/products-services/mind`,
+      url: `${SITE_URL}/${locale}/products-services/mind`,
       siteName: 'Optimems',
     },
     twitter: {
@@ -30,10 +31,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description: t('meta.description'),
     },
     alternates: {
-      canonical: `https://optimems.gr/${locale}/products-services/mind`,
+      canonical: `${SITE_URL}/${locale}/products-services/mind`,
       languages: {
-        el: 'https://optimems.gr/el/products-services/mind',
-        en: 'https://optimems.gr/en/products-services/mind',
+        el: `${SITE_URL}/el/products-services/mind`,
+        en: `${SITE_URL}/en/products-services/mind`,
       },
     },
   }
@@ -50,9 +51,9 @@ export default async function MindPage({ params }: PageProps) {
     t('meta.description')
   )
   const breadcrumbSchema = createBreadcrumbSchema([
-    { name: 'Home', url: `https://optimems.gr/${locale}` },
-    { name: 'Products', url: `https://optimems.gr/${locale}/products-services` },
-    { name: '+Mind', url: `https://optimems.gr/${locale}/products-services/mind` }
+    { name: 'Home', url: `${SITE_URL}/${locale}` },
+    { name: 'Products', url: `${SITE_URL}/${locale}/products-services` },
+    { name: '+Mind', url: `${SITE_URL}/${locale}/products-services/mind` }
   ])
 
   return (

@@ -142,7 +142,7 @@ const TestimonialCard = memo(function TestimonialCard({
     >
       <blockquote className="mb-4">
         <p className="text-foreground leading-relaxed">
-          "{t(`testimonials.items.${key}.quote`)}"
+          &ldquo;{t(`testimonials.items.${key}.quote`)}&rdquo;
         </p>
       </blockquote>
 

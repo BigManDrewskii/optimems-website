@@ -69,7 +69,7 @@ public/                  # Static assets
 ## Development
 
 ### Tech Stack
-- React 18+ with Server and Client Components
+- React 19 with Server and Client Components
 - Tailwind CSS v4 (OKLCH color system)
 - Radix UI primitives via shadcn/ui
 - react-simple-maps for interactive maps
@@ -78,7 +78,6 @@ public/                  # Static assets
 ### Code Style
 - TypeScript strict mode enabled
 - ESLint configured
-- Prettier for formatting
 - Conventional commits recommended
 
 ### Component Patterns
@@ -91,7 +90,7 @@ public/                  # Static assets
 ## Deployment
 
 The project is configured for Netlify deployment:
-- Node.js 18 required
+- Node.js 22 required
 - Static assets cached aggressively
 - Build command: `npm run build`
 - Publish directory: `.next/`
@@ -112,7 +111,7 @@ See `netlify.toml` for configuration details.
 ### Internationalization
 - **Default locale:** Greek (el)
 - **URL structure:** All routes prefixed with locale (e.g., `/el/products`, `/en/products`)
-- **Translation keys:** See `lib/i18n/translation-keys.ts` for type-safe arrays
+- **Translation files:** `messages/en.json` and `messages/el.json`
 - **Switching locale:** Preserves current path using `router.replace(pathname, { locale })`
 
 ### Theme System
@@ -123,7 +122,7 @@ See `netlify.toml` for configuration details.
 
 ### Video Handling
 - Videos support light/dark theme variants
-- Use `lib/media/videos.ts` for theme-aware video sources
+- Use `data/videos.ts` for theme-aware video sources
 - Videos located in `public/videos/dark/` and `public/videos/light/`
 
 ## Accessibility

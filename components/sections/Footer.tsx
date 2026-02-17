@@ -112,9 +112,9 @@ export function Footer() {
             backgroundRepeat: 'repeat',
           }}>
           <div className="mb-6 sm:mb-8">
-            <a className="flex items-center gap-2.5 mb-3 w-fit hover:opacity-80 transition-opacity" href="/" aria-label="Optimems home">
+            <Link className="flex items-center gap-2.5 mb-3 w-fit hover:opacity-80 transition-opacity" href="/" aria-label="Optimems home">
               <OptimemsLogo className="w-8 h-8 sm:w-9 sm:h-9" />
-            </a>
+            </Link>
 
             <p className="text-muted-foreground text-xs mb-2">
               {t('address')}

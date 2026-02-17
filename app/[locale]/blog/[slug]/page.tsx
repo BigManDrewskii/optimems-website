@@ -11,6 +11,7 @@ import { createArticleSchema, createBreadcrumbSchema, createOrganizationSchema }
 import { Clock } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { getTranslations } from 'next-intl/server'
+import { SITE_URL } from '@/lib/constants/urls'
 
 interface BlogPostPageProps {
   params: Promise<{ slug: string; locale: string }>
@@ -79,15 +80,15 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     description: post.excerpt,
     date: post.date,
     author: post.author,
-    url: `https://optimems.gr/blog/${post.slug}`,
+    url: `${SITE_URL}/blog/${post.slug}`,
     image: post.featured_image || undefined
   })
 
   const breadcrumbSchema = createBreadcrumbSchema([
-    { name: 'Home', url: `https://optimems.gr/${locale}` },
-    { name: 'Blog', url: `https://optimems.gr/${locale}/blog` },
-    { name: post.category, url: `https://optimems.gr/${locale}/blog?category=${post.category}` },
-    { name: post.title, url: `https://optimems.gr/${locale}/blog/${post.slug}` }
+    { name: 'Home', url: `${SITE_URL}/${locale}` },
+    { name: 'Blog', url: `${SITE_URL}/${locale}/blog` },
+    { name: post.category, url: `${SITE_URL}/${locale}/blog?category=${post.category}` },
+    { name: post.title, url: `${SITE_URL}/${locale}/blog/${post.slug}` }
   ])
 
   return (

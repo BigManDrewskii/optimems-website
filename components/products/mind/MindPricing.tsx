@@ -5,7 +5,7 @@ import { motion } from "framer-motion"
 import { ProductPageSection } from "@/components/products/ProductPageSection"
 import { BaseCard } from "@/components/shared/BaseCard"
 import { Button } from "@/components/ui/button"
-import Link from "next/link"
+import { Link } from "@/i18n/navigation"
 
 /**
  * MindPricing - 3 pricing packages

@@ -1,4 +1,5 @@
 import { Metadata } from "next"
+import { SITE_URL } from "@/lib/constants/urls"
 import { getTranslations } from "next-intl/server"
 import { SolarControlContent } from "./SolarControlContent"
 import { StructuredData } from "@/components/seo/StructuredData"
@@ -21,7 +22,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description: t('meta.description'),
       type: 'website',
       locale: locale,
-      url: `https://optimems.gr/${locale}/products-services/solar-control`,
+      url: `${SITE_URL}/${locale}/products-services/solar-control`,
       siteName: 'Optimems',
     },
     twitter: {
@@ -30,10 +31,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description: t('meta.description'),
     },
     alternates: {
-      canonical: `https://optimems.gr/${locale}/products-services/solar-control`,
+      canonical: `${SITE_URL}/${locale}/products-services/solar-control`,
       languages: {
-        el: 'https://optimems.gr/el/products-services/solar-control',
-        en: 'https://optimems.gr/en/products-services/solar-control',
+        el: `${SITE_URL}/el/products-services/solar-control`,
+        en: `${SITE_URL}/en/products-services/solar-control`,
       },
     },
   }
@@ -50,9 +51,9 @@ export default async function SolarControlPage({ params }: PageProps) {
     t('meta.description')
   )
   const breadcrumbSchema = createBreadcrumbSchema([
-    { name: 'Home', url: `https://optimems.gr/${locale}` },
-    { name: 'Products', url: `https://optimems.gr/${locale}/products-services` },
-    { name: '+SolarControl', url: `https://optimems.gr/${locale}/products-services/solar-control` }
+    { name: 'Home', url: `${SITE_URL}/${locale}` },
+    { name: 'Products', url: `${SITE_URL}/${locale}/products-services` },
+    { name: '+SolarControl', url: `${SITE_URL}/${locale}/products-services/solar-control` }
   ])
 
   return (

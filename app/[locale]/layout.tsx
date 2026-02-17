@@ -56,10 +56,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       images: ['/optimems-open-graph.png']
     },
     alternates: {
-      canonical: `https://optimems.gr/${locale}`,
+      canonical: `${SITE_URL}/${locale}`,
       languages: {
-        'el': 'https://optimems.gr/el',
-        'en': 'https://optimems.gr/en'
+        'el': `${SITE_URL}/el`,
+        'en': `${SITE_URL}/en`
       }
     }
   }

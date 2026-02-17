@@ -5,6 +5,7 @@ import { useTranslations, useLocale } from "next-intl"
 import { useTheme } from "next-themes"
 import { CustomPrimaryButton } from "@/components/shared"
 import { Video } from "@/components/shared/Video"
+import { Link } from "@/i18n/navigation"
 import { useState, useEffect } from "react"
 
 /**
@@ -125,12 +126,12 @@ export function SolarHeroDemo() {
               label={t('primaryCTA')}
               className="px-8 py-3.5 rounded-full"
             />
-            <a
+            <Link
               href="/contact"
               className="inline-flex items-center justify-center px-8 py-3.5 rounded-full font-medium text-muted-foreground hover:text-foreground border border-border/30 hover:border-border/50 transition-all duration-300"
             >
               {t('secondaryCTA')}
-            </a>
+            </Link>
           </motion.div>
         </div>
       </div>

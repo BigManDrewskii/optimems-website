@@ -5,7 +5,6 @@ import { Stats } from "@/components/sections/Stats"
 import { ValuePropositions } from "@/components/sections/ValuePropositions"
 import { Products } from "@/components/sections/Products"
 import dynamic from "next/dynamic"
-import { Vision } from "@/components/sections/Vision"
 import { BlogPreviewWrapper } from "@/components/sections/BlogPreviewWrapper"
 import { ContactCTA } from "@/components/sections/ContactCTA"
 import { GovernmentLogos } from "@/components/sections/GovernmentLogos"
@@ -48,7 +47,6 @@ export default async function Home({ params }: HomePageProps) {
           <Products />
           <ValuePropositions />
           <Testimonials />
-          {/* <Vision /> */}
           <BlogPreviewWrapper featuredPosts={featuredPosts} />
           <ContactCTA />
         </div>
