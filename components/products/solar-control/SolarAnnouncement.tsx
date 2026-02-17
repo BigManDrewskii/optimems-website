@@ -18,6 +18,9 @@ export function SolarAnnouncement() {
   const locale = useLocale()
   const isGreek = locale === 'el'
 
+  // ΔΕΔΔΗΕ announcement is only relevant to the Greek audience
+  if (!isGreek) return null
+
   return (
     <section className="py-12 md:py-16">
       <div className="max-w-6xl mx-auto px-6 lg:px-8">
