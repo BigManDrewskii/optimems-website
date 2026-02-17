@@ -6,7 +6,7 @@ import { Skeleton } from "@/components/ui/skeleton"
 
 // Demo-style sections - critical above-fold loaded statically
 import { SolarHeroDemo } from "@/components/products/solar-control/SolarHeroDemo"
-import { MarqueeSection } from "@/components/shared"
+import { MarqueeSection } from "@/components/shared/MarqueeSection"
 import { socialProof } from "@/data/landing-page"
 import { SolarAnnouncement } from "@/components/products/solar-control/SolarAnnouncement"
 import { SolarProblem } from "@/components/products/solar-control/SolarProblem"

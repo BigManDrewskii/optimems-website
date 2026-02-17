@@ -7,7 +7,7 @@ import dynamic from "next/dynamic"
 import { Skeleton } from "@/components/ui/skeleton"
 import { memo } from "react"
 
-const EuropeMap = dynamic(() => import("@/components/shared").then(mod => ({ default: mod.EuropeMap })), {
+const EuropeMap = dynamic(() => import("@/components/shared/EuropeMap").then(mod => ({ default: mod.EuropeMap })), {
   loading: () => <Skeleton className="h-[400px] w-full rounded-lg" />,
   ssr: false
 })

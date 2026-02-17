@@ -1,5 +1,3 @@
-"use client"
-
 import { AppLayout } from "@/app/app-layout"
 import { CaseStudiesHero } from "@/components/case-studies/CaseStudiesHero"
 import { CaseStudiesGrid } from "@/components/case-studies/CaseStudiesGrid"

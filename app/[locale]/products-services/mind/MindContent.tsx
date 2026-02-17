@@ -2,38 +2,40 @@
 import { AppLayout } from "@/app/app-layout"
 import dynamic from "next/dynamic"
 import { Skeleton } from "@/components/ui/skeleton"
-import { MarqueeSection } from "@/components/shared"
+import { MarqueeSection } from "@/components/shared/MarqueeSection"
 import { socialProof } from "@/data/landing-page"
 
 // Critical above-fold sections loaded statically
-import { MindHero, MindProblem, MindSolution } from "@/components/products/mind"
+import { MindHero } from "@/components/products/mind/MindHero"
+import { MindProblem } from "@/components/products/mind/MindProblem"
+import { MindSolution } from "@/components/products/mind/MindSolution"
 
 // Heavy below-fold sections loaded dynamically
-const MindHowItWorks = dynamic(() => import("@/components/products/mind").then(m => ({ default: m.MindHowItWorks })), {
+const MindHowItWorks = dynamic(() => import("@/components/products/mind/MindHowItWorks").then(m => ({ default: m.MindHowItWorks })), {
   loading: () => <Skeleton className="h-[500px] w-full" />,
   ssr: true
 })
-const MindKeyFeatures = dynamic(() => import("@/components/products/mind").then(m => ({ default: m.MindKeyFeatures })), {
+const MindKeyFeatures = dynamic(() => import("@/components/products/mind/MindKeyFeatures").then(m => ({ default: m.MindKeyFeatures })), {
   loading: () => <Skeleton className="h-[600px] w-full" />,
   ssr: true
 })
-const MindWhoIsItFor = dynamic(() => import("@/components/products/mind").then(m => ({ default: m.MindWhoIsItFor })), {
+const MindWhoIsItFor = dynamic(() => import("@/components/products/mind/MindWhoIsItFor").then(m => ({ default: m.MindWhoIsItFor })), {
   loading: () => <Skeleton className="h-[500px] w-full" />,
   ssr: true
 })
-const MindTechnology = dynamic(() => import("@/components/products/mind").then(m => ({ default: m.MindTechnology })), {
+const MindTechnology = dynamic(() => import("@/components/products/mind/MindTechnology").then(m => ({ default: m.MindTechnology })), {
   loading: () => <Skeleton className="h-[700px] w-full" />,
   ssr: false
 })
-const MindPricing = dynamic(() => import("@/components/products/mind").then(m => ({ default: m.MindPricing })), {
+const MindPricing = dynamic(() => import("@/components/products/mind/MindPricing").then(m => ({ default: m.MindPricing })), {
   loading: () => <Skeleton className="h-[400px] w-full" />,
   ssr: true
 })
-const MindWarranty = dynamic(() => import("@/components/products/mind").then(m => ({ default: m.MindWarranty })), {
+const MindWarranty = dynamic(() => import("@/components/products/mind/MindWarranty").then(m => ({ default: m.MindWarranty })), {
   loading: () => <Skeleton className="h-[400px] w-full" />,
   ssr: true
 })
-const MindCTA = dynamic(() => import("@/components/products/mind").then(m => ({ default: m.MindCTA })), {
+const MindCTA = dynamic(() => import("@/components/products/mind/MindCTA").then(m => ({ default: m.MindCTA })), {
   loading: () => <Skeleton className="h-[300px] w-full" />,
   ssr: true
 })

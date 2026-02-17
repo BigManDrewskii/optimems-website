@@ -2,22 +2,22 @@
 import { AppLayout } from "@/app/app-layout"
 import dynamic from "next/dynamic"
 import { Skeleton } from "@/components/ui/skeleton"
-import { MarqueeSection } from "@/components/shared"
+import { MarqueeSection } from "@/components/shared/MarqueeSection"
 import { socialProof } from "@/data/landing-page"
 
 // Critical above-fold sections loaded statically
-import { ConsultHero } from "@/components/products/consult"
-import { ConsultServices } from "@/components/products/consult"
-import { ConsultTechnology } from "@/components/products/consult"
+import { ConsultHero } from "@/components/products/consult/ConsultHero"
+import { ConsultServices } from "@/components/products/consult/ConsultServices"
+import { ConsultTechnology } from "@/components/products/consult/ConsultTechnology"
 import { Testimonials } from "@/components/sections/Testimonials"
-import { ConsultCTA } from "@/components/products/consult"
+import { ConsultCTA } from "@/components/products/consult/ConsultCTA"
 
 // Heavy below-fold sections loaded dynamically
-const ConsultProcess = dynamic(() => import("@/components/products/consult").then(m => ({ default: m.ConsultProcess })), {
+const ConsultProcess = dynamic(() => import("@/components/products/consult/ConsultProcess").then(m => ({ default: m.ConsultProcess })), {
   loading: () => <Skeleton className="h-[500px] w-full" />,
   ssr: true
 })
-const ConsultFAQ = dynamic(() => import("@/components/products/consult").then(m => ({ default: m.ConsultFAQ })), {
+const ConsultFAQ = dynamic(() => import("@/components/products/consult/ConsultFAQ").then(m => ({ default: m.ConsultFAQ })), {
   loading: () => <Skeleton className="h-[500px] w-full" />,
   ssr: true
 })

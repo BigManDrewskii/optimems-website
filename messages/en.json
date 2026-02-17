@@ -28,9 +28,9 @@
   },
   "hero": {
     "badge": "Expert Energy Solutions",
-    "headline": "Strategic Energy Consulting for a Sustainable Future",
-    "subheadline": "Maximize your renewable energy potential with our comprehensive consulting services, from industrial optimization to smart grid deployment.",
-    "supportingLine": "Tailored solutions for every energy challenge.",
+    "headline": "Beyond Monitoring: Achieve True Energy Command.",
+    "subheadline": "Optimems offers Next-gen EMS with complete control, monitoring and AI-based decision making for your microgrids and VPPs.",
+    "supportingLine": "Not another glorified monitoring system.",
     "primaryCTA": {
       "label": "Book Demo",
       "href": "#contact"
