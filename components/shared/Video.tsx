@@ -60,11 +60,27 @@ export function Video({
     setMounted(true)
   }, [])
 
+  // Reload video only when sources change (not on initial mount — browser handles that)
+  const initialMountRef = useRef(true)
   useEffect(() => {
-    if (mounted && videoRef.current) {
+    if (initialMountRef.current) {
+      initialMountRef.current = false
+      return
+    }
+    if (videoRef.current) {
       videoRef.current.load()
     }
-  }, [mounted, sources?.webm, sources?.mp4])
+  }, [sources?.webm, sources?.mp4])
+
+  // Imperatively play when autoplay prop transitions to true
+  // (HTML autoplay attribute only works at initial parse, not on prop updates)
+  useEffect(() => {
+    if (autoplay && mounted && videoRef.current) {
+      videoRef.current.play().catch((err: unknown) => {
+        console.error("Video autoplay failed:", err)
+      })
+    }
+  }, [autoplay, mounted])
 
   // Removed cache-busting code - cacheBust defaults to false for better browser caching
 
@@ -116,10 +132,13 @@ export function Video({
       )}
       style={maxHeight ? { maxHeight } : undefined}  // NEW from VideoContainer
     >
-      {!isLoaded && poster && (
+      {poster && (
         <img
           src={poster}
-          className="absolute inset-0 w-full h-full object-cover"
+          className={cn(
+            "absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out",
+            isLoaded ? "opacity-0" : "opacity-100"
+          )}
           alt={alt || ""}
         />
       )}
@@ -136,7 +155,7 @@ export function Video({
         // This ensures correct video loads for current theme
         key={resolvedSources?.webm || resolvedSources?.mp4}
         className={cn(
-          "w-full h-full object-cover",
+          "w-full h-full object-cover transition-opacity duration-700 ease-in-out",
           !isLoaded && poster && "opacity-0",
           isLoaded && "opacity-100"
         )}

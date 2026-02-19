@@ -13,8 +13,8 @@ export default function Loading() {
       <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-[1400px] py-4">
         <div className="animate-pulse">
           <div className="flex gap-2">
-            {Array.from({ length: 4 }).map(() => (
-              <div key="category-1" className="h-10 w-24 bg-muted/40 rounded-full" />
+            {Array.from({ length: 4 }).map((_, i) => (
+              <div key={`category-${i + 1}`} className="h-10 w-24 bg-muted/40 rounded-full" />
             ))}
           </div>
         </div>

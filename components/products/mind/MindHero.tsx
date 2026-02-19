@@ -19,16 +19,24 @@ export function MindHero() {
   const isGreek = locale === 'el'
   const { resolvedTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
+  const [shouldLoadVideo, setShouldLoadVideo] = useState(false)
 
   useEffect(() => {
     setMounted(true)
   }, [])
 
+  // Delay video loading to prioritize LCP (poster image loads first)
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShouldLoadVideo(true)
+    }, 1500)
+    return () => clearTimeout(timer)
+  }, [])
+
   const supportedAssets = t.raw('supportedAssets') as string[]
 
-  // Video sources
+  // Video sources — only mp4 available for Mind
   const videoSources = {
-    webm: '/videos/mind-hero-banner.mp4',
     mp4: '/videos/mind-hero-banner.mp4'
   }
 
@@ -36,15 +44,28 @@ export function MindHero() {
     <section className="relative min-h-[80vh] md:min-h-[85vh] lg:min-h-[90vh] pt-32 md:pt-40 lg:pt-48 pb-16 md:pb-20 lg:pb-24 flex items-center justify-center overflow-hidden">
       {/* Video Background */}
       <div className="absolute inset-0 opacity-40">
-        <Video
-          src=""
-          sources={videoSources}
-          autoplay
-          muted
-          loop
-          playsInline
-          className="w-full h-full"
-        />
+        {mounted ? (
+          <Video
+            src=""
+            sources={videoSources}
+            autoplay={shouldLoadVideo}
+            muted
+            loop
+            playsInline
+            preload={shouldLoadVideo ? "metadata" : "none"}
+            loading="lazy"
+            className="w-full h-full"
+            title="Mind hero video background"
+            poster="/images/sections/mind-hero-poster-web.jpg"
+          />
+        ) : (
+          <img
+            src="/images/sections/mind-hero-poster-web.jpg"
+            alt="Mind monitoring background"
+            className="w-full h-full object-cover"
+            loading="eager"
+          />
+        )}
       </div>
 
       {/* Bottom gradient overlay */}
