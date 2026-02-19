@@ -9,16 +9,22 @@ import { socialProof } from "@/data/landing-page"
 import { ConsultHero } from "@/components/products/consult/ConsultHero"
 import { ConsultServices } from "@/components/products/consult/ConsultServices"
 import { ConsultTechnology } from "@/components/products/consult/ConsultTechnology"
-import { Testimonials } from "@/components/sections/Testimonials"
-import { ConsultCTA } from "@/components/products/consult/ConsultCTA"
 
-// Heavy below-fold sections loaded dynamically
+// Below-fold sections loaded dynamically to reduce initial bundle
 const ConsultProcess = dynamic(() => import("@/components/products/consult/ConsultProcess").then(m => ({ default: m.ConsultProcess })), {
   loading: () => <Skeleton className="h-[500px] w-full" />,
   ssr: true
 })
+const Testimonials = dynamic(() => import("@/components/sections/Testimonials").then(m => ({ default: m.Testimonials })), {
+  loading: () => <Skeleton className="h-[400px] w-full" />,
+  ssr: true
+})
 const ConsultFAQ = dynamic(() => import("@/components/products/consult/ConsultFAQ").then(m => ({ default: m.ConsultFAQ })), {
   loading: () => <Skeleton className="h-[500px] w-full" />,
+  ssr: true
+})
+const ConsultCTA = dynamic(() => import("@/components/products/consult/ConsultCTA").then(m => ({ default: m.ConsultCTA })), {
+  loading: () => <Skeleton className="h-[300px] w-full" />,
   ssr: true
 })
 

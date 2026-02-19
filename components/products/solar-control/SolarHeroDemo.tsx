@@ -44,24 +44,46 @@ export function SolarHeroDemo() {
   const isGreek = locale === 'el'
   const { resolvedTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
+  const [shouldLoadVideo, setShouldLoadVideo] = useState(false)
 
   useEffect(() => {
     setMounted(true)
+  }, [])
+
+  // Delay video loading to prioritize LCP (poster image loads first)
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShouldLoadVideo(true)
+    }, 1500)
+    return () => clearTimeout(timer)
   }, [])
 
   return (
     <section className="relative min-h-[80vh] md:min-h-[85vh] lg:min-h-[90vh] flex items-center justify-center overflow-hidden">
       {/* Video Background */}
       <div className="absolute inset-0 opacity-60">
-        <Video
-          src=""
-          sources={HERO_VIDEO_SOURCES}
-          autoplay
-          muted
-          loop
-          playsInline
-          className="w-full h-full"
-        />
+        {mounted ? (
+          <Video
+            src=""
+            sources={HERO_VIDEO_SOURCES}
+            autoplay={shouldLoadVideo}
+            muted
+            loop
+            playsInline
+            preload={shouldLoadVideo ? "metadata" : "none"}
+            loading="lazy"
+            className="w-full h-full"
+            title="Solar control hero video background"
+            poster="/images/sections/solar-hero-poster-web.jpg"
+          />
+        ) : (
+          <img
+            src="/images/sections/solar-hero-poster-web.jpg"
+            alt="Solar control background"
+            className="w-full h-full object-cover"
+            loading="eager"
+          />
+        )}
       </div>
 
       {/* Bottom gradient overlay */}
