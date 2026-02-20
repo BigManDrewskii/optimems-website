@@ -37,6 +37,8 @@ The event was held in the presence of Minister of National Defense Nikos Dendias
 
 The top three startups were awarded for their outstanding achievements.
 
+![Optimems receives first prize at StartSmart SEE Accelerator](/blog-images/startsmart-see-accelerator-optimems-irl-photo.jpeg)
+
 ## Our Solution
 
 Optimems Smart Energy Solutions secured the first prize for its promising integrated solution aimed at optimizing energy resource management for **microgrids** and **virtual power plants**.

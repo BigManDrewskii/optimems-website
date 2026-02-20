@@ -19,6 +19,8 @@ Optimems had the honor of joining the world's largest startup event, showcasing 
 
 Our CEO, **Angelina Bintoudi**, delivered a powerful presentation that secured us a place in the semifinals, putting the spotlight on our mission to help businesses take control of their energy future.
 
+![The Optimems team at Web Summit Vancouver 2025](/blog-images/websummit-vancouver-optimems-irl-photo.jpeg)
+
 ## Representing Greek Innovation
 
 This milestone reflects the relentless dedication of our team and the global relevance of our work. We're proud to represent the bold, fast-growing Greek tech ecosystem on such a world stage.
