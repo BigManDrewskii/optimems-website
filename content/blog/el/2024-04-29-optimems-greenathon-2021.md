@@ -27,6 +27,8 @@ published: true
 
 Η Angelina Bintoudi, research associate του CERTH/ITI και υποψήφια διδάκτωρ του Αριστοτελείου Πανεπιστημίου Θεσσαλονίκης, εκπροσώπησε την ομάδα OptiMEMS και διαγωνίστηκε με 12 ομάδες.
 
+![Η Optimems στα βραβεία Greenathon 2021 στην 85η Διεθνή Έκθεση Θεσσαλονίκης](/blog-images/greenathlon-optimems-irl-photo.png)
+
 ---
 
 ## Το OptiMEMS Framework

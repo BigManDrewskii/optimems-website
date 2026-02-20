@@ -112,6 +112,14 @@ export const videos: Record<string, VideoAsset> = {
     priority: true,
     description: 'Consulting services hero background',
   },
+  ctaHero: {
+    src: {
+      mp4: '/videos/dark/cta-hero-background-dark.mp4',
+      mp4Light: '/videos/light/cta-hero-background-light.mp4',
+    },
+    priority: false,
+    description: 'Landing page CTA section background',
+  },
 }
 
 export function getVideoSrc(key: string, isLight: boolean = false, isMobile: boolean = false): VideoSource | null {

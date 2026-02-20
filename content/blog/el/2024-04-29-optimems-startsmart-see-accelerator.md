@@ -37,6 +37,8 @@ published: true
 
 Οι τρεις κορυφαίες startups βραβεύτηκαν για τα εξαιρετικά τους επιτεύγματα.
 
+![Η Optimems παραλαμβάνει το πρώτο βραβείο στο StartSmart SEE Accelerator](/blog-images/startsmart-see-accelerator-optimems-irl-photo.jpeg)
+
 ## Η Λύση Μας
 
 Η Optimems Smart Energy Solutions κέρδισε το πρώτο βραβείο για την πολυποτθηλή integrated λύση της με στόχο την optimizing διαχείριση ενεργειακών πόρων για **microgrids** και **virtual power plants**.

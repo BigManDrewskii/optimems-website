@@ -67,7 +67,7 @@ export function SolarHeroDemo() {
   return (
     <section className="relative min-h-[80vh] md:min-h-[85vh] lg:min-h-[90vh] flex items-center justify-center overflow-hidden">
       {/* Video Background */}
-      <div className="absolute inset-0 opacity-60">
+      <div className="absolute inset-0 opacity-60 blur-[1.5px]">
         {mounted && heroVideoSources && (
           <Video
             src=""
