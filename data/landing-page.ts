@@ -383,6 +383,8 @@ export const testimonials: Testimonial[] = [
     role: 'PV Portfolio & Operations Manager',
     company: 'Egnatia Group',
     location: 'Greece',
+    logo: '/images/logos/egnatia-logo-dark.svg',
+    lightThemeLogo: '/images/logos/egnatia-logo-light.svg',
   },
   {
     id: 'engaia',
@@ -392,6 +394,8 @@ export const testimonials: Testimonial[] = [
     role: 'Partner',
     company: 'ENGAIA',
     location: 'Greece',
+    logo: '/images/logos/engaia-logo-light.svg',
+    lightThemeLogo: '/images/logos/engaia-logo-dark.svg',
   },
   {
     id: 'bayware',
@@ -401,6 +405,8 @@ export const testimonials: Testimonial[] = [
     role: 'Distribution Partner',
     company: 'BayWa r.e.',
     location: 'Europe',
+    logo: '/images/logos/bayware-logo-light.svg',
+    lightThemeLogo: '/images/logos/bayware-logo-dark.svg',
   },
   {
     id: 'clockwork',
@@ -410,6 +416,8 @@ export const testimonials: Testimonial[] = [
     role: 'Development Partner',
     company: 'Clockwork Energy',
     location: 'Greece',
+    logo: '/images/logos/clockwork-energy-logo-light.svg',
+    lightThemeLogo: '/images/logos/clockwork-energy-logo-dark.svg',
   },
 ];
 
