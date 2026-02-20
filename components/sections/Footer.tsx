@@ -1,6 +1,7 @@
 
 "use client"
 
+import Image from "next/image"
 import { Mail, ChevronDown } from "lucide-react"
 import { Link } from "@/i18n/navigation"
 import { OptimemsLogo } from "@/components/shared"
@@ -168,10 +169,13 @@ export function Footer() {
                       className="text-muted-foreground hover:text-secondary transition-all duration-200"
                       aria-label={`${social.platform} (opens in new tab)`}
                     >
-                      <img
+                      <Image
                         src={iconSrc}
                         alt={`${social.platform} social icon`}
+                        width={24}
+                        height={24}
                         className="h-6 w-6 sm:h-5 sm:w-5"
+                        unoptimized
                       />
                     </a>
                   )

@@ -1,6 +1,7 @@
 // Animated orbital visualization with icons orbiting concentric dashed rings around a central Optimems logo.
 // All colors reference CSS custom properties so they adapt to light/dark themes.
 // Orbiting icons share a unified color; central logo uses a distinct color.
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import { useResponsiveScale } from "./useResponsiveScale";
 import { useTheme } from "next-themes";
@@ -147,7 +148,7 @@ export function OrbitGraphic() {
 
 
 
-      <img 
+      <Image 
         src={logoSrc}
         alt="Optimems Logo"
         width={centralIconSize}
@@ -158,6 +159,7 @@ export function OrbitGraphic() {
           top: center - (centralIconSize / 2),
           filter: 'var(--orbit-logo-filter, brightness(0) invert(1))'
         }}
+        unoptimized
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       />
