@@ -27,6 +27,8 @@ The Greenathon finals took place on September 12, 2021 at the **85th Thessalonik
 
 Angelina Bintoudi, research associate of CERTH/ITI and PhD candidate of the Aristotle University of Thessaloniki, represented the OptiMEMS team and competed with 12 teams.
 
+![Optimems at the Greenathon 2021 awards at the 85th Thessaloniki International Fair](/blog-images/greenathlon-optimems-irl-photo.png)
+
 ---
 
 ## The OptiMEMS Framework

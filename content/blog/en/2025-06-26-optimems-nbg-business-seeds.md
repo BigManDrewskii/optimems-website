@@ -17,6 +17,8 @@ Selected from over **400 outstanding participants**, this top distinction is a p
 
 This achievement wouldn't have been possible without the belief and support of the NBG team, the competition judges, and everyone who's stood behind our vision of a more sustainable energy landscape. We're deeply grateful.
 
+![The Optimems team at the NBG Business Seeds awards ceremony](/blog-images/nbg-business-optimems-irl-photo.jpeg)
+
 ## Why It Matters
 
 The Innovation & Technology Competition is one of Greece's most respected platforms for showcasing visionary startups. Being recognized at the very top means more than just a title — it confirms that the work we're doing is relevant, impactful, and vital for the future of energy.
