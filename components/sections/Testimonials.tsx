@@ -24,9 +24,11 @@ const FeaturedTestimonialCard = memo(function FeaturedTestimonialCard({
     setMounted(true)
   }, [])
 
-  const logoSrc = mounted && resolvedTheme === 'light'
-    ? testimonial.lightThemeLogo || testimonial.logo
-    : testimonial.logo
+  const logoSrc = mounted
+    ? (resolvedTheme === 'light'
+      ? (testimonial.lightThemeLogo || testimonial.logo)
+      : testimonial.logo)
+    : undefined
 
   return (
     <BaseCard
@@ -108,7 +110,20 @@ const TestimonialCard = memo(function TestimonialCard({
   onMouseLeave?: () => void
 }) {
   const t = useTranslations()
+  const { resolvedTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
   const key = testimonialKeys[index]
+  const testimonial = testimonials[index]
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  const logoSrc = mounted
+    ? (resolvedTheme === 'light'
+      ? (testimonial?.lightThemeLogo || testimonial?.logo)
+      : testimonial?.logo)
+    : undefined
 
   const handleKeyDown = useCallback((e: React.KeyboardEvent<HTMLDivElement>) => {
     if (e.key === 'Enter' || e.key === ' ') {
@@ -158,6 +173,20 @@ const TestimonialCard = memo(function TestimonialCard({
           </p>
         </div>
       </footer>
+
+      {/* Company Logo */}
+      {logoSrc && (
+        <div className="mt-5 flex justify-start">
+          <Image
+            src={logoSrc}
+            alt={t(`testimonials.items.${key}.company`)}
+            width={220}
+            height={56}
+            className="h-12 w-auto object-contain object-left opacity-80"
+            unoptimized
+          />
+        </div>
+      )}
     </BaseCard>
   )
 })
