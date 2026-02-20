@@ -1,10 +1,8 @@
 "use client"
 import { ProductPageSection } from "@/components/products/ProductPageSection"
-
 import { BaseCard } from "@/components/shared/BaseCard"
 import { Button } from "@/components/ui/button"
 import { Link } from "@/i18n/navigation"
-import { CheckCircle2 } from "lucide-react"
 import { useTranslations, useLocale } from "next-intl"
 import { motion } from "framer-motion"
 
@@ -129,14 +127,14 @@ export function SolarPricing() {
                 {pkg.includesLabel}
               </p>
             )}
-            <ul className="space-y-3 flex-grow mb-6">
-              {(pkg.includes || []).map((item, itemIndex) => (
-                <li key={itemIndex} className="flex items-start gap-2 text-sm">
-                  <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                  <span className="text-muted-foreground">{item}</span>
-                </li>
-              ))}
-            </ul>
+             <ul className="space-y-3 flex-grow mb-6">
+               {(pkg.includes || []).map((item, itemIndex) => (
+                  <li key={item} className="flex items-center gap-3 text-sm">
+                    <span className="text-primary font-semibold text-base shrink-0 leading-[2pt] pt-2">*</span>
+                    <span className="text-muted-foreground leading-2pt">{item}</span>
+                  </li>
+                ))}
+              </ul>
             {pkg.upgradeNote && (
               <p className="text-xs text-muted-foreground mb-4 italic">
                 {pkg.upgradeNote}

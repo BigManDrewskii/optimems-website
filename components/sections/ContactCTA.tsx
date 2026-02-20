@@ -1,104 +1,122 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Dashboard16x9 } from "@/components/dashboard-demo-cta/components/layouts/Dashboard16x9"
-import { Dashboard3x4 } from "@/components/dashboard-demo-cta/components/layouts/Dashboard3x4"
 import { CustomPrimaryButton } from "@/components/shared"
+import { Video } from "@/components/shared/Video"
+import { getVideoSrc } from "@/lib/assets"
 import { useTranslations, useLocale } from "next-intl"
+import { useTheme } from "next-themes"
+import { Link } from "@/i18n/navigation"
 import { cn } from "@/lib/utils"
+import { useState, useEffect, useMemo } from "react"
 
 export function ContactCTA() {
   const t = useTranslations()
   const locale = useLocale()
   const isGreek = locale === "el"
+  const { resolvedTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  const videoSources = useMemo(() => {
+    if (!mounted) return undefined
+    const videoData = getVideoSrc("ctaHero", resolvedTheme === "light")
+    if (!videoData?.mp4) return undefined
+    return { mp4: videoData.mp4 }
+  }, [mounted, resolvedTheme])
+
+  const isDark = mounted && resolvedTheme === "dark"
 
   return (
     <section className="py-24 relative">
       <div className="container mx-auto px-4 md:px-6 lg:px-8 max-w-[1400px]">
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.3fr] gap-12 lg:gap-16 items-center">
-
-          {/* Left Column: Theme-Aware Text */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.6 }}
-            className="space-y-8 text-center lg:text-left"
-          >
-            <h2 className={cn(
-              "text-3xl md:text-4xl lg:text-5xl font-bold leading-tight",
-              "text-foreground",
-              isGreek && "greek-heading"
-            )}>
-              {t('dashboardCTA.headline')}
-            </h2>
-
-            <p className={cn(
-              "text-lg md:text-xl leading-relaxed",
-              "text-muted-foreground",
-              isGreek && "greek-text"
-            )}>
-              {t('dashboardCTA.subheadline')}
-            </p>
-
-            {/* CTAs */}
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="flex justify-center lg:justify-start"
-            >
-              <CustomPrimaryButton
-                href={t('dashboardCTA.primaryCTA.href')}
-                label={t('dashboardCTA.primaryCTA.label')}
-              />
-            </motion.div>
-          </motion.div>
-
-          {/* Right Column: Dashboard (Always Dark) */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="relative"
-          >
-            {/* Ambient glow — visible in both themes */}
-            <div className="absolute -inset-4 rounded-[28px] bg-primary/5 dark:bg-primary/10 blur-2xl pointer-events-none" />
-
-            {/* Bezel frame */}
+        <div className="max-w-6xl mx-auto">
+          {/* CTA Card with video background */}
+          <div className="relative rounded-2xl overflow-hidden border border-border">
+            {/* Video Background */}
             <div className={cn(
-              "relative p-1.5 rounded-[20px]",
-              /* Light mode: dark slate bezel with strong shadow */
-              "bg-[#1a2538] shadow-[0_8px_40px_rgba(0,0,0,0.25),0_2px_8px_rgba(0,0,0,0.15)]",
-              /* Dark mode: slightly lighter bezel, subtler shadow */
-              "dark:bg-[#1e2d3d] dark:shadow-[0_8px_32px_rgba(0,0,0,0.5),0_0_0_1px_rgba(255,255,255,0.06)]"
+              "absolute inset-0",
+              isDark ? "opacity-[0.44]" : "opacity-[0.68]"
             )}>
-              {/* Top edge highlight */}
-              <div className="absolute inset-x-0 top-0 h-px rounded-t-[20px] bg-gradient-to-r from-transparent via-white/8 to-transparent" />
-
-              {/* Screen area */}
-              <div
-                className="relative aspect-[16/9] rounded-[16px] overflow-hidden"
-                style={{ background: 'var(--dashboard-bg)' }}
-              >
-                {/* 16:9 layout — desktop */}
-                <div className="hidden lg:block absolute inset-0">
-                  <Dashboard16x9 />
-                </div>
-
-                {/* 3:4 layout — mobile */}
-                <div className="lg:hidden absolute inset-0">
-                  <Dashboard3x4 />
-                </div>
-              </div>
-
-              {/* Bottom edge shadow */}
-              <div className="absolute inset-x-0 bottom-0 h-px rounded-b-[20px] bg-black/20" />
+              {mounted && videoSources && (
+                <Video
+                  src=""
+                  sources={videoSources}
+                  autoplay
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                  loading="lazy"
+                  className="w-full h-full"
+                  title="CTA background"
+                />
+              )}
             </div>
-          </motion.div>
 
+            {/* Overlay for readability */}
+            <div className="absolute inset-0 bg-background/60 backdrop-blur-[2px]" />
+
+            {/* Content */}
+            <div className="relative z-10 p-11 md:p-16">
+              <div className="flex flex-col gap-11 text-center">
+                {/* Headline and Description */}
+                <div className="flex flex-col gap-6">
+                  <motion.h2
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5 }}
+                    className={cn(
+                      "text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-foreground",
+                      isGreek && "greek-heading"
+                    )}
+                  >
+                    {t('dashboardCTA.headline')}
+                  </motion.h2>
+
+                  <motion.p
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.1 }}
+                    className={cn(
+                      "text-lg md:text-xl leading-relaxed text-muted-foreground max-w-3xl mx-auto",
+                      isGreek && "greek-text"
+                    )}
+                  >
+                    {t('dashboardCTA.subheadline')}
+                  </motion.p>
+                </div>
+
+                {/* CTA Section */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                  className="flex flex-col gap-6"
+                >
+                  <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <CustomPrimaryButton
+                      href={t('dashboardCTA.primaryCTA.href')}
+                      label={t('dashboardCTA.primaryCTA.label')}
+                      className="px-8 py-3.5 rounded-full"
+                    />
+                    <Link
+                      href="/contact"
+                      className="inline-flex items-center justify-center px-8 py-3.5 rounded-full font-medium text-muted-foreground hover:text-foreground border border-border/30 hover:border-border/50 transition-all duration-300"
+                    >
+                      {t('dashboardCTA.secondaryCTA.label')}
+                    </Link>
+                  </div>
+                </motion.div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

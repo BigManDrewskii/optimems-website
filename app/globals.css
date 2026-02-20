@@ -689,32 +689,27 @@ body {
 
 
 @keyframes pulse-glow {
-  0%, 100% { transform: scale(1); opacity: 0.6; }
-  50% { transform: scale(1.15); opacity: 1; }
+  0%, 100% { opacity: 0.7; filter: brightness(1); }
+  50% { opacity: 1; filter: brightness(1.3); }
 }
 
-@keyframes orbit-ring-pulse {
-  0%, 100% { 
-    opacity: 0.6; 
-    filter: brightness(1);
-  }
-  50% { 
-    opacity: 1; 
-    filter: brightness(1.2);
-  }
-}
+/* Named animation utility classes for orbit graphic */
+.anim-orbit-cw-25 { animation: orbit-cw 25s linear infinite; }
+.anim-orbit-ccw-25 { animation: orbit-ccw 25s linear infinite; }
+.anim-orbit-cw-35 { animation: orbit-cw 35s linear infinite; }
+.anim-orbit-ccw-35 { animation: orbit-ccw 35s linear infinite; }
+.anim-orbit-cw-50 { animation: orbit-cw 50s linear infinite; }
+.anim-orbit-ccw-50 { animation: orbit-ccw 50s linear infinite; }
+.anim-fade-in-up { animation: fade-in-up 0.7s ease-out both; }
 
-/* Reduced Motion Support */
 @media (prefers-reduced-motion: reduce) {
-  .animate-[orbit-cw_25s_linear_infinite],
-  .animate-[orbit-ccw_25s_linear_infinite],
-  .animate-[orbit-cw_35s_linear_infinite],
-  .animate-[orbit-ccw_35s_linear_infinite],
-  .animate-[orbit-cw_50s_linear_infinite],
-  .animate-[orbit-ccw_50s_linear_infinite],
-  .animate-[pulse-glow_4s_ease-in-out_infinite],
-  .animate-[fade-in-up_0.7s_ease-out_both],
-  .animate-[dash-flow] {
+  .anim-orbit-cw-25,
+  .anim-orbit-ccw-25,
+  .anim-orbit-cw-35,
+  .anim-orbit-ccw-35,
+  .anim-orbit-cw-50,
+  .anim-orbit-ccw-50,
+  .anim-fade-in-up {
     animation: none !important;
   }
 }
@@ -725,34 +720,12 @@ body {
     transform: scale(0.5);
   }
   
-  /* Faster animation speeds on mobile as requested */
-  .animate-[orbit-cw_25s_linear_infinite] {
-    animation-duration: 20s !important;
-  }
-  
-  .animate-[orbit-ccw_25s_linear_infinite] {
-    animation-duration: 20s !important;
-  }
-  
-  .animate-[orbit-cw_35s_linear_infinite] {
-    animation-duration: 25s !important;
-  }
-  
-  .animate-[orbit-ccw_35s_linear_infinite] {
-    animation-duration: 25s !important;
-  }
-  
-  .animate-[orbit-cw_50s_linear_infinite] {
-    animation-duration: 30s !important;
-  }
-  
-  .animate-[orbit-ccw_50s_linear_infinite] {
-    animation-duration: 30s !important;
-  }
-  
-  .animate-[pulse-glow_4s_ease-in-out_infinite] {
-    animation-duration: 6s !important;
-  }
+  .anim-orbit-cw-25 { animation-duration: 20s !important; }
+  .anim-orbit-ccw-25 { animation-duration: 20s !important; }
+  .anim-orbit-cw-35 { animation-duration: 25s !important; }
+  .anim-orbit-ccw-35 { animation-duration: 25s !important; }
+  .anim-orbit-cw-50 { animation-duration: 30s !important; }
+  .anim-orbit-ccw-50 { animation-duration: 30s !important; }
   
   /* Optimems logo styling for light/dark themes */
   .orbit-logo {
@@ -765,34 +738,12 @@ body {
     transform: scale(0.75);
   }
   
-  /* Moderate animation speed on tablet */
-  .animate-[orbit-cw_25s_linear_infinite] {
-    animation-duration: 30s !important;
-  }
-  
-  .animate-[orbit-ccw_25s_linear_infinite] {
-    animation-duration: 30s !important;
-  }
-  
-  .animate-[orbit-cw_35s_linear_infinite] {
-    animation-duration: 40s !important;
-  }
-  
-  .animate-[orbit-ccw_35s_linear_infinite] {
-    animation-duration: 40s !important;
-  }
-  
-  .animate-[orbit-cw_50s_linear_infinite] {
-    animation-duration: 50s !important;
-  }
-  
-  .animate-[orbit-ccw_50s_linear_infinite] {
-    animation-duration: 50s !important;
-  }
-  
-  .animate-[pulse-glow_4s_ease-in-out_infinite] {
-    animation-duration: 5s !important;
-  }
+  .anim-orbit-cw-25 { animation-duration: 30s !important; }
+  .anim-orbit-ccw-25 { animation-duration: 30s !important; }
+  .anim-orbit-cw-35 { animation-duration: 40s !important; }
+  .anim-orbit-ccw-35 { animation-duration: 40s !important; }
+  .anim-orbit-cw-50 { animation-duration: 50s !important; }
+  .anim-orbit-ccw-50 { animation-duration: 50s !important; }
 }
 
 @keyframes fade-in-up {

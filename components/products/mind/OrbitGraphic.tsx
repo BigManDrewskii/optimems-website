@@ -33,8 +33,8 @@ interface Ring {
 
 const rings: Ring[] = [
   {
-    orbitClass: "animate-[orbit-cw_25s_linear_infinite]",
-    counterClass: "animate-[orbit-ccw_25s_linear_infinite]",
+    orbitClass: "anim-orbit-cw-25",
+    counterClass: "anim-orbit-ccw-25",
     radius: 130,
     diameter: 260,
     icons: [
@@ -44,8 +44,8 @@ const rings: Ring[] = [
     ],
   },
   {
-    orbitClass: "animate-[orbit-ccw_35s_linear_infinite]",
-    counterClass: "animate-[orbit-cw_35s_linear_infinite]",
+    orbitClass: "anim-orbit-ccw-35",
+    counterClass: "anim-orbit-cw-35",
     radius: 210,
     diameter: 420,
     icons: [
@@ -55,8 +55,8 @@ const rings: Ring[] = [
     ],
   },
   {
-    orbitClass: "animate-[orbit-ccw_50s_linear_infinite]",
-    counterClass: "animate-[orbit-cw_50s_linear_infinite]",
+    orbitClass: "anim-orbit-ccw-50",
+    counterClass: "anim-orbit-cw-50",
     radius: 280,
     diameter: 560,
     icons: [
@@ -78,7 +78,7 @@ export function OrbitGraphic() {
   const [isHovered, setIsHovered] = useState(false);
 
   // Disable animations if user prefers reduced motion
-  const animationClass = reducedMotion ? '' : 'animate-[fade-in-up_0.7s_ease-out_both]';
+  const animationClass = reducedMotion ? '' : 'anim-fade-in-up';
 
   // Choose logo based on theme with fallback
   const logoSrc = mounted && resolvedTheme === 'dark' 
