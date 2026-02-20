@@ -1,6 +1,7 @@
 "use client"
 
 import { stats } from "@/data/landing-page"
+import { toGreekUpper } from "@/lib/utils"
 import { useLocale, useTranslations } from "next-intl"
 import { statKeys } from "@/lib/i18n/translation-keys"
 import dynamic from "next/dynamic"
@@ -36,7 +37,7 @@ const StatItem = memo(function StatItem({
 
       {/* Label */}
       <div className={`mt-2 text-sm text-muted-foreground uppercase tracking-[0.84px] leading-5 ${isGreek ? "greek-text" : ""}`}>
-        {translations(`stats.${statKeys[index]}.label`)}
+        {isGreek ? toGreekUpper(translations(`stats.${statKeys[index]}.label`)) : translations(`stats.${statKeys[index]}.label`)}
       </div>
 
       {/* Description */}

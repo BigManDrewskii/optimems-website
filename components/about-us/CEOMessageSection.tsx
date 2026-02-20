@@ -1,7 +1,5 @@
 "use client"
 
-import { ProductPageSection } from "@/components/products/ProductPageSection"
-import { SectionHeader } from "@/components/shared/SectionHeader"
 import { useTranslations, useLocale } from "next-intl"
 import { useTheme } from "next-themes"
 import { motion } from "framer-motion"
@@ -19,68 +17,63 @@ export function CEOMessageSection() {
     setMounted(true)
   }, [])
 
-  // CEO profile image based on theme with SSR safety
   const ceoImage = mounted && resolvedTheme === 'light'
     ? '/images/sections/ceo-profile-img-light.jpg'
     : '/images/sections/ceo-profile-img-dark.jpg'
 
   return (
-    <ProductPageSection
-      spacing="standard"
-    >
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.8 }}
-        className="w-full"
-      >
-        {/* Heading Section */}
-        <div className="mb-12 md:mb-16">
-          <SectionHeader
-            title={t('title')}
-            description={t('subtitle')}
-            align="left"
-            size="large"
-          />
-        </div>
+    <section className="py-16 md:py-24">
+      <div className="max-w-5xl mx-auto px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+        >
+          {/* Label */}
+          <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-8">
+            {t('subtitle')}
+          </p>
 
-        {/* Content Section - Two Columns */}
-        <div className="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12 md:px-0 lg:px-16">
-          {/* Avatar - Left */}
-          <div className="flex-shrink-0">
-            <div className="w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 rounded-2xl overflow-hidden border-2 border-primary shadow-lg">
-              <Image
-                src={ceoImage}
-                alt={t('name')}
-                width={192}
-                height={192}
-                className="w-full h-full object-cover"
-              />
+          {/* 2-column: quote left, photo right */}
+          <div className="flex flex-col md:flex-row gap-10 md:gap-14 items-center">
+            {/* Quote + Attribution */}
+            <div className="flex-1 order-2 md:order-1">
+              <h2 className={`text-2xl md:text-3xl font-bold text-foreground mb-6 leading-tight ${isGreek ? 'greek-heading' : ''}`}>
+                {t('title')}
+              </h2>
+
+              <blockquote className="mb-6">
+                <p className={`text-base text-muted-foreground leading-relaxed ${isGreek ? 'greek-text' : ''}`}>
+                  &ldquo;{t('quote')}&rdquo;
+                </p>
+              </blockquote>
+
+              <div>
+                <p className={`text-base font-semibold text-foreground ${isGreek ? 'greek-text' : ''}`}>
+                  {t('name')}
+                </p>
+                <p className={`text-sm text-primary ${isGreek ? 'greek-text' : ''}`}>
+                  {t('role')}
+                </p>
+              </div>
+            </div>
+
+            {/* Photo */}
+            <div className="flex-shrink-0 order-1 md:order-2">
+              <div className="w-40 h-40 md:w-52 md:h-52 lg:w-60 lg:h-60 rounded-2xl overflow-hidden border border-border/50 shadow-md">
+                <Image
+                  src={ceoImage}
+                  alt={t('name')}
+                  width={240}
+                  height={240}
+                  className="w-full h-full object-cover"
+                />
+              </div>
             </div>
           </div>
-
-          {/* Content - Right */}
-          <div className="flex-1 flex flex-col gap-4">
-            {/* Quote */}
-            <blockquote>
-              <p className={`text-base md:text-lg text-foreground leading-relaxed ${isGreek ? 'greek-text' : ''}`}>
-                {t('quote')}
-              </p>
-            </blockquote>
-
-            {/* Attribution */}
-            <div className="flex flex-col gap-1">
-              <p className={`text-lg font-semibold text-foreground ${isGreek ? 'greek-text' : ''}`}>
-                {t('name')}
-              </p>
-              <p className={`text-sm text-muted-foreground ${isGreek ? 'greek-text' : ''}`}>
-                {t('role')}
-              </p>
-            </div>
-          </div>
-        </div>
-      </motion.div>
-    </ProductPageSection>
+        </motion.div>
+      </div>
+    </section>
   )
 }

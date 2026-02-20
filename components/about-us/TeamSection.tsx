@@ -9,9 +9,6 @@ export function TeamSection() {
   const locale = useLocale()
   const isGreek = locale === "el"
 
-  const founders = teamMembers.filter((m) => m.category === "founder")
-  const advisors = teamMembers.filter((m) => m.category === "advisor")
-
   return (
     <section className="relative py-20 md:py-28 lg:py-32">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -29,39 +26,10 @@ export function TeamSection() {
           </p>
         </div>
 
-        {/* Leadership Label */}
-        <p
-          className={`mb-8 text-center text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground md:mb-10 ${isGreek ? "greek-text" : ""}`}
-        >
-          {t("management")}
-        </p>
-
-        {/* Founders Grid — tight matrix */}
+        {/* Team Grid — all members together */}
         <div className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3 lg:grid-cols-4 xl:gap-5">
-          {founders.map((member, i) => (
+          {teamMembers.map((member, i) => (
             <TeamMemberCard key={member.id} member={member} index={i} />
-          ))}
-        </div>
-
-        {/* Divider */}
-        <div className="my-14 flex items-center gap-4 md:my-20">
-          <div className="h-px flex-1 bg-border/50" />
-          <p
-            className={`text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground ${isGreek ? "greek-text" : ""}`}
-          >
-            {t("advisors")}
-          </p>
-          <div className="h-px flex-1 bg-border/50" />
-        </div>
-
-        {/* Advisors Grid */}
-        <div className="mx-auto grid max-w-sm grid-cols-1 gap-3 sm:gap-4">
-          {advisors.map((member, i) => (
-            <TeamMemberCard
-              key={member.id}
-              member={member}
-              index={i + founders.length}
-            />
           ))}
         </div>
       </div>
