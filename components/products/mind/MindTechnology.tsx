@@ -2,14 +2,12 @@
 
 import { useTranslations, useLocale } from "next-intl"
 import { motion } from "framer-motion"
-import { ProductPageSection } from "@/components/products/ProductPageSection"
-import { Badge } from "@/components/ui/badge"
 
 /**
  * MindTechnology - Technology & Architecture section
  *
- * Consolidated section covering hardware, software, and architectural advantages.
- * Icon-free design using badges and clean typography.
+ * Wide 2-column layout for hardware/software, compact advantages grid.
+ * Prominent "Made in EU" label with border treatment.
  */
 export function MindTechnology() {
   const t = useTranslations('mindPage.technology')
@@ -22,188 +20,133 @@ export function MindTechnology() {
   const softwareFeatures = t.raw('software.features') as string[]
 
   const advantages = [
-    {
-      title: t('advantages.modular.title'),
-      description: t('advantages.modular.description')
-    },
-    {
-      title: t('advantages.secure.title'),
-      description: t('advantages.secure.description')
-    },
-    {
-      title: t('advantages.remote.title'),
-      description: t('advantages.remote.description')
-    },
-    {
-      title: t('advantages.compatible.title'),
-      description: t('advantages.compatible.description')
-    }
+    { title: t('advantages.modular.title'), description: t('advantages.modular.description') },
+    { title: t('advantages.secure.title'), description: t('advantages.secure.description') },
+    { title: t('advantages.remote.title'), description: t('advantages.remote.description') },
+    { title: t('advantages.compatible.title'), description: t('advantages.compatible.description') },
   ]
 
   return (
-    <ProductPageSection
-      spacing="grand"
-      className="bg-gradient-to-b from-background to-background/50"
-    >
-      <div className="max-w-6xl mx-auto">
-        {/* Header with Badge */}
+    <section className="py-20">
+      <div className="max-w-6xl mx-auto px-6 lg:px-8">
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
-          <Badge className="mb-4" variant="secondary">
-            {t('subheadline')}
-          </Badge>
-          <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-6 ${isGreek ? 'greek-heading' : ''}`}>
+          <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-5 ${isGreek ? 'greek-heading' : ''}`}>
             {t('headline')}
           </h2>
-          <p className={`text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed ${isGreek ? 'greek-text' : ''}`}>
+
+          {/* Proprietary label — prominent template */}
+          <div className="inline-flex items-center gap-3 border border-primary/30 rounded-full px-6 py-2.5 mb-6">
+            <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+            <span className="font-mono text-sm md:text-base font-medium tracking-wide text-primary">
+              {t('subheadline')}
+            </span>
+          </div>
+
+          <p className={`text-base text-muted-foreground max-w-3xl mx-auto leading-relaxed ${isGreek ? 'greek-text' : ''}`}>
             {t('introduction')}
           </p>
         </motion.div>
 
-        {/* Hardware Foundation */}
+        {/* Hardware + Software — 2 columns */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="mb-16"
+          transition={{ duration: 0.4, delay: 0.05 }}
+          className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-12"
         >
-          <h3 className={`text-2xl font-bold mb-6 text-foreground ${isGreek ? 'greek-heading' : ''}`}>
-            {t('hardware.headline')}
-          </h3>
-          <p className={`text-muted-foreground mb-6 leading-relaxed ${isGreek ? 'greek-text' : ''}`}>
-            {t('hardware.description')}
-          </p>
+          {/* Left: Hardware */}
+          <div>
+            <h3 className={`text-lg font-bold mb-2 text-foreground ${isGreek ? 'greek-heading' : ''}`}>
+              {t('hardware.headline')}
+            </h3>
+            <p className={`text-sm text-muted-foreground mb-4 leading-relaxed ${isGreek ? 'greek-text' : ''}`}>
+              {t('hardware.description')}
+            </p>
 
-          {/* Core Features */}
-          <div className="bg-muted/30 rounded-xl p-6 mb-6">
-            <h4 className={`text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-4 ${isGreek ? 'greek-text' : ''}`}>
-              Core Features
-            </h4>
-            <ul className="space-y-3">
-              {hardwareFeatures.map((feature, idx) => (
-                <motion.li
-                  key={idx}
-                  initial={{ opacity: 0, x: -10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.3, delay: 0.2 + (idx * 0.05) }}
-                  className={`flex items-start gap-3 text-base text-foreground leading-relaxed ${isGreek ? 'greek-text' : ''}`}
-                >
-                  <span className="text-primary font-semibold flex-shrink-0 mt-0.5">•</span>
+            <ul className="space-y-1.5 mb-6">
+              {hardwareFeatures.map((feature) => (
+                <li key={feature} className={`flex items-start gap-2 text-sm text-foreground/80 leading-relaxed ${isGreek ? 'greek-text' : ''}`}>
+                  <span className="text-primary flex-shrink-0 mt-0.5">•</span>
                   <span>{feature}</span>
-                </motion.li>
+                </li>
               ))}
             </ul>
-          </div>
 
-          {/* Communication Protocols */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-            <div className="bg-muted/30 rounded-xl p-6">
-              <h4 className={`text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-4 ${isGreek ? 'greek-text' : ''}`}>
-                Communication Protocols
-              </h4>
-              <ul className="space-y-2">
-                {protocols.map((protocol, idx) => (
-                  <li
-                    key={idx}
-                    className={`text-sm text-foreground font-mono ${isGreek ? 'greek-text' : ''}`}
-                  >
-                    {protocol}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="bg-muted/30 rounded-xl p-6">
-              <h4 className={`text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-4 ${isGreek ? 'greek-text' : ''}`}>
-                Security & Compliance
-              </h4>
-              <ul className="space-y-3">
-                {securityFeatures.map((feature, idx) => (
-                  <motion.li
-                    key={idx}
-                    initial={{ opacity: 0, x: -10 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.3, delay: 0.3 + (idx * 0.05) }}
-                    className={`flex items-start gap-3 text-sm text-foreground leading-relaxed ${isGreek ? 'greek-text' : ''}`}
-                  >
-                    <span className="text-primary font-semibold flex-shrink-0 mt-0.5">•</span>
-                    <span>{feature}</span>
-                  </motion.li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Software Platform */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="mb-16"
-        >
-          <h3 className={`text-2xl font-bold mb-6 text-foreground ${isGreek ? 'greek-heading' : ''}`}>
-            {t('software.headline')}
-          </h3>
-          <div className="bg-muted/30 rounded-xl p-6">
-            <ul className="space-y-3">
-              {softwareFeatures.map((feature, idx) => (
-                <motion.li
-                  key={idx}
-                  initial={{ opacity: 0, x: -10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.3, delay: 0.4 + (idx * 0.05) }}
-                  className={`flex items-start gap-3 text-base text-foreground leading-relaxed ${isGreek ? 'greek-text' : ''}`}
-                >
-                  <span className="text-primary font-semibold flex-shrink-0 mt-0.5">•</span>
-                  <span>{feature}</span>
-                </motion.li>
-              ))}
-            </ul>
-          </div>
-        </motion.div>
-
-        {/* Architectural Advantages */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-        >
-          <h3 className={`text-2xl font-bold mb-6 text-foreground ${isGreek ? 'greek-heading' : ''}`}>
-            {t('advantages.headline')}
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {advantages.map((adv, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.3, delay: 0.5 + (idx * 0.05) }}
-                className="border border-primary/20 rounded-xl p-6 bg-background"
-              >
-                <h4 className={`text-lg font-bold mb-3 text-foreground ${isGreek ? 'greek-heading' : ''}`}>
-                  {adv.title}
+            {/* Protocols + Security stacked under hardware */}
+            <div className="space-y-5">
+              <div>
+                <h4 className="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-2">
+                  Communication Protocols
                 </h4>
-                <p className={`text-base text-muted-foreground leading-relaxed ${isGreek ? 'greek-text' : ''}`}>
-                  {adv.description}
-                </p>
-              </motion.div>
-            ))}
+                <div className="flex flex-wrap gap-1.5">
+                  {protocols.map((protocol) => (
+                    <span
+                      key={protocol}
+                      className="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-mono bg-muted/40 text-foreground/70 border border-border/30"
+                    >
+                      {protocol}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <h4 className="font-mono text-xs uppercase tracking-widest text-muted-foreground mb-2">
+                  Security & Compliance
+                </h4>
+                <ul className="space-y-1">
+                  {securityFeatures.map((feature) => (
+                    <li key={feature} className={`flex items-start gap-2 text-sm text-foreground/70 leading-relaxed ${isGreek ? 'greek-text' : ''}`}>
+                      <span className="text-primary flex-shrink-0 mt-0.5">•</span>
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* Right: Software */}
+          <div>
+            <h3 className={`text-lg font-bold mb-2 text-foreground ${isGreek ? 'greek-heading' : ''}`}>
+              {t('software.headline')}
+            </h3>
+            <ul className="space-y-1.5 mb-8">
+              {softwareFeatures.map((feature) => (
+                <li key={feature} className={`flex items-start gap-2 text-sm text-foreground/80 leading-relaxed ${isGreek ? 'greek-text' : ''}`}>
+                  <span className="text-primary flex-shrink-0 mt-0.5">•</span>
+                  <span>{feature}</span>
+                </li>
+              ))}
+            </ul>
+
+            {/* Advantages nested under software column */}
+            <h3 className={`text-lg font-bold mb-4 text-foreground ${isGreek ? 'greek-heading' : ''}`}>
+              {t('advantages.headline')}
+            </h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4">
+              {advantages.map((adv) => (
+                <div key={adv.title}>
+                  <h4 className={`text-sm font-semibold text-foreground mb-1 ${isGreek ? 'greek-heading' : ''}`}>
+                    {adv.title}
+                  </h4>
+                  <p className={`text-xs text-muted-foreground leading-relaxed ${isGreek ? 'greek-text' : ''}`}>
+                    {adv.description}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
         </motion.div>
       </div>
-    </ProductPageSection>
+    </section>
   )
 }

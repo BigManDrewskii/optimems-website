@@ -4,6 +4,7 @@ import Image from "next/image"
 import { Linkedin } from "lucide-react"
 import { useTranslations, useLocale } from "next-intl"
 import { motion } from "framer-motion"
+import { toGreekUpper } from "@/lib/utils"
 import type { TeamMember } from "@/data/about-us"
 
 interface TeamMemberCardProps {
@@ -55,17 +56,17 @@ export function TeamMemberCard({ member, index }: TeamMemberCardProps) {
       {/* Info */}
       <div className="flex flex-1 flex-col px-4 py-4 sm:px-5 sm:py-5">
         <h4
-          className={`text-[15px] font-semibold leading-tight text-foreground sm:text-base ${isGreek ? "greek-text" : ""}`}
+          className="text-base font-semibold leading-tight text-foreground sm:text-lg"
         >
           {name}
         </h4>
         <p
-          className={`mt-1 text-xs font-medium leading-snug text-primary sm:text-[13px] ${isGreek ? "greek-text" : ""}`}
+          className="mt-1.5 font-mono text-xs font-medium uppercase tracking-wider text-primary sm:text-sm"
         >
-          {role}
+          {isGreek ? toGreekUpper(role) : role}
         </p>
         <p
-          className={`mt-2.5 text-xs leading-relaxed text-muted-foreground sm:text-[13px] ${isGreek ? "greek-text" : ""}`}
+          className={`mt-3 text-sm leading-relaxed text-muted-foreground ${isGreek ? "greek-text" : ""}`}
         >
           {bio}
         </p>

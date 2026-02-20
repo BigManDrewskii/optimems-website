@@ -69,25 +69,29 @@ export function SolarControlContent() {
         {/* ΔΕΔΔΗΕ Regulatory Announcement */}
         <SolarAnnouncement />
 
-        {/* Phase 2: Problem & Solution Sections */}
+        {/* Phase 2: What Is SolarControl - Hardware & Software */}
+        <SolarWhatIs />
+
+        {/* Phase 3: Trust Section - Logos, Stats & Certifications */}
+        <SolarTrust />
+
+        {/* Phase 4: Differentiator - No Programming Comparison */}
+        <SolarDifferentiator />
+
+        {/* Phase 5: Problem & Solution */}
         <SolarProblem />
         <SolarSolution />
 
-        {/* Phase 3: Trust & What Is Sections */}
-        <SolarTrust />
-        <SolarWhatIs />
-
-        {/* Phase 4: Differentiator, Hardware & Software */}
-        <SolarDifferentiator />
+        {/* Phase 6: Hardware & Software Details */}
         <SolarHardware />
         <SolarSoftware />
 
-        {/* Phase 5: Who Benefits, Insights & Pricing */}
+        {/* Phase 7: Who Benefits, Insights & Pricing */}
         <SolarWhoBenefits />
         <SolarInsights />
         <SolarPricing />
 
-        {/* Phase 6: Warranty & CTA */}
+        {/* Phase 8: Warranty & CTA */}
         <SolarWarranty />
         <SolarCTA />
       </main>

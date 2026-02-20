@@ -511,7 +511,11 @@
       "primaryCta": "Book your Demo",
       "secondaryCta": "Download Datasheet",
       "distributorNote": "Available for purchase exclusively through certified distributors: PHAOS, BayWa r.e.",
-      "checkmarks": ["Plug & Play", "Certified", "For every RES plant type"]
+      "checkmarks": [
+        "Plug & Play",
+        "Certified",
+        "For every RES plant type"
+      ]
     },
     "problem": {
       "headline": "Why +SolarControl",
@@ -608,7 +612,11 @@
       }
     },
     "differentiator": {
-      "headline": ["No Programming.", "No hidden complexity.", "Pure plug-n-play."],
+      "headline": [
+        "No Programming.",
+        "No hidden complexity.",
+        "Pure plug-n-play."
+      ],
       "subheading": "Most SCADA systems require:",
       "scadaRequirements": [
         "On-site engineers",
@@ -1584,7 +1592,7 @@
     "hero": {
       "badge": "You're in Full Control",
       "headline": "The Intelligent Brain Behind Your Microgrid & Virtual Power Plant",
-      "subheadline": "Optimize every energy asset, cut operational costs, and unlock the full potential of your microgrid or VPP — all through one intelligent platform.",
+      "subheadline": "Optimize every energy asset, cut operational costs, and unlock the full potential of your microgrid or VPP — all through one OPTIMAL EMS.",
       "primaryCTA": "Book a Demo",
       "secondaryCTA": "Download Datasheet",
       "compatibilityNote": "+Mind works perfectly with +SolarControl for complete control of your microgrid or VPP",
@@ -1603,19 +1611,37 @@
     "problem": {
       "headline": "The Modern Energy Landscape Is Too Complex to Manage Manually",
       "opening": "Distributed energy systems are becoming more diverse and more dynamic. Renewables output fluctuates by the minute. Batteries must be charged and discharged at the right time with the right amount of energy to achieve maximum profit.",
-      "challenge": "EV chargers and heat pumps create unpredictable demand spikes. And when energy assets multiply across sites, portfolios, or whole communities, the complexity grows exponentially.",
+      "challenge": "",
       "example": {
         "typicalConsumption": "Typical house consumption: 10kWh",
         "evCapacity": "EV battery capacity: up to 60kWh",
         "v2gCapability": "Vehicle-to-Grid (V2G): Taking energy from the car and providing it to the house"
       },
       "painPoints": [
-        "Fragmented systems with limited interoperability",
-        "No unified visibility across production, consumption, storage, and loads",
-        "Reactive corrections instead of proactive planning",
-        "Suboptimal asset scheduling",
-        "Difficulty participating in flexibility markets or VPP",
-        "Regulations and new technologies evolving faster than existing tools"
+        {
+          "title": "Fragmented Systems",
+          "description": "Limited interoperability between energy assets and platforms creates data silos and operational blind spots."
+        },
+        {
+          "title": "No Unified Visibility",
+          "description": "No single view across production, consumption, storage, and loads — making informed decisions nearly impossible."
+        },
+        {
+          "title": "Reactive Operations",
+          "description": "Corrections happen after the fact instead of proactive planning, leading to wasted energy and revenue."
+        },
+        {
+          "title": "Suboptimal Scheduling",
+          "description": "Asset scheduling based on guesswork rather than optimization, leaving significant value on the table."
+        },
+        {
+          "title": "Market Participation Barriers",
+          "description": "Difficulty participating in flexibility markets or VPP programs due to lack of coordination and automation."
+        },
+        {
+          "title": "Outpaced by Change",
+          "description": "Regulations and new technologies evolving faster than existing tools can adapt."
+        }
       ],
       "bottomLine": "Without a unified intelligence layer, energy assets remain under-utilized, poorly coordinated, and operated below their full economic potential."
     },
@@ -1664,22 +1690,54 @@
       ]
     },
     "whoIsItFor": {
-      "headline": "+Mind Delivers Value Across the Entire Modern Energy Ecosystem",
+      "headline": "Who Benefits from +Mind?",
       "households": {
-        "title": "Household Residents",
-        "description": "Automatically reduce your energy bills and maximize your profit by selling your surplus green energy back to the grid."
+        "title": "Home Owners",
+        "headline": "Effortless Savings & Self-Sufficiency",
+        "description": "Automatically reduce your energy bills and maximize your profit by selling your surplus green energy back to the grid.",
+        "benefits": [
+          "Automated bill reduction",
+          "Surplus energy monetization",
+          "Self-sufficiency optimization",
+          "Smart scheduling of loads",
+          "Real-time consumption insights"
+        ]
       },
       "commercial": {
-        "title": "Commercial & Industrial Building Owners",
-        "description": "Achieve instant efficiency improvements, reduce operational costs, and unlock new revenue streams by actively supporting the grid and participating in the energy markets."
+        "title": "C&I Building Owners",
+        "headline": "Unified Management & Cost Optimization",
+        "description": "Achieve instant efficiency improvements, reduce operational costs, and unlock new revenue streams by actively supporting the grid and participating in the energy markets.",
+        "benefits": [
+          "Peak demand management",
+          "Multi-asset coordination",
+          "Revenue from grid services",
+          "Operational cost reduction",
+          "Energy market participation"
+        ]
       },
       "aggregators": {
         "title": "Aggregators",
-        "description": "Gain a critical market edge with a single, highly flexible platform that monitors and controls diverse, geographically agnostic DER portfolios, guaranteeing maximum profitability."
+        "headline": "Scalable Portfolio Intelligence",
+        "description": "Gain a critical market edge with a single, highly flexible platform that monitors and controls diverse, geographically agnostic DER portfolios, guaranteeing maximum profitability.",
+        "benefits": [
+          "Geographically agnostic control",
+          "Multi-vendor DER integration",
+          "Automated market bidding",
+          "Portfolio-wide optimization",
+          "Scalable architecture"
+        ]
       },
       "communities": {
         "title": "Energy Community Managers",
-        "description": "Balance production, consumption and billing across members with transparent, automated control."
+        "headline": "Transparent Community Coordination",
+        "description": "Balance production, consumption and billing across members with transparent, automated control.",
+        "benefits": [
+          "Member-level billing transparency",
+          "Shared asset optimization",
+          "Community self-consumption",
+          "Automated energy sharing",
+          "Regulatory compliance"
+        ]
       }
     },
     "howItWorks": {

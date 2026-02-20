@@ -2,6 +2,7 @@
 import { motion } from "framer-motion"
 import { useTranslations, useLocale } from "next-intl"
 import { BaseCard } from "@/components/shared/BaseCard"
+import { toGreekUpper } from "@/lib/utils"
 import { Shield, HeadphonesIcon, RefreshCw } from "lucide-react"
 
 /**
@@ -65,7 +66,7 @@ export function SolarWarranty() {
               </p>
 
               <h4 className={`text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3 ${isGreek ? 'greek-text' : ''}`}>
-                {t('includedLabel')}
+                {isGreek ? toGreekUpper(t('includedLabel')) : t('includedLabel')}
               </h4>
               <ul className="space-y-2.5">
                 {features.map((feature, idx) => (

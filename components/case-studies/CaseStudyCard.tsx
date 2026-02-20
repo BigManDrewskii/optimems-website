@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 import { ArrowRight } from "lucide-react"
 import { useTranslations, useLocale } from "next-intl"
+import { toGreekUpper } from "@/lib/utils"
 
 interface CaseStudyCardProps {
   client: string
@@ -49,7 +50,7 @@ export function CaseStudyCard({ client, tags, description, focusAreas }: CaseStu
         {/* Key Focus Areas */}
         <div className="mt-auto">
           <p className={`text-xs uppercase tracking-wider text-muted-foreground mb-3 ${isGreek ? 'greek-text' : ''}`}>
-            {t("keyFocusAreas")}
+            {isGreek ? toGreekUpper(t("keyFocusAreas")) : t("keyFocusAreas")}
           </p>
           <ul className="space-y-2">
             {focusAreas.map((area, index) => (

@@ -2,7 +2,6 @@
 
 import { ProductPageSection } from "@/components/products/ProductPageSection"
 import { Button } from "@/components/ui/button"
-import { Link } from "@/i18n/navigation"
 import { useTranslations, useLocale } from "next-intl"
 import { useTheme } from "next-themes"
 import { motion } from "framer-motion"
@@ -81,7 +80,7 @@ export function ValuesSection() {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6">
                   {values.map((value, index) => (
                     <motion.div
-                      key={index}
+                      key={value.title}
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
@@ -148,9 +147,13 @@ export function ValuesSection() {
                   transition={{ duration: 0.6, delay: 0.5 }}
                 >
                   <Button variant="primary" size="lg" asChild className="hover:scale-105 transition-transform shadow-lg hover:shadow-xl">
-                    <Link href="/careers">
+                    <a
+                      href="https://www.linkedin.com/company/optimems/jobs/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       {tWork('cta')}
-                    </Link>
+                    </a>
                   </Button>
                 </motion.div>
               </div>
