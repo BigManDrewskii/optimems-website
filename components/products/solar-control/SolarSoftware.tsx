@@ -28,7 +28,7 @@ export function SolarSoftware() {
           transition={{ duration: 0.5 }}
           className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-8 text-center text-foreground ${isGreek ? 'greek-heading' : ''}`}
         >
-          SolarShield: Online Monitoring & Control
+          {t('headline')}
         </motion.h2>
 
         {/* Full-Width Dashboard Demo */}
@@ -74,18 +74,6 @@ export function SolarSoftware() {
 
         {/* Content Section */}
         <div className="max-w-4xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="text-center"
-          >
-            <p className={`text-lg md:text-xl text-muted-foreground mb-10 leading-relaxed ${isGreek ? 'greek-text' : ''}`}>
-              {t('introduction')}
-            </p>
-          </motion.div>
-
           {/* Features List - 2 Columns */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -96,7 +84,7 @@ export function SolarSoftware() {
             <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
               {features.map((feature, idx) => (
                 <motion.li
-                  key={idx}
+                  key={feature}
                   initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}

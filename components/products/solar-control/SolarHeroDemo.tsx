@@ -11,25 +11,6 @@ import { Link } from "@/i18n/navigation"
 import { useState, useEffect, useMemo } from "react"
 
 /**
- * Helper function to format subheadline with "Trusted by X" on its own line
- * First part: "Trusted by" + highlighted phrase (large, primary color)
- * Second part: Rest of the text (normal size, muted color)
- */
-function formatSubheadline(text: string, locale: string) {
-  if (locale === 'el') {
-    // Greek: Split and format "Εμπιστεύεται από 1.200+ έργα ΑΠΕ"
-    const parts = text.split(/(1\.200\+ έργα ΑΠΕ\.)/)
-    const highlightedPhrase = '<span class="text-primary font-semibold text-xl">1.200+ έργα ΑΠΕ</span>'
-    return `<div class="text-center mb-2">Εμπιστεύεται από ${highlightedPhrase}</div><div>${parts[2] || ''}</div>`
-  } else {
-    // English: Split and format "Trusted by 1,200+ RES plants"
-    const parts = text.split(/(1,200\+ RES plants\.)/)
-    const highlightedPhrase = '<span class="text-primary font-semibold text-xl">1,200+ RES plants</span>'
-    return `<div class="text-center mb-2">Trusted by ${highlightedPhrase}</div><div>${parts[2] || ''}</div>`
-  }
-}
-
-/**
  * SolarHeroDemo - Hero section with video background
  *
  * Center-aligned hero with trust badge, bold headline, and CTAs.
@@ -116,32 +97,21 @@ export function SolarHeroDemo() {
             {t('headline')}
           </motion.h1>
 
-          {/* Tagline */}
+          {/* Subheadline */}
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-2xl md:text-3xl text-foreground mb-4 max-w-4xl mx-auto leading-relaxed"
+            className={`text-xl md:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed ${isGreek ? 'greek-text' : ''}`}
           >
-            {t('tagline')}
+            {t('subheadline')}
           </motion.p>
-
-          {/* Subheadline */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-lg text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed"
-            dangerouslySetInnerHTML={{
-              __html: formatSubheadline(t('subheadline'), locale)
-            }}
-          />
 
           {/* CTA Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
             <CustomPrimaryButton

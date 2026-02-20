@@ -27,7 +27,11 @@ export function SolarDifferentiator() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
-            {t('headline')}
+            {(t.raw('headline') as string[]).map((line, i) => (
+              <span key={line} className="block">
+                {line}
+              </span>
+            ))}
           </h2>
         </motion.div>
 

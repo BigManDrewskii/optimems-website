@@ -505,8 +505,7 @@
     "hero": {
       "badge": "Trusted by 1,200+ RES plants",
       "headline": "Robust, real-time control & monitoring for each energy asset",
-      "tagline": "Optimal, futureproof and robust",
-      "subheadline": "Trusted by 1,200+ RES plants. Certified, secure, plug-and-play, and fully compliant with your DSO requirements.",
+      "subheadline": "Futureproof, secure, plug-n-play and fully compliant with your DSO requirements.",
       "primaryCTA": "Book your Demo",
       "secondaryCTA": "Download Datasheet",
       "primaryCta": "Book your Demo",
@@ -515,8 +514,8 @@
       "checkmarks": ["Plug & Play", "Certified", "For every RES plant type"]
     },
     "problem": {
-      "headline": "Renewable energy is growing faster than ever. But as more plants connect to the grid, operators face a new set of challenges:",
-      "introduction": "The renewable energy landscape is evolving rapidly. As grid integration increases, operators and asset managers must navigate an increasingly complex regulatory and technical environment.",
+      "headline": "Why +SolarControl",
+      "introduction": "As grid integration increases, operators and asset managers must navigate an increasingly complex regulatory and technical environment.",
       "challenges": [
         {
           "title": "Stricter DSO Requirements",
@@ -609,7 +608,7 @@
       }
     },
     "differentiator": {
-      "headline": "No Programming. No Special Expertise. No Hidden Complexity.",
+      "headline": ["No Programming.", "No hidden complexity.", "Pure plug-n-play."],
       "subheading": "Most SCADA systems require:",
       "scadaRequirements": [
         "On-site engineers",
@@ -643,13 +642,12 @@
       }
     },
     "hardwareOverview": {
-      "badge": "Industrial-Grade Hardware",
       "title": "Industrial Hardware Built",
       "titleHighlight": "for RES Plants",
       "subtitle": "No vendor lock-in. No commercial protocol limitations.",
       "description": "At the core of +SolarControl is an industrial MiniPC with custom firmware, housed in a sealed, pre-wired panel built to EN IEC 61439-1 & EN 61439-5 standards. It installs in minutes, operates in extreme temperatures and securely manages all communication with field devices.",
       "keyFeatures": {
-        "title": "Key Features",
+        "title": "Hardware Key Features",
         "features": [
           {
             "title": "Custom Firmware",
@@ -672,22 +670,17 @@
       "technicalSpecs": {
         "title": "Technical Specifications",
         "specs": [
-          "Compatibility with 65+ inverter manufacturers",
-          "Support for all major open protocols",
-          "Sealed enclosure for physical protection",
-          "Integration with aggregators & storage control",
-          "API for future interoperability"
+          "65+ inverter manufacturers",
+          "All major open protocols",
+          "Sealed enclosure, EN IEC 61439 certified",
+          "Aggregator & storage integration",
+          "Open API for interoperability",
+          "-20°C to +60°C operating range"
         ]
-      },
-      "operatingRange": {
-        "title": "Operating Range",
-        "subtitle": "Extreme temperature tolerance",
-        "to": "to",
-        "footer": "Certified for continuous operation in harsh environments"
       }
     },
     "softwareOverview": {
-      "headline": "SolarShield: The Online Monitoring & Control Platform",
+      "headline": "Powerful Online Platform for Monitoring & Control",
       "introduction": "With the SolarShield subscription, operators unlock the full power of the +SolarControl cloud platform.",
       "features": [
         "Real-time monitoring, KPIs & fault alerts",
@@ -709,7 +702,7 @@
     "whoBenefits": {
       "headline": "Who Benefits from +SolarControl?",
       "parkOwners": {
-        "title": "RES Park",
+        "title": "RES Park Owners",
         "category": "Owners & Operators",
         "headline": "Maximize Your Plant's Performance",
         "description": "Real-time monitoring and dynamic adjustment to ensure the energy assets are continuously operating within all local and regional grid codes.",
@@ -717,13 +710,13 @@
           "Real-time monitoring and control",
           "Automatic DSO compliance",
           "Reduced operational costs",
-          "Increased energy production",
-          "Future-proof for aggregators"
+          "Optimized energy production",
+          "Integration with aggregators"
         ]
       },
       "aggregators": {
-        "title": "Energy",
-        "category": "Aggregators",
+        "title": "Aggregators",
+        "category": "",
         "headline": "Seamless Asset Integration",
         "description": "Seamlessly integrates, optimizes, and dispatches all distributed assets for maximum market revenue.",
         "benefits": [
@@ -736,8 +729,8 @@
         "content": "Seamlessly integrates, optimizes, and dispatches all distributed assets for maximum market revenue."
       },
       "dsosTsos": {
-        "title": "DSOs",
-        "category": "& TSOs",
+        "title": "DSOs & TSOs",
+        "category": "",
         "headline": "Grid Reliability & Compliance",
         "description": "Provide the robust, secure, and real-time control layer necessary for modern grid management and reliable integration of RES, always in compliance with regulatory requirements and technical standards.",
         "benefits": [
@@ -818,10 +811,10 @@
           "cta": "Contact Sales"
         },
         "solarShield": {
-          "title": "SolarShield Platform",
+          "title": "+SolarShield",
           "subtitle": "Subscription Plan",
           "description": "Full Cloud Monitoring & Remote Control",
-          "details": "SolarShield is the core subscription plan that activates the full power of +SolarControl.",
+          "details": "+SolarShield is the core subscription plan that activates the full power of +SolarControl.",
           "distributorNote": "Available directly from Optimems — contact us.",
           "includesLabel": "Includes Everything in the Hardware package, plus:",
           "includes": [
@@ -838,20 +831,20 @@
           "cta": "Contact Sales"
         },
         "insights": {
-          "title": "+SolarControl Insights",
+          "title": "+Insights",
           "subtitle": "Advanced Add-On",
           "description": "Analytics & Historical Intelligence",
-          "details": "The +Insights add-on enhances SolarShield with deep analytics and long-term trend visibility.",
+          "details": "The +Insights add-on enhances +SolarShield with deep analytics and long-term trend visibility.",
           "distributorNote": "Available directly from Optimems — contact us.",
           "includes": [
             "Long-term production and performance analytics",
             "Inverter-level analysis and comparative insights",
             "Portfolio-wide trends",
-            "Historical continuity even if the data logger fails or goes offline",
+            "Historical continuity even if data logger fails or goes offline",
             "Advanced reporting tools and charts",
             "Deviation detection & performance diagnostics"
           ],
-          "upgradeNote": "You can start with the hardware-only package and activate SolarShield or +Insights whenever you need them.",
+          "upgradeNote": "You can start with the hardware-only package and activate +SolarShield or +Insights whenever you need them.",
           "cta": "Contact Sales"
         }
       }
@@ -993,7 +986,7 @@
     "accordion": {
       "title": "Key Features & Capabilities",
       "scada": {
-        "title": "No Programming. No Special Expertise. No Hidden Complexity.",
+        "title": "No Programming. No hidden complexity. Pure plug-n-play.",
         "traditional": "Traditional SCADA",
         "traditionalItems": [
           "On-site engineers",
@@ -1034,8 +1027,8 @@
         ]
       },
       "solarshield": {
-        "title": "SolarShield: The Online Monitoring & Control Platform",
-        "body": "With the SolarShield subscription, operators unlock the full power of the +SolarControl cloud platform. A platform designed to accelerate RES plant operations, ensuring maximum efficiency, complete transparency, and automatic compliance—every single time.",
+        "title": "+SolarShield: The Online Monitoring & Control Platform",
+        "body": "With the +SolarShield subscription, operators unlock the full power of the +SolarControl cloud platform. A platform designed to accelerate RES plant operations, ensuring maximum efficiency, complete transparency, and automatic compliance—every single time.",
         "features": [
           "Real-time monitoring, KPIs & fault alerts",
           "Remote control of set-points, active/reactive power & inverter commands",
