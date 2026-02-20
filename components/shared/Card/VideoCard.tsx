@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import { Link } from "@/i18n/navigation"
@@ -54,10 +55,10 @@ export function VideoCard({
       {videoData && (
         <div className={`relative w-full ${aspectRatio === 'video' ? 'aspect-video' : 'aspect-square'} overflow-hidden bg-background`}>
           <Video
-            src={videoData.webm || ""}
+            src=""
             sources={videoData ? { webm: videoData.webm, mp4: videoData.mp4 } : undefined}
             preload="none"
-            className="w-full h-full"
+            className="w-full h-full scale-110"
           />
         </div>
       )}
@@ -65,11 +66,14 @@ export function VideoCard({
       {/* Content */}
       <div className="p-4 md:p-6 lg:p-8">
         {logo && mounted && (
-          <div className="mb-3 md:mb-4">
-            <img
+          <div className="mb-4 md:mb-5 pt-1 pl-1">
+            <Image
               src={resolvedTheme === "light" ? logo.light : logo.dark}
               alt={title || 'Logo'}
-              className="h-6 md:h-8 w-auto"
+              width={180}
+              height={40}
+              className="h-7 md:h-9 w-auto"
+              unoptimized
             />
           </div>
         )}

@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { useMockData } from '../hooks/useMockData';
 import StatCardsDemo from '../widgets/StatCardsDemo';
@@ -40,15 +41,21 @@ export function Dashboard3x4() {
         className="flex items-center justify-center mb-6"
       >
         <div className="flex items-center space-x-3">
-          <img
+          <Image
             src="/optimems-logos/optimems-logo-icon-dark.svg"
             alt="OptiMems"
+            width={40}
+            height={40}
             className="w-10 h-10"
+            unoptimized
           />
-          <img
+          <Image
             src="/optimems-logos/optimems-logo-fontmark-dark.svg"
             alt="OptiMems"
-            className="h-7"
+            width={100}
+            height={28}
+            className="h-7 w-auto"
+            unoptimized
           />
         </div>
       </motion.div>

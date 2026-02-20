@@ -4,7 +4,6 @@ import Image from 'next/image'
 import { useTheme } from 'next-themes'
 import { useEffect, useState } from 'react'
 import { BlogBannerPlaceholder } from './BlogBannerPlaceholder'
-import { Link } from '@/i18n/navigation'
 
 interface BlogHeroBannerProps {
   featuredImage: string | null
@@ -57,17 +56,6 @@ export function BlogHeroBanner({ featuredImage, title, category }: BlogHeroBanne
 
       {/* Gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
-
-      {/* Category Badge */}
-      <div className="absolute top-6 left-6 md:top-8 md:left-8">
-        <Link
-          href={`/blog?category=${category}`}
-          className="inline-block px-3 py-1.5 text-sm font-semibold bg-background/90 backdrop-blur-sm rounded-full border border-border/50 hover:bg-background transition-colors"
-          aria-label={`View all posts in ${category}`}
-        >
-          {category}
-        </Link>
-      </div>
     </div>
   )
 }

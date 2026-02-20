@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { motion } from "framer-motion"
 import { useTranslations } from "next-intl"
 import { CustomPrimaryButton } from "@/components/shared"
@@ -36,7 +37,6 @@ export function ConsultHero() {
 
   // Get optimized video sources
     const videoSources = mounted ? (getVideoSrc("consult", resolvedTheme === "light", isMobile) ?? undefined) : {
-    webm: "/videos/consult_compressed.webm",
     mp4: "/videos/consult_compressed.mp4"
   };
 
@@ -69,11 +69,12 @@ export function ConsultHero() {
           />
         ) : (
           // Fallback to poster image during SSR
-          <img
+          <Image
             src="/images/sections/consult-hero-poster-web.jpg"
             alt="Consulting services background"
-            className="w-full h-full object-cover"
-            loading="eager"
+            fill
+            className="object-cover"
+            priority
           />
         )}
       </div>

@@ -56,11 +56,11 @@ export function SolarWhatIs() {
             {/* Hardware Video Banner */}
             <div className="border border-border/20 rounded-lg overflow-hidden">
               <Video
-                src="/videos/hardware-banner-dark.webm"
+                src=""
                 sources={{
-                  webm: isLight
-                    ? "/videos/hardware-banner-light.webm"
-                    : "/videos/hardware-banner-dark.webm"
+                  mp4: isLight
+                    ? "/videos/light/hardware-banner-light.mp4"
+                    : "/videos/dark/hardware-banner-dark.mp4"
                 }}
                 aspectRatio="video"
                 autoplay={true}
@@ -88,11 +88,11 @@ export function SolarWhatIs() {
             {/* Software Video Banner */}
             <div className="border border-border/20 rounded-lg overflow-hidden">
               <Video
-                src="/videos/software-banner-dark.webm"
+                src=""
                 sources={{
-                  webm: isLight
-                    ? "/videos/software-banner-light.webm"
-                    : "/videos/software-banner-dark.webm"
+                  mp4: isLight
+                    ? "/videos/light/software-banner-light.mp4"
+                    : "/videos/dark/software-banner-dark.mp4"
                 }}
                 aspectRatio="video"
                 autoplay={true}

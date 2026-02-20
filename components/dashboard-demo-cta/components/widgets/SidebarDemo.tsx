@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import {
@@ -78,10 +79,13 @@ export default function SidebarDemo({
           }}
           className="flex items-center space-x-2"
         >
-          <img
+          <Image
             src="/optimems-logos/optimems-logo-icon-dark.svg"
             alt="OptiMems"
+            width={24}
+            height={24}
             className="w-6 h-6 flex-shrink-0"
+            unoptimized
           />
           <AnimatePresence mode="wait">
             {showLabels && (

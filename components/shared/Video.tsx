@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { useState, useEffect, useMemo, useRef } from "react"
 import { useTheme } from "next-themes"
 import { cn } from "@/lib/utils"
@@ -133,13 +134,15 @@ export function Video({
       style={maxHeight ? { maxHeight } : undefined}  // NEW from VideoContainer
     >
       {poster && (
-        <img
+        <Image
           src={poster}
+          fill
           className={cn(
-            "absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out",
+            "object-cover transition-opacity duration-700 ease-in-out",
             isLoaded ? "opacity-0" : "opacity-100"
           )}
           alt={alt || ""}
+          priority
         />
       )}
       <video

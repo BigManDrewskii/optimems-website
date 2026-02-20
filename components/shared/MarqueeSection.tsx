@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
 import { useTheme } from "next-themes"
@@ -78,10 +79,13 @@ export function MarqueeSection({
               style={{ width: "150px" }}
               aria-label={item.name}
             >
-              <img
+              <Image
                 src={getSrc(item)}
                 alt={item.alt}
+                width={150}
+                height={50}
                 className="w-full h-auto opacity-60 hover:opacity-100 transition-opacity duration-300"
+                unoptimized
               />
             </a>
           ))}
@@ -107,10 +111,13 @@ export function MarqueeSection({
               style={{ width: "150px" }}
               aria-label={item.name}
             >
-              <img
+              <Image
                 src={getSrc(item)}
                 alt={item.alt}
+                width={150}
+                height={50}
                 className="w-full h-auto opacity-60 hover:opacity-100 transition-opacity duration-300"
+                unoptimized
               />
             </a>
           ))}

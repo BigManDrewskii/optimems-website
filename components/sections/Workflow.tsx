@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { SectionHeader } from "@/components/shared/SectionHeader"
@@ -62,10 +63,13 @@ export function Workflow() {
                     <div
                       className="w-24 h-24 md:w-32 md:h-32 lg:w-[200px] lg:h-[200px] rounded-xl md:rounded-2xl flex items-center justify-center bg-primary/15"
                     >
-                      <img
+                      <Image
                         src={getIconSrc(index)}
                         alt={t(`workflow.steps.${workflowStepKeys[index]}.title`)}
+                        width={128}
+                        height={128}
                         className="w-14 h-14 md:w-20 md:h-20 lg:w-32 lg:h-32 object-contain"
+                        unoptimized
                       />
                     </div>
 

@@ -145,14 +145,14 @@
     },
     "revenue": {
       "title": "Turn Assets into Profit Centers",
-      "description": "Immediately participate in lucrative energy markets, transforming operational necessities into revenue streams."
+      "description": "Turn assets into profit centers: necessities into NEW revenue streams."
     },
     "investment": {
-      "title": "Protect Your Current Investment",
-      "description": "Give valuable second life to your existing infrastructure. You multiply their value, don't lose money on current investments."
+      "title": "Safeguard Your Current Investment",
+      "description": "Unlock ancillary service potential from your current energy assets."
     },
     "deployment": {
-      "title": "Ultra-Low Friction Deployment",
+      "title": "Plug-n-Play Deployment",
       "description": "Commission your assets remotely, minimizing on-site labor and significantly accelerating your path to revenue."
     },
     "ctaCard": {
@@ -180,7 +180,7 @@
     "mind": {
       "name": "+Mind",
       "tagline": "The Intelligent Brain Behind Your Microgrid & VPP",
-      "description": "Integrate all diverse energy assets, act as a single, smart brain that pushes performance and profit to their maximum limits. Work seamlessly together.",
+      "description": "Integrate all diverse energy assets, under an optimal EMS framework that pushes performance and profit to their maximum limits. Work seamlessly together.",
       "features": [
         "AI-powered optimization",
         "Multi-asset integration",

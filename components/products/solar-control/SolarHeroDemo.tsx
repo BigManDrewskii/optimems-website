@@ -1,12 +1,14 @@
 "use client"
 
+import Image from "next/image"
 import { motion } from "framer-motion"
 import { useTranslations, useLocale } from "next-intl"
 import { useTheme } from "next-themes"
 import { CustomPrimaryButton } from "@/components/shared"
 import { Video } from "@/components/shared/Video"
+import { getVideoSrc } from "@/lib/assets"
 import { Link } from "@/i18n/navigation"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useMemo } from "react"
 
 /**
  * Helper function to format subheadline with "Trusted by X" on its own line
@@ -32,12 +34,8 @@ function formatSubheadline(text: string, locale: string) {
  *
  * Center-aligned hero with trust badge, bold headline, and CTAs.
  * Video background with bottom gradient overlay matching About Us style.
+ * Uses centralized video registry (data/videos.ts) for theme-aware MP4 sources.
  */
-const HERO_VIDEO_SOURCES = {
-  webm: '/videos/solar-control-hero-banner-light.webm',
-  mp4: '/videos/mp4-videos/solar-control-hero-banner-light.mp4'
-}
-
 export function SolarHeroDemo() {
   const t = useTranslations('solarControlPage.hero')
   const locale = useLocale()
@@ -58,14 +56,22 @@ export function SolarHeroDemo() {
     return () => clearTimeout(timer)
   }, [])
 
+  // Theme-aware MP4-only sources from centralized video registry
+  const heroVideoSources = useMemo(() => {
+    if (!mounted) return undefined
+    const videoData = getVideoSrc("solarControlHero", resolvedTheme === "light")
+    if (!videoData?.mp4) return undefined
+    return { mp4: videoData.mp4 }
+  }, [mounted, resolvedTheme])
+
   return (
     <section className="relative min-h-[80vh] md:min-h-[85vh] lg:min-h-[90vh] flex items-center justify-center overflow-hidden">
       {/* Video Background */}
       <div className="absolute inset-0 opacity-60">
-        {mounted ? (
+        {mounted && heroVideoSources && (
           <Video
             src=""
-            sources={HERO_VIDEO_SOURCES}
+            sources={heroVideoSources}
             autoplay={shouldLoadVideo}
             muted
             loop
@@ -74,14 +80,6 @@ export function SolarHeroDemo() {
             loading="lazy"
             className="w-full h-full"
             title="Solar control hero video background"
-            poster="/images/sections/solar-hero-poster-web.jpg"
-          />
-        ) : (
-          <img
-            src="/images/sections/solar-hero-poster-web.jpg"
-            alt="Solar control background"
-            className="w-full h-full object-cover"
-            loading="eager"
           />
         )}
       </div>
@@ -98,10 +96,13 @@ export function SolarHeroDemo() {
             transition={{ duration: 0.5, delay: 0 }}
             className="mb-8"
           >
-            <img
+            <Image
               src={mounted && resolvedTheme === 'dark' ? '/images/logos/optimems-solar-control.svg' : '/images/logos/optimems-solar-control-light.svg'}
               alt="Optimems Solar Control"
+              width={200}
+              height={48}
               className="h-8 md:h-10 lg:h-12 w-auto mx-auto"
+              unoptimized
             />
           </motion.div>
 

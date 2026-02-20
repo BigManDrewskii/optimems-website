@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { motion } from "framer-motion"
 import { useTranslations, useLocale } from "next-intl"
 import { CustomPrimaryButton } from "@/components/shared"
@@ -59,11 +60,12 @@ export function MindHero() {
             poster="/images/sections/mind-hero-poster-web.jpg"
           />
         ) : (
-          <img
+          <Image
             src="/images/sections/mind-hero-poster-web.jpg"
             alt="Mind monitoring background"
-            className="w-full h-full object-cover"
-            loading="eager"
+            fill
+            className="object-cover"
+            priority
           />
         )}
       </div>
@@ -80,10 +82,13 @@ export function MindHero() {
             transition={{ duration: 0.5, delay: 0 }}
             className="mb-8"
           >
-            <img
+            <Image
               src={mounted && resolvedTheme === 'dark' ? '/images/logos/optimems-mind.svg' : '/images/logos/optimems-mind-light.svg'}
               alt="Optimems Mind"
+              width={200}
+              height={48}
               className="h-8 md:h-10 lg:h-12 w-auto mx-auto"
+              unoptimized
             />
           </motion.div>
 
